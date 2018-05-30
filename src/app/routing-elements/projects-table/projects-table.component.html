@@ -1,0 +1,54 @@
+<div class="grid-container">
+    <h1 class="mat-h1">Proyectos</h1>
+    <div class="mat-elevation-z8">
+        <mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
+      
+          <!-- Title Column -->
+          <ng-container matColumnDef="title">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Título</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.title}}</mat-cell>
+          </ng-container>
+      
+          <!-- Description Column -->
+          <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.description}}</mat-cell>
+          </ng-container>
+
+          <!-- Link Column -->
+          <ng-container matColumnDef="link">
+              <mat-header-cell *matHeaderCellDef>Link</mat-header-cell>
+              <mat-cell *matCellDef="let row"><a href="{{row.link}}">{{row.link}}</a></mat-cell>
+            </ng-container>
+      
+          
+        
+          <!-- More Column  -->
+          <ng-container matColumnDef="more">
+            <mat-header-cell *matHeaderCellDef>+</mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item (click)="editRow(row)">Edit</button>
+                <button mat-menu-item  (click)="deleteRow(row)" class="mat-menu-delete">Remove</button>
+              </mat-menu>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+        </mat-table>
+
+        
+      
+        <mat-paginator #paginator
+          [length]="dataSource.data.length"
+          [pageIndex]="0"
+          [pageSize]="25"
+          [pageSizeOptions]="[25, 50, 100, 250]">
+        </mat-paginator>
+      </div>
+</div>

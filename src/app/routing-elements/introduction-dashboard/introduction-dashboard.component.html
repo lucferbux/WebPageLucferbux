@@ -1,0 +1,31 @@
+<div class="grid-container">
+  <h1 class="mat-h1">¿Qué es ideas locas?</h1>
+  <mat-grid-list cols="2" rowHeight="{{(isHandset | async)!.matches ? '300px' : '350px'}}">
+    <mat-grid-tile *ngFor="let card of cards" [colspan]="card.size == 1 ? (isHandset | async)!.matches ? 2 : 1 : 2" [rowspan]="card.size">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title class="card-header-title">
+            <h2>{{card.title}}</h2>
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu" *ngIf="auth.user | async">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item (click)="editCard(card)">Edit</button>
+              <button mat-menu-item  (click)="removeCard(card)" class="mat-menu-delete">Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-divider>
+        </mat-divider>
+        <img matCardImage class="intro-image" *ngIf="card.image" src={{card.image}} onerror="this.src='assets/image_not_found.png'" layout-fill>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <p>
+              {{card.description}}
+            </p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

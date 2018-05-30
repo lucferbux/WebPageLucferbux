@@ -1,0 +1,38 @@
+<form [formGroup]="projectForm" class="form-container" (ngSubmit)="submitHandleProject()">
+    <br>
+    <mat-form-field class="date_picker">
+        <input matInput [matDatepicker]="picker" placeholder="Elige una fecha" formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    
+    <br>
+
+    <mat-form-field hintLabel="Max. 30 Caracteres">
+        <input matInput #inputtitle placeholder="Título" formControlName="title">
+        <mat-hint align="end">{{inputtitle.value?.length || 0}}/30</mat-hint>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field hintLabel="No hay limites">
+        <textarea matInput #inputdesc placeholder="Descripción" formControlName="description"></textarea>
+        <mat-hint align="end">{{inputdesc.value?.length || 0}}</mat-hint>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field hintLabel="No hay limites">
+        <textarea matInput #inputlink placeholder="Link" formControlName="link"></textarea>
+        <mat-hint align="end">{{inputlink.value?.length || 0}}</mat-hint>
+    </mat-form-field>
+    <br>
+
+    <div class="create-div">
+        <mat-spinner *ngIf="loading" [diameter]="30" class="spinner-form"></mat-spinner>
+
+        <button mat-raised-button color="accent" type="button" class="button-form" (click)="resetForm()">Reiniciar</button>
+        <button mat-raised-button color="primary" class="button-form" type="submit" [disabled]="projectForm.invalid">{{ id != null ? 'Modificar' : 'Crear' }}</button>
+
+    </div>
+
+
+</form>
