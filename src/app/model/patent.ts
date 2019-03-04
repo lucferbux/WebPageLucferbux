@@ -1,7 +1,7 @@
 export interface Patent {
     title: string;
     description: string;
-    author: string;
+    link: string;
     image: string;
     date: Date;
 }

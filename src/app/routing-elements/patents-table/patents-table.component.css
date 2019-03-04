@@ -22,8 +22,14 @@
 .mat-column-expandedDetail {
     display: flex !important;
     justify-content: center !important;
-    width: 90%;
-    background: #ebeaea;
+    height: 200px !important;
+    max-height: 10%;
+    background: #f7f7f7;
+}
+
+.intro-image {
+    object-fit: scale-down !important;;
+    height: 100% !important;; 
 }
 
 mat-cell, .mat-cell {

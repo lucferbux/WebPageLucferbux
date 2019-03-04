@@ -1,7 +1,6 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="all-wrap">
   <mat-sidenav #drawer class="sidenav" [fixedInViewport]="true" [attr.role]="isHandset ? 'dialog' : 'navigation'" [opened]="false">
 
-    <!-- [mode]="(isHandset | async)!.matches ? 'over' : 'side'" -->
     <mat-toolbar class="mat-primary" color="primary">
       <mat-toolbar-row>
         <span>Menu</span>
@@ -44,14 +43,34 @@
 
 
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content class="page-wrap">
     <mat-toolbar color="primary">
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Laboratorio de Ideas Locas</span>
+      <span>Lucas Fernández</span>
     </mat-toolbar>
-    <router-outlet></router-outlet>
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+ 
+    <footer>
+      <div class="social-footer">
+          <button mat-raised-button color="primary" (click)="goTwitter()" class="social-button">
+              <mat-icon svgIcon="twitter"></mat-icon>
+              <span *ngIf="isHandset">    Twitter</span>
+            </button>
+            <button mat-raised-button color="primary" (click)="goLinkedin()" class="social-button">
+              <mat-icon svgIcon="linkedin"></mat-icon>
+              <span *ngIf="isHandset">    Linkedin</span> 
+            </button>
+            <button mat-raised-button color="primary" (click)="goGithub()" class="social-button">
+              <mat-icon svgIcon="github"></mat-icon>
+              <span *ngIf="isHandset">    Github</span> 
+            </button>
+      </div>
+
+    </footer>
   </mat-sidenav-content>
 
 </mat-sidenav-container>

@@ -41,7 +41,6 @@ export class LoginScreenComponent implements OnInit {
     const formValue = this.userForm.value;
     try {
       await this.auth.emailLoginForm(formValue);
-      console.log("llego a succes true")
     } catch(err) {
       console.log(err)
     }

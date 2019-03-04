@@ -42,7 +42,6 @@ export class TeamEditComponent implements OnInit {
 
     this.editData.currentTeam.subscribe((entry: TeamId) => {
       if (entry != null) {
-        console.log(entry.id);
         this.id = entry.id;
         var { id, ...entryEdit } = entry;
         this.teamForm.setValue(entryEdit);

@@ -49,7 +49,6 @@ export class ProjectsTableComponent implements OnInit {
   }
 
   editRow(row: ProjectId) {
-      console.log(row);
       this.editService.editProjectSource(row);
       this.router.navigate(["/edit/projects"]);
   }

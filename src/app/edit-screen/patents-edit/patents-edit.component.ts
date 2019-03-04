@@ -22,8 +22,8 @@ import { of } from 'rxjs';
     // `MomentDateAdapter` and `MAT_MOMENT_DATE_FORMATS` can be automatically provided by importing
     // `MatMomentDateModule` in your applications root module. We provide it at the component level
     // here, due to limitations of our example generation script.
-    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
-    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
+    //{provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+    //{provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
   ]
 })
 export class PatentsEditComponent implements OnInit {
@@ -38,8 +38,8 @@ export class PatentsEditComponent implements OnInit {
   fileName = "patent_image";
   titleDropdown = "Subir Imagen";
   subtitleDropdown = "Elige una foto para subir...";
-  imageTitleDropdown = "Preview de la patente";
-  imageSubtitleDropdown = "Imagen que mostrará la preview de la patente";
+  imageTitleDropdown = "Preview de la cabecera";
+  imageSubtitleDropdown = "Imagen que mostrará la preview de la cabecera";
   url: string = "nothing";
 
   id: string;
@@ -51,7 +51,7 @@ export class PatentsEditComponent implements OnInit {
     this.patentForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      author: ['', Validators.required],
+      link: ['', Validators.required],
       date: [new Date, Validators.required],
       image: ['', Validators.required]
     })
@@ -80,7 +80,7 @@ export class PatentsEditComponent implements OnInit {
         await this.tfs.addPatentEntry(formValue);
       }
       this.resetForm();
-      this.openSnackBar("Patente creada correctamente")
+      this.openSnackBar("Articulo creado correctamente")
       setTimeout(() => { this.loading = false; }, 1000)
 
     } catch (err) {

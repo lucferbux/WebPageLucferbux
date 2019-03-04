@@ -28,7 +28,7 @@ export class PatentsTableComponent implements OnInit {
   dataSource: PatentsTableDataSource;
   logged: Observable<Boolean>;
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['title', 'description', 'members'];
+  displayedColumns = ['title', 'description', 'link'];
 
     constructor(private tfs: FirebaseService, private editService: EditDataService, private router: Router, public auth: AuthService){
     this.logged =  this.auth.user.pipe(
@@ -37,7 +37,7 @@ export class PatentsTableComponent implements OnInit {
     this.logged.subscribe(
       (active: Boolean) => {
           if(active) {
-            this.displayedColumns = ['title', 'description', 'members', 'more'];
+            this.displayedColumns = ['title', 'description', 'link', 'more'];
           }
       }
     );

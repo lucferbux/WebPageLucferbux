@@ -1,7 +1,7 @@
 <div class="grid-container">
-  <h1 class="mat-h1">¿Quiénes somos?</h1>
-  <mat-grid-list cols="{{(isHandset | async)!.matches ? 1 : 2}}" rowHeight="400px">
-    <mat-grid-tile *ngFor="let card of members" [colspan]="card.cols" [rowspan]="card.rows">
+  <h1 class="mat-h1">¿Quién soy?</h1>
+  <mat-grid-list cols="2" rowHeight="{{rowHeight}}">
+    <mat-grid-tile *ngFor="let card of members" [colspan]="isLarge ? card.cols : 2" [rowspan]="isLarge ? card.rows : card.cols">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <img mat-card-avatar class="example-header-image" src={{card.avatar}} onerror="this.src='assets/shiba1.jpg'">
@@ -12,15 +12,15 @@
             </button>
             <mat-menu #menu="matMenu" xPosition="before">
               <button mat-menu-item (click)="editTeam(card)">Edit</button>
-              <button mat-menu-item  (click)="removeCard(card)" class="mat-menu-delete">Remove</button>
+              <button mat-menu-item  (click)="removeMember(card)" class="mat-menu-delete">Remove</button>
           </mat-menu>
         </mat-card-header>
         <mat-divider>
         </mat-divider>
         <mat-card-content class="dashboard-card-content">
-          <div>
-            <p>{{ card.description }}</p>
-          </div>
+            <div *ngFor="let paragraph of card.description.split('\n')">
+                {{paragraph}}
+            </div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

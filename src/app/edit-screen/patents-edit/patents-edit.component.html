@@ -1,7 +1,7 @@
 <form [formGroup]="patentForm" class="form-container" (ngSubmit)="submitHandlerPatent()">
   <br>
   <app-file-upload contenteditable="true" formControlName="image" [folder]="folderName" [filename]="fileName" [title]="titleDropdown"
-      [subtitle]="subtitleDropdown" [widthCrop]=4961 [heightCrop]=7016 [avatarImage]=false [imageTitle]="imageTitleDropdown" [imageSubtitle]="imageSubtitleDropdown"> </app-file-upload>
+      [subtitle]="subtitleDropdown" [widthCrop]=7016 [heightCrop]=4961 [avatarImage]=false [imageTitle]="imageTitleDropdown" [imageSubtitle]="imageSubtitleDropdown"> </app-file-upload>
   <br>
 
   <br>
@@ -26,8 +26,8 @@
     <br>
 
     <mat-form-field hintLabel="No hay limites">
-        <textarea matInput #ainputauthor placeholder="Autores" formControlName="author"></textarea>
-        <mat-hint align="end">{{ainputauthor.value?.length || 0}}</mat-hint>
+        <textarea matInput #ainputlink placeholder="Link" formControlName="link"></textarea>
+        <mat-hint align="end">{{ainputlink.value?.length || 0}}</mat-hint>
     </mat-form-field>
     <br>
 

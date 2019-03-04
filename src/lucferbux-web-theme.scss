@@ -12,8 +12,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://www.google.com/design/spec/style/color.html
-$mat-app-primary: mat-palette($mat-ideas-locas-primary);
-$mat-app-accent: mat-palette($mat-ideas-locas-secondary);
+$mat-app-primary: mat-palette($mat-lucferbux-primary);
+$mat-app-accent: mat-palette($mat-lucferbux-secondary);
 
 // The warn palette is optional (defaults to red).
 $mat-app-warn: mat-palette($mat-red);
@@ -28,4 +28,4 @@ $mat-app-theme: mat-light-theme($mat-app-primary, $mat-app-accent, $mat-app-warn
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($mat-app-theme);
-@include ideas-locas-theme($mat-app-theme);
+@include lucferbux-theme($mat-app-theme);

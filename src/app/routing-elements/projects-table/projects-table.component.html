@@ -6,7 +6,7 @@
           <!-- Title Column -->
           <ng-container matColumnDef="title">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Título</mat-header-cell>
-            <mat-cell *matCellDef="let row">{{row.title}}</mat-cell>
+            <mat-cell *matCellDef="let row"> <h2 class="mat-h2">{{row.title}}</h2></mat-cell>
           </ng-container>
       
           <!-- Description Column -->
@@ -19,7 +19,7 @@
           <ng-container matColumnDef="link">
               <mat-header-cell *matHeaderCellDef>Link</mat-header-cell>
               <mat-cell *matCellDef="let row"><a href="{{row.link}}">{{row.link}}</a></mat-cell>
-            </ng-container>
+          </ng-container>
       
           
         

@@ -21,8 +21,8 @@ import { ProjectId, Project } from '../../model/project';
     // `MomentDateAdapter` and `MAT_MOMENT_DATE_FORMATS` can be automatically provided by importing
     // `MatMomentDateModule` in your applications root module. We provide it at the component level
     // here, due to limitations of our example generation script.
-    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
-    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
+    //{provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+    //{provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
   ],
 })
 export class ProjectsEditComponent implements OnInit {
@@ -55,6 +55,7 @@ export class ProjectsEditComponent implements OnInit {
   async submitHandleProject() {
 
     this.loading = true;
+    console.log(this.projectForm.value);
     const formValue = this.projectForm.value;
     try {
       if (this.id != null) {

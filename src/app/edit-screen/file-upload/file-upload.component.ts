@@ -1,10 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter, forwardRef, ViewChild, Inject } from '@angular/core';
-import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage';
+import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { tap ,  finalize } from 'rxjs/operators';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { finalize } from 'rxjs/operators';
 
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
 import { ImageSharingService } from './image-sharing.service'
@@ -103,11 +102,18 @@ export class FileUploadComponent implements ControlValueAccessor { //ControlValu
     // The storage path
     const path = `${this.folder}/${new Date().getTime()}_${this.filename}`;
 
+    console.log(path);
+
     // Totally optional metadata
-    const customMetadata = { app: 'Ideas Locas Image' };
+    const customMetadata = { app: 'Lucferbux Image' };
+
+    console.log(image);
 
     // The main task
     this.task = this.storage.upload(path, image, { customMetadata })
+
+    
+
     const ref = this.storage.ref(path);
 
     // Progress monitoring

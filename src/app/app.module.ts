@@ -1,19 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireStorageModule } from 'angularfire2/storage';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FirestoreSettingsToken} from '@angular/fire/firestore';
 import { CoreModule } from './core/core.module'
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { HttpClientModule } from '@angular/common/http';
 
 
 export const firebaseConfig = environment.firebaseConfig; // Added for importing firebase configuration
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavIdeasLocasComponent } from './nav-ideas-locas/nav-ideas-locas.component';
+import { NavLucferbuxComponent } from './nav-lucferbux/nav-lucferbux.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import {
   MatAutocompleteModule,
@@ -80,7 +82,7 @@ import { PatentsEditComponent } from './edit-screen/patents-edit/patents-edit.co
 @NgModule({
   declarations: [
     AppComponent,
-    NavIdeasLocasComponent,
+    NavLucferbuxComponent,
     IntroductionDashboardComponent,
     TeamDashboardComponent,
     EditScreenComponent,
@@ -102,6 +104,7 @@ import { PatentsEditComponent } from './edit-screen/patents-edit/patents-edit.co
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     LayoutModule,
     MatAutocompleteModule,
     MatBadgeModule,
@@ -150,7 +153,7 @@ import { PatentsEditComponent } from './edit-screen/patents-edit/patents-edit.co
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     CoreModule, ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
   entryComponents: [IntroEditComponent, ImageEditComponentSheet],
   bootstrap: [AppComponent]
 })

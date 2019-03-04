@@ -1,0 +1,72 @@
+
+.sidenav-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 100vh; // same height as browser window height
+}
+
+.sidenav {
+  width: 300px;
+  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+
+// Sticy notes
+.all-wrap {
+  min-height: 100vh; // same height as browser window height
+}
+ 
+.page-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // same height as browser window height
+}
+ 
+.content {
+  flex: 1; // child will set to an equal size inside the container
+}
+ 
+ 
+/*
+ * Make the component injected by <router-outlet> full height:
+ */
+ 
+main {
+ 
+  display: flex;
+  flex-direction: column;
+ 
+  // Select all direct descendants only of the <main> element
+  // that are not <router-outlet> elements:
+  > *:not(router-outlet) {
+ 
+    flex: 1; // child will set to an equal size inside the container
+    display: block;
+ 
+  }
+ 
+}
+
+.social-footer{
+  display: flex;
+  flex-direction: row;
+}
+
+.social-button {
+  margin-right: 20px;
+}

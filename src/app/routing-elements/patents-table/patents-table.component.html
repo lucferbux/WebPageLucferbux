@@ -1,12 +1,12 @@
 <div class="grid-container">
-  <h1 class="mat-h1">Patentes</h1>
+  <h1 class="mat-h1">Articulos</h1>
   <div class="mat-elevation-z8">
     <mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
 
       <!-- Title Column -->
       <ng-container matColumnDef="title">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Título</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.title}}</mat-cell>
+        <mat-cell *matCellDef="let row"><b>{{row.title}}</b></mat-cell>
       </ng-container>
 
       <!-- Description Column -->
@@ -15,15 +15,10 @@
         <mat-cell *matCellDef="let row">{{row.description}}</mat-cell>
       </ng-container>
 
-      <!-- Members Column -->
-      <ng-container matColumnDef="members">
-        <mat-header-cell *matHeaderCellDef>Autores</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.author}}</mat-cell>
-<!--         <mat-cell *matCellDef="let row">
-          <div *ngFor="let member of row.members">
-            <p>{{member}}</p>
-          </div>
-        </mat-cell> -->
+       <!-- Link Column -->
+       <ng-container matColumnDef="link">
+          <mat-header-cell *matHeaderCellDef>Link</mat-header-cell>
+          <mat-cell *matCellDef="let row"><a href="{{row.link}}">{{row.link}}</a></mat-cell>
       </ng-container>
 
       <!-- More Column-->
@@ -42,7 +37,7 @@
 
       <ng-container matColumnDef="expandedDetail">
         <mat-cell *matCellDef="let detail">
-          <img mat-card-image src={{detail.element.image}}>
+            <img mat-card-image class="intro-image" src={{detail.element.image}}>
         </mat-cell>
       </ng-container>
 

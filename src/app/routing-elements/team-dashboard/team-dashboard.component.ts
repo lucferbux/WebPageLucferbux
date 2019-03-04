@@ -14,18 +14,27 @@ import { AuthService } from '../../core/auth.service';
   styleUrls: ['./team-dashboard.component.css']
 })
 export class TeamDashboardComponent {
-  isHandset: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);
   members: TeamId[];
-
+  rowHeight: String = "400px";
+  isLarge: Boolean = false;
 
   constructor(private breakpointObserver: BreakpointObserver, private tfs: FirebaseService, private editService: EditDataService, private router: Router, public auth: AuthService ) {
     this.getTeam();
+    this.breakpointObserver.observe([Breakpoints.XSmall]).subscribe(result => { if(result.matches){ this.updateInterface("400px", false) } })
+    this.breakpointObserver.observe([Breakpoints.Small]).subscribe(result => {   if(result.matches){ this.updateInterface("400px", false) }  })
+    this.breakpointObserver.observe([Breakpoints.Medium]).subscribe(result => { if(result.matches){ this.updateInterface("400px", true) } })
+    this.breakpointObserver.observe([Breakpoints.Large]).subscribe(result => { if(result.matches){ this.updateInterface("400px", true) } })
   }
   
   getTeam() : void {
     this.tfs.retreiveTeam().subscribe(
       (data : TeamId[]) => this.members = data
     )
+  }
+
+  updateInterface(height: String, size: Boolean){
+    this.rowHeight = height;
+    this.isLarge = size;
   }
 
   editTeam(member: TeamId) {

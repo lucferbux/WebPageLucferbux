@@ -5,10 +5,15 @@
     "installMode": "prefetch",
     "resources": {
       "files": [
-        "/favicon.png",
-        "/index.html",
-        "/*.css",
-        "/*.js"
+        "/favicon.ico",
+          "/index.html",
+          "/*.css",
+          "/vendor.*.js",
+          "/main.*.js",
+          "/polyfills.*.js",
+          "/runtime.*.js",
+          "/*.js",
+          "!/*-sw.js"
       ]
     }
   }, {
@@ -17,7 +22,12 @@
     "updateMode": "prefetch",
     "resources": {
       "files": [
-        "/assets/**"
+        "/assets/**",
+          "/svg/**"
+
+      ],
+      "urls": [
+        "https://fonts.googleapis.com/**"
       ]
     }
   }]

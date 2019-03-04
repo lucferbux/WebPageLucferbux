@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { auth } from 'firebase/app';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 import { Observable, of } from 'rxjs';
 import { switchMap} from 'rxjs/operators';
@@ -90,7 +90,6 @@ export class AuthService {
 
     // If error, console log and notify user
     private handleError(error: Error) {
-      console.log("llego al error");
       console.error(error);
       //this.notify.update(error.message, 'error');
     }

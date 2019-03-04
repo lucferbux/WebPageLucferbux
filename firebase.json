@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/WebPageIdeasLocas",
+    "public": "dist/WebPageLucferbux",
     "ignore": [
       "firebase.json",
       "**/.*",

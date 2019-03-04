@@ -13,11 +13,11 @@ export class EditScreenComponent implements OnInit {
   }
 
   navLinks = [
-    {link: "introduction", image: "lightbulb_outline", text: "¿Qué es ideas locas?"},
-    {link: "team", image: "people", text: "¿Quiénes somos?"},
+    {link: "introduction", image: "star_border", text: "Introducción"},
+    {link: "team", image: "face", text: "¿Quién soy?"},
     {link: "projects", image: "business_center", text: "Proyectos"},
-    {link: "patents", image: "pages", text: "Patentes"},
-    {link: "media", image: "web", text: "Difusión"},
+    {link: "patents", image: "border_color", text: "Articulos"},
+    //{link: "media", image: "web", text: "Difusión"},
   ]
 
 }

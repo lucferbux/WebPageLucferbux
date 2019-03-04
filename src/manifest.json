@@ -1,8 +1,8 @@
 {
-  "name": "Ideas Locas",
-  "short_name": "Ideas Locas",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "Lucas Fernandez Web Page",
+  "short_name": "Lucferbux",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",

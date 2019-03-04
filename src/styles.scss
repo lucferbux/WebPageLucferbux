@@ -1,8 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
-@import './ideas-locas-web-theme';
-body { margin: 0; }
+@import './lucferbux-web-theme';
 
+$break-small: 450px;
+$break-large: 1200px;
+
+body {
+  margin: 0;
+  width: 100%;
+}
+
+footer {
+  width: 100%;
+  height: inherit;
+  background: #ffffff;
+  color: black;
+  padding: .5rem 0 1rem 0;
+  > * { padding: 0 0 0 2rem; }
+  h2 { font-size: 1.4em; }
+}
 
 .grid-container {
-    margin: 20px;
-  }
+    //margin: 20px;
+    @media screen and (max-width: $break-small) {
+      margin-left: 4px;
+      margin-right: 4px;
+    }
+    @media screen and (min-width: $break-large) {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+   
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

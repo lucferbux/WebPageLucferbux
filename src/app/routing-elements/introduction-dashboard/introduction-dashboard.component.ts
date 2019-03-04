@@ -14,11 +14,17 @@ import { EditDataService } from '../edit-data.service';
   styleUrls: ['./introduction-dashboard.component.css']
 })
 export class IntroductionDashboardComponent {
-  isHandset: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);
+  rowHeight: String = "300px";
+  isLarge: Boolean = false;
   cards: IntroId[];
 
   constructor(private breakpointObserver: BreakpointObserver, private tfs: FirebaseService, private router: Router, private editService: EditDataService  ,public auth: AuthService) {
     this.getData()
+    this.breakpointObserver.observe([Breakpoints.XSmall]).subscribe(result => { if(result.matches){ this.updateInterface("350px", false) } })
+    this.breakpointObserver.observe([Breakpoints.Small]).subscribe(result => {   if(result.matches){ this.updateInterface("300px", false) }  })
+    this.breakpointObserver.observe([Breakpoints.Medium]).subscribe(result => { if(result.matches){ this.updateInterface("450px", true) } })
+    this.breakpointObserver.observe([Breakpoints.Large]).subscribe(result => { if(result.matches){ this.updateInterface("450px", true) } })
+ 
   }
 
   getData(): void {
@@ -34,6 +40,11 @@ export class IntroductionDashboardComponent {
     //Update Card
     this.editService.editIntroSource(card);
     this.router.navigate(["/edit/introduction"]);
+  }
+
+  updateInterface(height: String, size: Boolean){
+    this.rowHeight = height;
+    this.isLarge = size;
   }
 
   removeCard(card: IntroId) {

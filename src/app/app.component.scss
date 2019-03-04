@@ -1,7 +1,7 @@
 @import '~@angular/material/theming';
 
 // https://medium.com/@tomastrajan/the-complete-guide-to-angular-material-themes-4d165a9d24d1 IMPORT ANGULAR MATERIAL
-@mixin ideas-locas-theme($theme) {
+@mixin lucferbux-theme($theme) {
     $primary: map-get($theme, primary);
     $accent: map-get($theme, accent);
     

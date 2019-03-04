@@ -1,8 +1,8 @@
 .dashboard-card {
   position: absolute;
   top: 15px;
-  left: 15px;
-  right: 15px;
+  left: 0px;
+  right: 0px;
   bottom: 15px;
 }
 
@@ -11,7 +11,7 @@
 }
 
 .intro-image {
-  object-fit: cover;
+  object-fit: scale-down;
   height: 40%; 
 }
 

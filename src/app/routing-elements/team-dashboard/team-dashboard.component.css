@@ -5,12 +5,13 @@
 .dashboard-card {
   position: absolute;
   top: 15px;
-  left: 15px;
-  right: 15px;
+  left: 0px;
+  right: 0px;
   bottom: 15px;
 }
 
 .dashboard-card-content {
+  margin-top: 20px;
   text-align: left;
 }
 

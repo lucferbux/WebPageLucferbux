@@ -1,19 +1,19 @@
 
 import { fakeAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavIdeasLocasComponent } from './nav-ideas-locas.component';
+import { NavLucferbuxComponent } from './nav-lucferbux.component';
 
-describe('NavIdeasLocasComponent', () => {
-  let component: NavIdeasLocasComponent;
-  let fixture: ComponentFixture<NavIdeasLocasComponent>;
+describe('NavLucferbuxComponent', () => {
+  let component: NavLucferbuxComponent;
+  let fixture: ComponentFixture<NavLucferbuxComponent>;
 
   beforeEach(fakeAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavIdeasLocasComponent ]
+      declarations: [ NavLucferbuxComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NavIdeasLocasComponent);
+    fixture = TestBed.createComponent(NavLucferbuxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

@@ -24,7 +24,7 @@ const routes: Routes = [
     {path: 'team', component: TeamDashboardComponent},
     {path: 'projects', component: ProjectsTableComponent},
     {path: 'patents', component: PatentsTableComponent},
-    {path: 'media', component: DisseminationPageComponent},
+    //{path: 'media', component: DisseminationPageComponent},
     {path: 'login', component: LoginScreenComponent},
     {path: 'edit', component: EditScreenComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard], children: [
         {path: 'team', component: TeamEditComponent},
