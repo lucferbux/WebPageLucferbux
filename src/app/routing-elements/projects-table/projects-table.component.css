@@ -18,11 +18,11 @@ mat-cell, .mat-cell {
 }
 
 .mat-column-link {
-    flex: 0 0 15%;
+    flex: 0 0 50px;
 }
 
 .mat-column-more {
-    flex: 0 0 5%;
+    flex: 0 0 20px;
 }
 
 mat-header-cell, .mat-header-cell {

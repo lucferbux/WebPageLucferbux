@@ -39,11 +39,11 @@
 }
 
 .mat-column-link {
-    flex: 0 0 10%;
+    flex: 0 0 50px;
 }
 
 .mat-column-more {
-    flex: 0 0 5%;
+    flex: 0 0 20px;
 }
 
 mat-cell, .mat-cell {
