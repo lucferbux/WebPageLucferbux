@@ -33,7 +33,7 @@ export class TeamEditComponent implements OnInit {
     this.teamForm = this.fb.group({
       name: ['', Validators.required],
       cols: [1, [Validators.required, Validators.min(1)]],
-      rows: 1,
+      rows: [1, [Validators.required, Validators.min(1)]],
       description: ['', Validators.required],
       avatar: ['', Validators.required],
       job: ['', Validators.required],

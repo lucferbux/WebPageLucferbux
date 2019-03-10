@@ -13,6 +13,18 @@ mat-cell, .mat-cell {
     padding: 0 5px 0 5px;
 }
 
+.mat-column-title {
+    flex: 0 0 30%;
+}
+
+.mat-column-link {
+    flex: 0 0 10%;
+}
+
+.mat-column-more {
+    flex: 0 0 5%;
+}
+
 mat-header-cell, .mat-header-cell {
     display:block; 
     min-height:auto; 

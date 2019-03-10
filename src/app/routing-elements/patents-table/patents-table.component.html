@@ -15,10 +15,14 @@
         <mat-cell *matCellDef="let row">{{row.description}}</mat-cell>
       </ng-container>
 
-       <!-- Link Column -->
-       <ng-container matColumnDef="link">
-          <mat-header-cell *matHeaderCellDef>Link</mat-header-cell>
-          <mat-cell *matCellDef="let row"><a href="{{row.link}}">{{row.link}}</a></mat-cell>
+      <!-- Link Column -->
+      <ng-container matColumnDef="link">
+        <mat-header-cell *matHeaderCellDef>Link</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button mat-button (click)="goToUrl(row.link)">
+            <mat-icon>link</mat-icon>
+          </button>
+        </mat-cell>
       </ng-container>
 
       <!-- More Column-->
@@ -37,19 +41,20 @@
 
       <ng-container matColumnDef="expandedDetail">
         <mat-cell *matCellDef="let detail">
-            <img mat-card-image class="intro-image" src={{detail.element.image}}>
+          <img mat-card-image class="intro-image" src={{detail.element.image}}>
         </mat-cell>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row" [class.expanded]="expandedElement == row"
-        (click)="expandedElement = row"></mat-row>
-      <mat-row *matRowDef="let row; columns: ['expandedDetail']; when: isExpansionDetailRow" [@detailExpand]="row.element == expandedElement ? 'expanded' : 'collapsed'"
-        style="overflow: hidden">
+      <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row"
+        [class.expanded]="expandedElement == row" (click)="expandedElement = row"></mat-row>
+      <mat-row *matRowDef="let row; columns: ['expandedDetail']; when: isExpansionDetailRow"
+        [@detailExpand]="row.element == expandedElement ? 'expanded' : 'collapsed'" style="overflow: hidden">
       </mat-row>
     </mat-table>
 
-    <mat-paginator #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="50" [pageSizeOptions]="[25, 50, 100, 250]">
+    <mat-paginator #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="25"
+      [pageSizeOptions]="[25, 50, 100, 250]">
     </mat-paginator>
   </div>
 </div>

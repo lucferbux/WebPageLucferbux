@@ -38,7 +38,8 @@ export class IntroEditComponent implements OnInit {
     this.introForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      size: [1, [Validators.required, Validators.min(1)]],
+      rows: [1, [Validators.required, Validators.min(1)]],
+      cols: [1, [Validators.required, Validators.min(1)]],
       timestamp: new Date(),
       image: ''//['', Validators.required]
     })

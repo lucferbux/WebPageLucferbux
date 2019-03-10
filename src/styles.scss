@@ -2,7 +2,7 @@
 @import './lucferbux-web-theme';
 
 $break-small: 450px;
-$break-large: 1200px;
+$break-large: 960px;
 
 body {
   margin: 0;
@@ -21,7 +21,7 @@ footer {
 
 .grid-container {
     //margin: 20px;
-    @media screen and (max-width: $break-small) {
+    @media screen and (max-width: $break-large) {
       margin-left: 4px;
       margin-right: 4px;
     }

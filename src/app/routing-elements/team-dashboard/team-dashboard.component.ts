@@ -15,15 +15,16 @@ import { AuthService } from '../../core/auth.service';
 })
 export class TeamDashboardComponent {
   members: TeamId[];
-  rowHeight: String = "400px";
+  rowHeight: String = "185px";
   isLarge: Boolean = false;
 
   constructor(private breakpointObserver: BreakpointObserver, private tfs: FirebaseService, private editService: EditDataService, private router: Router, public auth: AuthService ) {
     this.getTeam();
-    this.breakpointObserver.observe([Breakpoints.XSmall]).subscribe(result => { if(result.matches){ this.updateInterface("400px", false) } })
-    this.breakpointObserver.observe([Breakpoints.Small]).subscribe(result => {   if(result.matches){ this.updateInterface("400px", false) }  })
-    this.breakpointObserver.observe([Breakpoints.Medium]).subscribe(result => { if(result.matches){ this.updateInterface("400px", true) } })
-    this.breakpointObserver.observe([Breakpoints.Large]).subscribe(result => { if(result.matches){ this.updateInterface("400px", true) } })
+    this.breakpointObserver.observe([Breakpoints.XSmall]).subscribe(result => { if(result.matches){ this.updateInterface("185px", false)} })
+    this.breakpointObserver.observe([Breakpoints.Small]).subscribe(result => {   if(result.matches){ this.updateInterface("150px", false)}  })
+    this.breakpointObserver.observe([Breakpoints.Medium]).subscribe(result => { if(result.matches){ this.updateInterface("150px", true) }})
+    this.breakpointObserver.observe([Breakpoints.Large]).subscribe(result => { if(result.matches){ this.updateInterface("140px", true) }})
+
   }
   
   getTeam() : void {

@@ -56,4 +56,8 @@ export class ProjectsTableComponent implements OnInit {
   deleteRow(row: ProjectId) {
       this.tfs.removeProjectEntry(row);
   }
+
+  goToUrl(url:string) {
+    window.location.href=url;
+  } 
 }

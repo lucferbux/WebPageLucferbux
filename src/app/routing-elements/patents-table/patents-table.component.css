@@ -32,6 +32,20 @@
     height: 100% !important;; 
 }
 
+
+
+.mat-column-title {
+    flex: 0 0 30%;
+}
+
+.mat-column-link {
+    flex: 0 0 10%;
+}
+
+.mat-column-more {
+    flex: 0 0 5%;
+}
+
 mat-cell, .mat-cell {
     display:block; 
     min-height:auto; 

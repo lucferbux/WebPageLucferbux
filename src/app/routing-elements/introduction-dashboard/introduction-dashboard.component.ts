@@ -11,20 +11,20 @@ import { EditDataService } from '../edit-data.service';
 @Component({
   selector: 'introduction-dashboard',
   templateUrl: './introduction-dashboard.component.html',
-  styleUrls: ['./introduction-dashboard.component.css']
+  styleUrls: ['./introduction-dashboard.component.scss']
 })
 export class IntroductionDashboardComponent {
-  rowHeight: String = "300px";
+  rowHeight: String = "115px";
   isLarge: Boolean = false;
   cards: IntroId[];
 
   constructor(private breakpointObserver: BreakpointObserver, private tfs: FirebaseService, private router: Router, private editService: EditDataService  ,public auth: AuthService) {
     this.getData()
-    this.breakpointObserver.observe([Breakpoints.XSmall]).subscribe(result => { if(result.matches){ this.updateInterface("350px", false) } })
-    this.breakpointObserver.observe([Breakpoints.Small]).subscribe(result => {   if(result.matches){ this.updateInterface("300px", false) }  })
-    this.breakpointObserver.observe([Breakpoints.Medium]).subscribe(result => { if(result.matches){ this.updateInterface("450px", true) } })
-    this.breakpointObserver.observe([Breakpoints.Large]).subscribe(result => { if(result.matches){ this.updateInterface("450px", true) } })
- 
+    this.breakpointObserver.observe(['(max-width: 369px)']).subscribe(result => { if(result.matches){ this.updateInterface("155px", false)}})
+    this.breakpointObserver.observe(['(min-width: 370px) and (max-width: 599px)']).subscribe(result => { if(result.matches){ this.updateInterface("140px", false)}})
+    this.breakpointObserver.observe([Breakpoints.Small]).subscribe(result => {   if(result.matches){ this.updateInterface("105px", false)}})
+    this.breakpointObserver.observe([Breakpoints.Medium]).subscribe(result => { if(result.matches){ this.updateInterface("110px", true) }})
+    this.breakpointObserver.observe([Breakpoints.Large]).subscribe(result => { if(result.matches){ this.updateInterface("100px", true) }})
   }
 
   getData(): void {
@@ -51,6 +51,8 @@ export class IntroductionDashboardComponent {
     this.tfs.removeIntroEntry(card);
   }
 
-
+  goToUrl(url:string) {
+    window.location.href=url;
+  } 
 
 }

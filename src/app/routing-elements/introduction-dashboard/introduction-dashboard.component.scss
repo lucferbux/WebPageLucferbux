@@ -1,8 +1,21 @@
+
+$break-small: 450px;
+$break-large: 960px;
+
+
+
 .dashboard-card {
   position: absolute;
   top: 15px;
-  left: 0px;
-  right: 0px;
+  @media screen and (max-width: $break-large) {
+    left: 0px;
+    right: 0px;
+  }
+  @media screen and (min-width: $break-large) {
+    left: 4px;
+    right: 4px;
+  }
+  
   bottom: 15px;
 }
 

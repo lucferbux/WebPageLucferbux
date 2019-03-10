@@ -1,7 +1,7 @@
 <div class="grid-container">
   <h1 class="mat-h1">¿Quién soy?</h1>
   <mat-grid-list cols="2" rowHeight="{{rowHeight}}">
-    <mat-grid-tile *ngFor="let card of members" [colspan]="isLarge ? card.cols : 2" [rowspan]="isLarge ? card.rows : card.cols">
+    <mat-grid-tile *ngFor="let card of members" [colspan]="isLarge ? card.cols : 2" [rowspan]="isLarge ? card.rows * 2 : (card.cols == 2 ? card.rows * 3 : card.rows * 2)">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <img mat-card-avatar class="example-header-image" src={{card.avatar}} onerror="this.src='assets/shiba1.jpg'">

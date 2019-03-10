@@ -65,4 +65,7 @@ export class PatentsTableComponent implements OnInit {
     this.tfs.removePatentEntry(row);
   }
 
+  goToUrl(url:string) {
+    window.location.href=url;
+  } 
 }

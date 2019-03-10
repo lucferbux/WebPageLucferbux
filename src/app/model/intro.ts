@@ -3,7 +3,8 @@ export interface Intro {
     description: string;
     image: string;
     timestamp: Date;
-    size: number;
+    cols: number;
+    rows: number;
     
 }
 

@@ -75,6 +75,7 @@ export class PatentsTableDataSource extends DataSource<PatentId> {
       }
     });
   }
+
 }
 
 /** Simple sort comparator for example ID/Name columns (for client-side sorting). */

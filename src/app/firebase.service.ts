@@ -32,15 +32,15 @@ export class FirebaseService {
     })
 
     this.introCollection = this.afs.collection('intro', ref => {
-      return ref.orderBy('title')
+      return ref.orderBy('timestamp', 'desc')
     })
 
     this.projectCollection = this.afs.collection('project', ref =>  {
-      return ref.orderBy('date')
+      return ref.orderBy('date', 'desc')
     })
 
     this.patentCollection = this.afs.collection('patent', ref => {
-      return ref.orderBy('date')
+      return ref.orderBy('date', 'desc')
     })
   }
 

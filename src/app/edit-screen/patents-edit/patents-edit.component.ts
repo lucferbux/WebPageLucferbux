@@ -53,7 +53,7 @@ export class PatentsEditComponent implements OnInit {
       description: ['', Validators.required],
       link: ['', Validators.required],
       date: [new Date, Validators.required],
-      image: ['', Validators.required]
+      image: ''
     })
 
     this.editData.currentPatent.subscribe((entry: PatentId) => {
