@@ -1,7 +1,8 @@
 <div class="grid-container">
     <h1 class="mat-h1">Edición</h1>
     <nav mat-tab-nav-bar>
-        <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" matTooltip="{{link.text}}" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
+        <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" matTooltip="{{link.text}}"
+            routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
             <mat-icon>{{link.image}}</mat-icon>
         </a>
     </nav>
