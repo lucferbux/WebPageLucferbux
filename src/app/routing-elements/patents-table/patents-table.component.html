@@ -19,7 +19,7 @@
       <ng-container matColumnDef="link">
         <mat-header-cell *matHeaderCellDef>Link</mat-header-cell>
         <mat-cell *matCellDef="let row">
-          <button mat-button (click)="goToUrl(row.link)">
+          <button mat-icon-button (click)="goToUrl(row.link)">
             <mat-icon>link</mat-icon>
           </button>
         </mat-cell>
