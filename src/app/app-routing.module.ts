@@ -14,6 +14,7 @@ import { DisseminationPageComponent } from './routing-elements/dissemination-pag
 import { IntroEditComponent } from './edit-screen/intro-edit/intro-edit.component';
 import { ProjectsEditComponent } from './edit-screen/projects-edit/projects-edit.component';
 import { PatentsEditComponent } from './edit-screen/patents-edit/patents-edit.component';
+import { InstaPipeComponent } from './insta-pipe/insta-pipe.component';
 
 
 
@@ -24,6 +25,7 @@ const routes: Routes = [
     {path: 'team', component: TeamDashboardComponent},
     {path: 'projects', component: ProjectsTableComponent},
     {path: 'patents', component: PatentsTableComponent},
+    //{path: 'test', component: InstaPipeComponent},
     //{path: 'media', component: DisseminationPageComponent},
     {path: 'login', component: LoginScreenComponent},
     {path: 'edit', component: EditScreenComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard], children: [
