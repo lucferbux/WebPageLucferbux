@@ -78,6 +78,12 @@ export class ProjectsEditComponent implements OnInit {
 
   resetForm() {
     this.projectForm.reset();
+    this.projectForm = this.fb.group({
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      link: ['', Validators.required],
+      date: [new Date, Validators.required],
+    })
     this.id = null;
   }
 

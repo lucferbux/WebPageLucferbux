@@ -92,6 +92,13 @@ export class PatentsEditComponent implements OnInit {
 
   resetForm() {
     this.patentForm.reset();
+    this.patentForm = this.fb.group({
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      link: ['', Validators.required],
+      date: [new Date, Validators.required],
+      image: ''
+    })
     this.id = null;
   }
 

@@ -153,7 +153,8 @@ import { InstaPipeComponent } from './insta-pipe/insta-pipe.component';
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
-    CoreModule, ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    CoreModule, 
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
   entryComponents: [IntroEditComponent, ImageEditComponentSheet],
