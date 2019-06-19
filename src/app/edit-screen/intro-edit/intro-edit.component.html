@@ -17,6 +17,12 @@
     </mat-form-field>
     <br>
 
+    <mat-form-field hintLabel="Max. 30 Caracteres">
+        <input matInput #inputtitle placeholder="Link" formControlName="link">
+        <mat-hint align="end">{{inputtitle.value?.length || 0}}/100</mat-hint>
+    </mat-form-field>
+    <br>
+
     <mat-form-field>
         <mat-select placeholder="Tamaño de fila" formControlName="rows">
             <mat-option value="1">1</mat-option>
