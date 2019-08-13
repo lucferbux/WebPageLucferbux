@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FirebaseService } from '../../firebase.service'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
@@ -14,8 +14,7 @@ import { of } from 'rxjs';
 })
 export class TeamEditComponent implements OnInit {
 
-  @ViewChild(FileUploadComponent)
-  fileUpload: FileUploadComponent;
+  @ViewChild(FileUploadComponent, {static: true}) fileUpload: FileUploadComponent;
 
   teamForm: FormGroup
   loading = false;

@@ -9,14 +9,15 @@ import { EditDataService } from '../edit-data.service';
 import { AuthService } from '../../core/auth.service';
 import { Observable } from 'rxjs';
 
+
 @Component({
   selector: 'routing-elements/projects-table',
   templateUrl: './projects-table.component.html',
   styleUrls: ['./projects-table.component.css']
 })
 export class ProjectsTableComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort,  {static: true}) sort: MatSort;
   dataSource: ProjectsTableDataSource;
   logged: Observable<Boolean>;
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */

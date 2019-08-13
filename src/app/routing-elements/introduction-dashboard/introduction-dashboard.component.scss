@@ -1,5 +1,5 @@
 
-$break-small: 450px;
+$break-small: 600px;
 $break-large: 960px;
 
 
@@ -15,7 +15,7 @@ $break-large: 960px;
     left: 4px;
     right: 4px;
   }
-  
+
   bottom: 15px;
 }
 
@@ -23,9 +23,19 @@ $break-large: 960px;
   text-align: left;
 }
 
+
+
 .intro-image {
-  object-fit: scale-down;
-  height: 40%; 
+
+  @media screen and (max-width: $break-small) {
+    object-fit: contain;
+
+  }
+  @media screen and (min-width: $break-small) {
+    object-fit: scale-down;
+    height: 40%; 
+  }
+
 }
 
 .mat-menu-delete {

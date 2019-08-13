@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-@import './lucferbux-web-theme';
+@import '~@angular/material/theming';
+@import './app/app.component.scss';
+
+@include mat-core();
+
+@import './themes/default-theme';
+@import './themes/dark-theme';
 
 $break-small: 450px;
 $break-large: 960px;
@@ -33,4 +39,22 @@ footer {
    
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+
+@mixin custom-components-theme($theme) {
+  @include lwp-component-theme($theme);
+}
+
+
+
+.default-theme {
+  @include angular-material-theme($lwp-light-theme);
+  @include custom-components-theme($lwp-light-theme);
+}
+
+
+.dark-theme {
+  @include angular-material-theme($lwp-dark-theme);
+  @include custom-components-theme($lwp-dark-theme);
 }

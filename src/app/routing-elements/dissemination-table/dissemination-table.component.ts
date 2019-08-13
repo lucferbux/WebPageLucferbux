@@ -8,8 +8,8 @@ import { DisseminationTableDataSource } from './dissemination-table-datasource';
   styleUrls: ['./dissemination-table.component.css']
 })
 export class DisseminationTableComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort,  {static: true}) sort: MatSort;
   dataSource: DisseminationTableDataSource;
   @Input() year:string;
   @Input() exampleData;

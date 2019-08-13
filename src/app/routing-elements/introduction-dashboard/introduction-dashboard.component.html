@@ -1,7 +1,7 @@
 <div class="grid-container">
   <h1 class="mat-h1">Introducción</h1>
-  <mat-grid-list cols="2" rowHeight="{{rowHeight}}">
-    <mat-grid-tile *ngFor="let card of cards" [colspan]="isLarge ? card.cols : 2" [rowspan]="isLarge ? card.rows * 2 : (card.cols == 2 ? card.rows * 2 : card.rows * 2)">
+  <mat-grid-list cols="2" gutterSize="10px" rowHeight="{{rowHeight}}">
+    <mat-grid-tile *ngFor="let card of cards" [colspan]="isLarge ? card.cols : 2" [rowspan]="isLarge ? card.rows * 6 : (card.cols == 2 ? card.rows * 6 : card.rows * 5)">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title class="card-header-title">

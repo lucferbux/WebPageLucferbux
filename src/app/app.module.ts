@@ -11,6 +11,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { HttpClientModule } from '@angular/common/http';
 
 
+
 export const firebaseConfig = environment.firebaseConfig; // Added for importing firebase configuration
 
 import { AppComponent } from './app.component';

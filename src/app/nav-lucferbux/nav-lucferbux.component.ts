@@ -1,12 +1,13 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import {MediaMatcher} from '@angular/cdk/layout';
-import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { Component} from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap, map, take } from 'rxjs/operators';
 import { AuthService } from '../core/auth.service';
 import {MatSnackBar} from '@angular/material';
 import { MatIconRegistry } from "@angular/material/icon";
 import { DomSanitizer } from "@angular/platform-browser";
+
 
 export interface linkPage {
   link: string,
@@ -21,8 +22,7 @@ export interface linkPage {
 })
 
 export class NavLucferbuxComponent {
-  private _mobileQueryListener: () => void;
-  mobileQuery: MediaQueryList;
+
   logged: Observable<Boolean>;
   linksActive: linkPage[];
   isHandset = false;
@@ -40,15 +40,12 @@ export class NavLucferbuxComponent {
   ]
 
   constructor(private breakpointObserver: BreakpointObserver, 
-    changeDetectorRef: ChangeDetectorRef,  
-    media: MediaMatcher, 
+
     public auth: AuthService,
     public snackBar: MatSnackBar,
+    
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer) {
-        this.mobileQuery = media.matchMedia('(max-width: 600px)');
-        this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-        this.mobileQuery.addListener(this._mobileQueryListener);
         this.logged =  this.auth.user.pipe(
           map(user => !! user)      
         );
@@ -76,7 +73,7 @@ export class NavLucferbuxComponent {
           }
         );
     }
-  
+
     signOut() {
       this.auth.signOut();
       this.openSnackBar("Has cerrado sesión");

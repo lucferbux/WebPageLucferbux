@@ -1,17 +1,40 @@
+
 @import '~@angular/material/theming';
 
-// https://medium.com/@tomastrajan/the-complete-guide-to-angular-material-themes-4d165a9d24d1 IMPORT ANGULAR MATERIAL
-@mixin lucferbux-theme($theme) {
-    $primary: map-get($theme, primary);
-    $accent: map-get($theme, accent);
-    
-    .mat-card-title {
-        color: mat-color($primary);
-    }
-    
+.theme-wrapper {
+    height: 100%;
+    width: 100%;
 }
 
 
+@mixin lwp-component-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    
+    // .mat-card-title {
+    //     color: mat-color($primary);
+    // }
+
+    .mat-card{
+        background-color: mat-color($accent);
+    }
+
+    .mat-table{
+        background-color: mat-color($accent);
+    }
+
+    
+
+    .dropzone { 
+
+        &.hovering {
+            background-color: mat-color($primary, lighter) !important;
+            color: #ffffff;
+        }
+    
+    }
+}
 
 .grid-container {
     margin: 20px;

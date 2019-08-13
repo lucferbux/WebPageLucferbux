@@ -4,6 +4,7 @@
     <mat-toolbar class="mat-primary" color="primary">
       <mat-toolbar-row>
         <span>Menu</span>
+        
         <span class="example-spacer"></span>
 
         <button mat-button [matMenuTriggerFor]="menu">
@@ -36,7 +37,7 @@
     <mat-nav-list>
       <mat-list-item *ngFor="let icon of linksActive" (click)="drawer.close()" [routerLink]="icon.link" routerLinkActive="active"
         [routerLinkActiveOptions]="{exact:true}">
-        <mat-icon mat-list-icon color="accent">{{icon.image}}</mat-icon>
+        <mat-icon mat-list-icon >{{icon.image}}</mat-icon>
         <a mat-line>{{ icon.text }}</a>
       </mat-list-item>
     </mat-nav-list>

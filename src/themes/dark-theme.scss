@@ -1,0 +1,87 @@
+@import '~@angular/material/theming';
+@include mat-core;
+
+$mat-dark-primary: (
+  50 : #e3e3e3,
+  100 : #bababa,
+  200 : #8c8c8c,
+  300 : #5d5d5d,
+  400 : #3b3b3b,
+  500 : #181818,
+  600 : #151515,
+  700 : #111111,
+  800 : #0e0e0e,
+  900 : #080808,
+  A100 : #ff5050,
+  A200 : #ff1d1d,
+  A400 : #e90000,
+  A700 : #cf0000,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #ffffff,
+      400 : #ffffff,
+      500 : #ffffff,
+      600 : #ffffff,
+      700 : #ffffff,
+      800 : #ffffff,
+      900 : #ffffff,
+      A100 : #000000,
+      A200 : #ffffff,
+      A400 : #ffffff,
+      A700 : #ffffff,
+  )
+);
+
+
+$mat-dark-secondary: (
+  50 : #e3e3e3,
+  100 : #bababa,
+  200 : #8c8c8c,
+  300 : #5d5d5d,
+  400 : #3b3b3b,
+  500 : #181818,
+  600 : #151515,
+  700 : #111111,
+  800 : #0e0e0e,
+  900 : #080808,
+  A100 : #ff5050,
+  A200 : #ff1d1d,
+  A400 : #e90000,
+  A700 : #cf0000,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #ffffff,
+      400 : #ffffff,
+      500 : #ffffff,
+      600 : #ffffff,
+      700 : #ffffff,
+      800 : #ffffff,
+      900 : #ffffff,
+      A100 : #000000,
+      A200 : #ffffff,
+      A400 : #ffffff,
+      A700 : #ffffff,
+  )
+);
+
+
+
+$lwp-dark-primary: mat-palette($mat-dark-primary);
+$lwp-dark-accent: mat-palette($mat-dark-secondary);
+$lwp-dark-warn: mat-palette($mat-red, 500);
+$custom-background-color: #000000;
+
+$lwp-dark-theme: mat-dark-theme(
+  $lwp-dark-primary,
+  $lwp-dark-accent,
+  $lwp-dark-warn
+);
+
+// Override background color
+$background: map-get($lwp-dark-theme, background);
+$background: map_merge($background, (background: $custom-background-color));
+$lwp-dark-theme: map_merge($lwp-dark-theme, (background: $background));

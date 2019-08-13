@@ -20,12 +20,13 @@ export class IntroductionDashboardComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, private tfs: FirebaseService, private router: Router, private editService: EditDataService  ,public auth: AuthService) {
     this.getData()
-    this.breakpointObserver.observe(['(max-width: 369px)']).subscribe(result => { if(result.matches){ this.updateInterface("155px", false)}})
-    this.breakpointObserver.observe(['(min-width: 370px) and (max-width: 599px)']).subscribe(result => { if(result.matches){ this.updateInterface("140px", false)}})
-    this.breakpointObserver.observe([Breakpoints.Small]).subscribe(result => {   if(result.matches){ this.updateInterface("105px", false)}})
-    this.breakpointObserver.observe([Breakpoints.Medium]).subscribe(result => { if(result.matches){ this.updateInterface("110px", true)}})
-    this.breakpointObserver.observe([Breakpoints.Large]).subscribe(result => { if(result.matches){ this.updateInterface("100px", true)}})
-    this.breakpointObserver.observe([Breakpoints.XLarge]).subscribe(result => { if(result.matches){ this.updateInterface("90px", true)}})
+    this.breakpointObserver.observe(['(max-width: 339px)']).subscribe(result => { if(result.matches){ this.updateInterface("44px", false)}})
+    this.breakpointObserver.observe(['(min-width: 340px) and (max-width: 449px)']).subscribe(result => { if(result.matches){ this.updateInterface("39px", false)}})
+    this.breakpointObserver.observe(['(min-width: 450px) and (max-width: 599px)']).subscribe(result => { if(result.matches){ this.updateInterface("38px", false)}})
+    this.breakpointObserver.observe([Breakpoints.Small]).subscribe(result => {   if(result.matches){ this.updateInterface("30px", false)}})
+    this.breakpointObserver.observe([Breakpoints.Medium]).subscribe(result => { if(result.matches){ this.updateInterface("30px", true)}})
+    this.breakpointObserver.observe([Breakpoints.Large]).subscribe(result => { if(result.matches){ this.updateInterface("25px", true)}})
+    this.breakpointObserver.observe([Breakpoints.XLarge]).subscribe(result => { if(result.matches){ this.updateInterface("25px", true)}})
   }
 
   getData(): void {

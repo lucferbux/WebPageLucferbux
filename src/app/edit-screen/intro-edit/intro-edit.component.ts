@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { of } from 'rxjs';
 import { FirebaseService } from '../../firebase.service'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -13,9 +13,8 @@ import { IntroId, Intro } from '../../model/intro';
   styleUrls: ['./intro-edit.component.css']
 })
 export class IntroEditComponent implements OnInit {
+  @ViewChild(FileUploadComponent, {static: true}) fileUpload: FileUploadComponent;
   
-  @ViewChild(FileUploadComponent)
-  fileUpload: FileUploadComponent;
 
   introForm: FormGroup;
   loading = false;
@@ -38,7 +37,7 @@ export class IntroEditComponent implements OnInit {
     this.introForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      link: [''],
+      url: [''],
       rows: [1, [Validators.required, Validators.min(1)]],
       cols: [1, [Validators.required, Validators.min(1)]],
       timestamp: new Date(),

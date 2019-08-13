@@ -1,14 +1,7 @@
 @import '~@angular/material/theming';
-@import '../../../lucferbux-web-theme.scss';
 
-.dropzone { 
 
-    &.hovering {
-        background-color: mat-color($mat-app-accent) !important;
-        color: #ffffff;
-    }
 
-}
 
 progress::-webkit-progress-value {
     transition: width 0.1s ease;

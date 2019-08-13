@@ -1,7 +1,7 @@
 export interface Intro {
     title: string;
     description: string;
-    link: string;
+    url: string;
     image: string;
     timestamp: Date;
     cols: number;
