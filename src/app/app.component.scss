@@ -24,7 +24,9 @@
         background-color: mat-color($accent);
     }
 
-    
+    .custom-footer {
+        background-color: mat-color($accent);
+      }
 
     .dropzone { 
 
@@ -34,8 +36,4 @@
         }
     
     }
-}
-
-.grid-container {
-    margin: 20px;
 }

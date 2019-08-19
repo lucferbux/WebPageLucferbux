@@ -61,6 +61,12 @@ export class NavLucferbuxComponent {
           "linkedin",
           this.domSanitizer.bypassSecurityTrustResourceUrl("assets/linkedin.svg")
         );
+
+        
+        this.matIconRegistry.addSvgIcon(
+          "webpage",
+          this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icon-webpage.svg")
+        );
         
         this.breakpointObserver.observe([Breakpoints.XSmall]).subscribe(result => { if(result.matches){ this.isHandset = false } })
         this.breakpointObserver.observe([Breakpoints.Small]).subscribe(result => {   if(result.matches){ this.isHandset = true }  })

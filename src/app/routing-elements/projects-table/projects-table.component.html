@@ -1,4 +1,4 @@
-<div class="grid-container">
+<div class="container">
   <h1 class="mat-h1">Proyectos</h1>
   <div class="mat-elevation-z8">
     <mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
@@ -7,7 +7,7 @@
       <ng-container matColumnDef="title">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Título</mat-header-cell>
         <mat-cell *matCellDef="let row">
-          <h2 class="mat-h2">{{row.title}}</h2>
+            <b>{{row.title}}</b>
         </mat-cell>
       </ng-container>
 

@@ -28,22 +28,40 @@ footer {
   h2 { font-size: 1.4em; }
 }
 
-.grid-container {
-    //margin: 20px;
-    @media screen and (max-width: $break-large) {
-      margin-left: 4px;
-      margin-right: 4px;
-    }
-    @media screen and (min-width: $break-large) {
-      margin-left: 20px;
-      margin-right: 20px;
-    }
+// .grid-container {
+//     // //margin: 20px;
+//     // @media screen and (max-width: $break-large) {
+//     //   margin-left: 4px;
+//     //   margin-right: 4px;
+//     // }
+//     // @media screen and (min-width: $break-large) {
+//     //   margin-left: 20px;
+//     //   margin-right: 20px;
+//     // }
 
     
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
+//     // margin-top: 20px;
+//     // margin-bottom: 20px;
 
+
+
+//     margin-top: 20px;
+//     width: 100%;
+//     padding-right: 15px;
+//     padding-left: 15px;
+//     margin-right: auto;
+//     margin-left: auto;
+// }
+
+.container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 @mixin custom-components-theme($theme) {
   @include lwp-component-theme($theme);

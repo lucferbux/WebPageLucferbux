@@ -1,5 +1,6 @@
 
 @import '../../styles-variables';
+@import '~@angular/material/theming';
 
 .sidenav-container {
   display: flex;
@@ -54,6 +55,12 @@
   }
 }
 
+.webpage-icon {
+
+  height: 35px;
+  width: 35px;
+}
+
 .social-button {
   margin-right: 20px;
 }
@@ -88,5 +95,9 @@ main {
 .social-footer{
   display: flex;
   flex-direction: row;
+}
+
+.spacer-toolbar {
+  flex: 1 1 auto;
 }
 
