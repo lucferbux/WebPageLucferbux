@@ -41,6 +41,12 @@
   flex: 1; // child will set to an equal size inside the container
 }
  
+
+.footer-icon {
+  position: relative;
+  right: 5px;
+  bottom: 9px;
+}
  
 /*
  * Make the component injected by <router-outlet> full height:

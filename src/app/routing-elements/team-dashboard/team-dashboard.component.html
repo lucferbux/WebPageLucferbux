@@ -1,28 +1,32 @@
-<div class="grid-container">
+<div class="container">
   <h1 class="mat-h1">¿Quién soy?</h1>
-  <mat-grid-list cols="3" rowHeight="{{rowHeight}}">
-    <mat-grid-tile *ngFor="let card of members" [colspan]="isLarge ? card.cols : 3" [rowspan]="isLarge ? card.rows * 2 : (card.cols == 2 ? card.rows * 3 : card.rows * 2)">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <img mat-card-avatar class="example-header-image" src={{card.avatar}} onerror="this.src='assets/shiba1.jpg'">
-          <mat-card-title>{{card.name}}</mat-card-title>
-          <mat-card-subtitle>{{card.job}}</mat-card-subtitle>
-          <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu" *ngIf="auth.user | async">
+    <div class="row align-items-top">
+      <div *ngFor="let card of members" class="col-md-6 col-lg-4">
+
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <img mat-card-avatar class="example-header-image" src={{card.avatar}}
+              onerror="this.src='assets/shiba1.jpg'">
+            <mat-card-title>{{card.name}}</mat-card-title>
+            <mat-card-subtitle>{{card.job}}</mat-card-subtitle>
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu"
+              *ngIf="auth.user | async">
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu" xPosition="before">
               <button mat-menu-item (click)="editTeam(card)">Edit</button>
-              <button mat-menu-item  (click)="removeMember(card)" class="mat-menu-delete">Remove</button>
-          </mat-menu>
-        </mat-card-header>
-        <mat-divider>
-        </mat-divider>
-        <mat-card-content class="dashboard-card-content">
+              <button mat-menu-item (click)="removeMember(card)" class="mat-menu-delete">Remove</button>
+            </mat-menu>
+          </mat-card-header>
+          <mat-divider>
+          </mat-divider>
+          <mat-card-content class="dashboard-card-content">
             <div *ngFor="let paragraph of card.description.split('\n')">
-                {{paragraph}}
+              {{paragraph}}
             </div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+    </div>
 </div>
