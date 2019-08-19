@@ -1,33 +1,33 @@
-<div class="grid-container">
-  <h1 class="mat-h1">Introducción</h1>
-  <mat-grid-list cols="2" gutterSize="10px" rowHeight="{{rowHeight}}">
-    <mat-grid-tile *ngFor="let card of cards" [colspan]="isLarge ? card.cols : 2" [rowspan]="isLarge ? card.rows * 6 : (card.cols == 2 ? card.rows * 6 : card.rows * 5)">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title class="card-header-title">
-            <h2>{{card.title}}</h2>
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu" *ngIf="auth.user | async">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item (click)="editCard(card)">Edit</button>
-              <button mat-menu-item  (click)="removeCard(card)" class="mat-menu-delete">Remove</button>
-            </mat-menu>
-          </mat-card-title>
-          <mat-card-subtitle>{{card.timestamp.seconds * 1000 | date}}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-divider>
-        </mat-divider>
-        <img mat-card-image class="intro-image" *ngIf="card.image" src={{card.image}} onerror="this.src='assets/image_not_found.png'" layout-fill>
-        <mat-card-content class="dashboard-card-content">
-          <div *ngFor="let paragraph of card.description.split('\n')">
-            {{paragraph}}
-          </div>
-        </mat-card-content>
-        <mat-card-actions *ngIf="card.url">
-          <button mat-button color="primary" (click)="goToUrl(card.url)"><b>LINK</b></button>
-        </mat-card-actions>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
+<div class="container">
+    <h1 class="mat-h1">Introducción</h1>
+      <div class="row align-items-top">
+        <div *ngFor="let card of cards" class="col-md-12 col-lg-6">
+            <mat-card class="dashboard-card">
+                <mat-card-header>
+                  <mat-card-title class="card-header-title">
+                    <h2>{{card.title}}</h2>
+                    <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu" *ngIf="auth.user | async">
+                      <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu" xPosition="before">
+                      <button mat-menu-item (click)="editCard(card)">Edit</button>
+                      <button mat-menu-item  (click)="removeCard(card)" class="mat-menu-delete">Remove</button>
+                    </mat-menu>
+                  </mat-card-title>
+                  <mat-card-subtitle>{{card.timestamp.seconds * 1000 | date}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-divider>
+                </mat-divider>
+                <img mat-card-image class="intro-image" *ngIf="card.image" src={{card.image}} onerror="this.src='assets/image_not_found.png'" layout-fill>
+                <mat-card-content class="dashboard-card-content">
+                  <div *ngFor="let paragraph of card.description.split('\n')">
+                    {{paragraph}}
+                  </div>
+                </mat-card-content>
+                <mat-card-actions *ngIf="card.url">
+                  <button mat-button (click)="goToUrl(card.url)"><b>LINK</b></button>
+                </mat-card-actions>
+              </mat-card>
+        </div>
+      </div>
+  </div>

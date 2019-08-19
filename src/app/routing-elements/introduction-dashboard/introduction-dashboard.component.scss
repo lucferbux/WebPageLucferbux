@@ -1,49 +1,49 @@
 
-$break-small: 600px;
-$break-large: 960px;
+@import '~@angular/material/theming';
+@import '../../../styles-variables';
 
+.container {
+  margin-top: 20px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
 
+.header-image {
+   background-size: cover;
+}
 
 .dashboard-card {
-  position: absolute;
-  top: 15px;
-  @media screen and (max-width: $break-large) {
+  position: relative;
+  margin: 0 0 20px 0;
+  @media screen and (max-width: map-get($grid-breakpoints, lg)) {
     left: 0px;
     right: 0px;
   }
-  @media screen and (min-width: $break-large) {
+  @media screen and (min-width: map-get($grid-breakpoints, lg)) {
     left: 4px;
     right: 4px;
   }
-
-  bottom: 15px;
 }
 
 .dashboard-card-content {
+  margin-top: 20px;
   text-align: left;
-}
-
-
-
-.intro-image {
-
-  @media screen and (max-width: $break-small) {
-    object-fit: contain;
-
-  }
-  @media screen and (min-width: $break-small) {
-    object-fit: scale-down;
-    height: 40%; 
-  }
-
-}
-
-.mat-menu-delete {
-  color: red;
 }
 
 .more-button {
   position: absolute;
   top: 5px;
   right: 10px;
+}
+
+.mat-menu-delete {
+  color: mat-color($warning-colors);
+}
+
+
+.intro-image {
+  object-fit: contain;
 }

@@ -1,4 +1,6 @@
 
+@import '../../styles-variables';
+
 .sidenav-container {
   display: flex;
   flex-direction: column;
@@ -44,8 +46,16 @@
 
 .footer-icon {
   position: relative;
-  right: 5px;
   bottom: 9px;
+  right: 5px;
+
+  @media (max-width: map-get($grid-breakpoints, sm)) {
+    right: 0px;
+  }
+}
+
+.social-button {
+  margin-right: 20px;
 }
  
 /*
@@ -80,6 +90,3 @@ main {
   flex-direction: row;
 }
 
-.social-button {
-  margin-right: 20px;
-}

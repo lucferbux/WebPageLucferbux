@@ -13,8 +13,7 @@ import { AuthService } from '../../core/auth.service';
 })
 export class TeamDashboardComponent {
   members: TeamId[];
-  rowHeight: String = "185px";
-  isLarge: Boolean = false;
+
 
   constructor(private tfs: FirebaseService, private editService: EditDataService, private router: Router, public auth: AuthService ) {
     this.getTeam();
@@ -25,12 +24,6 @@ export class TeamDashboardComponent {
       (data : TeamId[]) => this.members = data
     )
   }
-
-  updateInterface(height: String, size: Boolean){
-    this.rowHeight = height;
-    this.isLarge = size;
-  }
-
   editTeam(member: TeamId) {
     this.editService.editTeamSource(member);
     this.router.navigate(["/edit/team"]);
