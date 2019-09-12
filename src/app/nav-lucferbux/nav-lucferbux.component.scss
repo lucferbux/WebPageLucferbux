@@ -85,6 +85,28 @@ main {
  
 }
 
+
+.mat-tab-link {
+  color: #ffffff;
+}
+
+::ng-deep .primary-bar .mat-ink-bar {
+  background-color:#ffffff !important;
+}
+
+::ng-deep .primary-bar .mat-tab-header-pagination-chevron {
+  border-color:#ffffff !important;
+}
+
+.primary-bar {
+  flex: 1 1 auto;
+}
+
+.tab-links {
+  text-decoration: none;
+  
+}
+
 .toggle-margin {
   margin-left: 23px;
   margin-top: 10px;

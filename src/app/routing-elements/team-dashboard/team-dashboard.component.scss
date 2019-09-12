@@ -8,6 +8,7 @@
 .dashboard-card {
   position: relative;
   margin: 0 0 20px 0;
+  min-height: 280px;
   @media screen and (max-width: map-get($grid-breakpoints, lg)) {
     left: 0px;
     right: 0px;

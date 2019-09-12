@@ -14,6 +14,12 @@
     </mat-form-field>
     <br>
 
+    <mat-form-field hintLabel="Des. formato: x.x.x">
+        <input matInput #inputversion placeholder="Versión" formControlName="version">
+        <mat-hint align="end">{{inputversion.value?.length || 0}}/30</mat-hint>
+    </mat-form-field>
+    <br>
+
     <mat-form-field hintLabel="No hay limites">
         <textarea matInput #inputdesc placeholder="Descripción" formControlName="description"></textarea>
         <mat-hint align="end">{{inputdesc.value?.length || 0}}</mat-hint>

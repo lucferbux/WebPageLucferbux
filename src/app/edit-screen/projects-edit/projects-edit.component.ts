@@ -40,14 +40,20 @@ export class ProjectsEditComponent implements OnInit {
       title: ['', Validators.required],
       description: ['', Validators.required],
       link: ['', Validators.required],
+      version: [''],
       date: [new Date, Validators.required],
     })
 
     this.editData.currentProject.subscribe((entry: ProjectId) => {
+      
       if (entry != null) {
         this.id = entry.id;
-        var { id, ...entryEdit } = entry;
-        this.projectForm.setValue(entryEdit);
+        this.projectForm.get('title').patchValue(entry.title);
+        this.projectForm.get('description').patchValue(entry.description);
+        this.projectForm.get('link').patchValue(entry.link);
+        this.projectForm.get('version').patchValue(entry.version);
+        const test = new Date((new Date(entry.date.seconds * 1000).getTime() - 3888000000));
+        this.projectForm.get('date').patchValue(test);
       }
     })
   }
@@ -82,6 +88,7 @@ export class ProjectsEditComponent implements OnInit {
       title: ['', Validators.required],
       description: ['', Validators.required],
       link: ['', Validators.required],
+      version: [''],
       date: [new Date, Validators.required],
     })
     this.id = null;

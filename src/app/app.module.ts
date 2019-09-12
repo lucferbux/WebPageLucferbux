@@ -77,7 +77,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { ProjectsEditComponent } from './edit-screen/projects-edit/projects-edit.component';
 import { PatentsEditComponent } from './edit-screen/patents-edit/patents-edit.component';
 import { InstaPipeComponent } from './insta-pipe/insta-pipe.component';
-
+import {CdkDetailRowDirective} from './cdk-detail-row.directive';
 
 
 
@@ -97,6 +97,7 @@ import { InstaPipeComponent } from './insta-pipe/insta-pipe.component';
     PatentsTableComponent,
     DisseminationTableComponent,
     DisseminationPageComponent,
+    CdkDetailRowDirective,
     //ImageCropperComponent,
     IntroEditComponent,
     ImageEditComponentSheet,

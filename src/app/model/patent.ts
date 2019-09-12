@@ -1,9 +1,11 @@
+import { firestore } from 'firebase';
+
 export interface Patent {
     title: string;
     description: string;
     link: string;
     image: string;
-    date: Date;
+    date: firestore.Timestamp;
 }
 
 export interface PatentId extends Patent {

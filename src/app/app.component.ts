@@ -45,8 +45,11 @@ export class AppComponent {
 
   myListener(event) {
     const theme = event.matches ? 'DARK-THEME' : 'DEFAULT-THEME';
+    
     this.ngZone.run(() => {
       this.store.dispatch(actionSettingsChangeTheme({ theme }));   
     });
+
+    
   }
 }

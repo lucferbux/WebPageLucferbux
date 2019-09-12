@@ -10,15 +10,16 @@ import { EditDataService } from '../edit-data.service';
 import { AuthService } from '../../core/auth.service';
 import { Observable } from 'rxjs';
 
+
 @Component({
   selector: 'routing-elements/patents-table',
   templateUrl: './patents-table.component.html',
   styleUrls: ['./patents-table.component.css'],
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
-      state('expanded', style({ height: '*', visibility: 'visible' })),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+      state('void', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
+      state('*', style({ height: '*', visibility: 'visible' })),
+      transition('void <=> *', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ],
 })
@@ -27,6 +28,7 @@ export class PatentsTableComponent implements OnInit {
   @ViewChild(MatSort,  {static: true}) sort: MatSort;
   dataSource: PatentsTableDataSource;
   logged: Observable<Boolean>;
+
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['title', 'description', 'link'];
 
@@ -44,15 +46,16 @@ export class PatentsTableComponent implements OnInit {
   }
   ngOnInit() {
     this.dataSource = new PatentsTableDataSource(this.paginator, this.sort, []);
+    
     this.getPatents();
   }
 
-  isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
-  expandedElement: any;
-
   getPatents() : void {
     this.tfs.retreivePatent().subscribe(
-      (patents: PatentId[]) => this.dataSource = new PatentsTableDataSource(this.paginator, this.sort, patents)
+      (patents: PatentId[]) =>  {
+        this.dataSource = new PatentsTableDataSource(this.paginator, this.sort, patents);
+        console.log(this.dataSource);
+      }
     )
   }
 
@@ -66,6 +69,6 @@ export class PatentsTableComponent implements OnInit {
   }
 
   goToUrl(url:string) {
-    window.location.href=url;
+    window.open(url, "_blank");
   } 
 }

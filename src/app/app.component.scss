@@ -18,10 +18,20 @@
 
     .mat-card{
         background-color: mat-color($accent);
+        border-radius: 10px !important;
+    }
+
+    .mat-header-row {
+        background-color: mat-color($primary);
+    }
+
+    mat-header-cell, .mat-header-cell {
+        color: rgb(255, 255, 255);
     }
 
     .mat-table{
         background-color: mat-color($accent);
+        border-radius: 10px !important;
     }
 
     .custom-footer {
@@ -36,4 +46,9 @@
         }
     
     }
+
+    code {
+        color: mat-color($primary, lighter-contrast);
+        background-color: mat-color($primary, lighter);
+      }
 }

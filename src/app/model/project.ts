@@ -1,7 +1,10 @@
+import { firestore } from 'firebase';
+
 export interface Project {
     title: string;
     description: string;
-    date: Date;
+    date: firestore.Timestamp;
+    version: string;
     link: string;
 }
 

@@ -46,20 +46,33 @@
   </mat-sidenav>
   <mat-sidenav-content class="page-wrap">
     <mat-toolbar color="primary">
-      <button *ngIf="!isHandset" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <mat-icon class="webpage-icon" svgIcon="webpage"></mat-icon>
-      <span *ngIf="isHandset" class="spacer-toolbar"></span>
-      <div *ngIf="isHandset">
-        <a mat-button *ngFor="let icon of linksActive" [routerLink]="icon.link"
-          routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-          <a mat-line>{{ icon.text }}</a>
-      </a>
-      <button mat-button [matMenuTriggerFor]="menu">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-      </div>
+      <mat-toolbar-row>
+        <!-- <button *ngIf="!isHandset" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button> -->
+        <!-- <span *ngIf="!isHandset" class="spacer-toolbar"></span> -->
+        <mat-icon class="webpage-icon" svgIcon="webpage"></mat-icon>
+        <span class="spacer-toolbar"></span>
+        <div *ngIf="isHandset">
+          <a mat-button *ngFor="let icon of linksActive" [routerLink]="icon.link" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}">
+            <a mat-line>{{ icon.text }}</a>
+          </a>
+        </div>
+        <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+      </mat-toolbar-row>
+      <mat-toolbar-row *ngIf="!isHandset">
+        <nav mat-tab-nav-bar mat-stretch-tabs="yes" class="primary-bar" >
+          <a mat-tab-link  class="tab-links" *ngFor="let icon of linksActive" [routerLink]="icon.link" matTooltip="{{icon.text}}"
+            routerLinkActive #rla="routerLinkActive" [active]="rla.isActive" >
+            <mat-icon>{{icon.image}}</mat-icon>
+          </a>
+        </nav>
+      </mat-toolbar-row>
+
+
     </mat-toolbar>
     <main class="content">
       <router-outlet></router-outlet>

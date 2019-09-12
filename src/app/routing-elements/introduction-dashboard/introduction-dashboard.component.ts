@@ -4,6 +4,7 @@ import { IntroId } from '../../model/intro'
 import { AuthService } from '../../core/auth.service';
 import { Router } from '@angular/router';
 import { EditDataService } from '../edit-data.service';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 
 @Component({
@@ -38,7 +39,7 @@ export class IntroductionDashboardComponent {
   }
 
   goToUrl(url:string) {
-    window.location.href=url;
+    window.open(url, "_blank");
   } 
 
 }

@@ -26,7 +26,7 @@ export class PatentsTableDataSource extends DataSource<PatentId> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const rows = [];
-    this.data.forEach(element => rows.push(element, { detailRow: true, element }));
+    this.data.forEach(element => rows.push(element));
     const dataMutations = [
       observableOf(rows),
       this.paginator.page,

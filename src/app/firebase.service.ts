@@ -98,6 +98,9 @@ export class FirebaseService {
       return this.project = this.projectCollection.snapshotChanges().pipe(
         map(projectEntries => projectEntries.map(a => {
           const data = a.payload.doc.data() as Project;
+          if(data.version == null) {
+            data.version = "";
+          }
           const id = a.payload.doc.id;
           return { id, ...data };
         }))

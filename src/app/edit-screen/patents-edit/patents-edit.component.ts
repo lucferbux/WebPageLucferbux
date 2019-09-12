@@ -58,9 +58,13 @@ export class PatentsEditComponent implements OnInit {
     this.editData.currentPatent.subscribe((entry: PatentId) => {
       if (entry != null) {
         this.id = entry.id;
-        var { id, ...entryEdit } = entry;
-        this.patentForm.setValue(entryEdit);
-        this.fileUpload.downloadURL =  of(entryEdit.image);
+        this.patentForm.get('title').patchValue(entry.title);
+        this.patentForm.get('description').patchValue(entry.description);
+        this.patentForm.get('link').patchValue(entry.link);
+        this.patentForm.get('image').patchValue(entry.image);
+        const test = new Date((new Date(entry.date.seconds * 1000).getTime() - 3888000000));
+        this.patentForm.get('date').patchValue(test);
+        this.fileUpload.downloadURL =  of(entry.image);
       }
 
     })

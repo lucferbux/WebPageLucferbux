@@ -1,6 +1,6 @@
 <div class="container">
     <h1 class="mat-h1">Edición</h1>
-    <nav mat-tab-nav-bar>
+    <nav mat-tab-nav-bar mat-stretch-tabs="true">
         <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" matTooltip="{{link.text}}"
             routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
             <mat-icon>{{link.image}}</mat-icon>

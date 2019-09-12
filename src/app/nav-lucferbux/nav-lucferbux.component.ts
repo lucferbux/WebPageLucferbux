@@ -28,7 +28,7 @@ export class NavLucferbuxComponent {
   isHandset = false;
 
   iconArrays = [
-    {link: "introduction", image: "star_border", text: "Introducción"},
+    {link: "introduction", image: "home", text: "Introducción"},
     {link: "team", image: "face", text: "¿Quién soy?"},
     {link: "projects", image: "business_center", text: "Proyectos"},
     {link: "patents", image: "border_color", text: "Articulos"},
@@ -92,15 +92,15 @@ export class NavLucferbuxComponent {
     }
 
     goTwitter() {
-      window.location.href='https://twitter.com/lucferbux';
+      window.open('https://twitter.com/lucferbux', "_blank");
     }   
 
     goLinkedin() {
-      window.location.href='https://www.linkedin.com/in/lucferbux/';
+      window.open('https://www.linkedin.com/in/lucferbux/', "_blank");
     }
 
     goGithub() {
-      window.location.href='https://github.com/lucferbux';
+      window.open('https://github.com/lucferbux', "_blank");
     }
 
 
