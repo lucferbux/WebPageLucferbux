@@ -2,6 +2,9 @@ import { Component, ChangeDetectorRef, OnDestroy, NgZone } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import {MediaMatcher} from '@angular/cdk/layout';
+import { MatSnackBar } from '@angular/material';
+
+
 import {
   AppState,
 
@@ -27,6 +30,7 @@ export class AppComponent {
     private store: Store<State>,
     private media: MediaMatcher, 
     private ngZone: NgZone,
+    public snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -35,6 +39,7 @@ export class AppComponent {
     this.darkModeQuery = this.media.matchMedia('(prefers-color-scheme: dark)');
     this.darkModeQuery.addListener(this.myListener.bind(this));
     this.myListener(this.media.matchMedia('(prefers-color-scheme: dark)'));
+    this.showIosInstallBanner();
   }
 
   ngOnDestroy() {
@@ -42,6 +47,33 @@ export class AppComponent {
   }
 
 
+  async showIosInstallBanner() {
+
+    const isInStandaloneMode = () => ('standalone' in window.navigator);
+    console.log("---------------");
+    console.log(this.isIos());
+    console.log(this.isRunningStandalone());
+    console.log("---------------");
+    // Checks if it should display install popup notification
+    if (this.isIos() && !this.isRunningStandalone()) {
+      this.openSnackBar("Para installar la app, pulsa el icono de compartir y selecciona 'Añadir a la pantalla de inicio'")
+    }
+  }
+
+  isIos() {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+  }
+
+  isRunningStandalone() {
+    return (window.matchMedia('(display-mode: standalone)').matches);
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, "Ok", {
+      duration: 8000,
+    });
+  }
 
   myListener(event) {
     const theme = event.matches ? 'DARK-THEME' : 'DEFAULT-THEME';

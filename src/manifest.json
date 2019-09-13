@@ -4,6 +4,7 @@
   "theme_color": "#000000",
   "background_color": "#ffffff",
   "display": "standalone",
+  "description": "Personal PWA with Angular and Firebase communication",
   "scope": "/",
   "start_url": "/",
   "icons": [

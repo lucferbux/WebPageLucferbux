@@ -23,12 +23,24 @@
     "resources": {
       "files": [
         "/assets/**",
-          "/svg/**"
+        "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
 
       ],
       "urls": [
         "https://fonts.googleapis.com/**"
-      ]
+      ],
+      "dataGroups": [{
+        "name": "api-freshness",
+        "urls": [
+          "https://firebasestorage.googleapis.com/v0/b/lucferbux-web-page.appspot.com/"
+        ],
+        "cacheConfig": {
+          "maxSize": 100,
+          "maxAge": "180d",
+          "timeout": "10s",
+          "strategy": "freshness"
+        }
+      }]
     }
   }]
 }
