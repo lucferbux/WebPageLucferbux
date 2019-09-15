@@ -38,6 +38,10 @@
         background-color: mat-color($accent);
       }
 
+      .pure-material-button-contained {
+        background-color: mat-color($primary, darker);
+      }
+
     .dropzone { 
 
         &.hovering {

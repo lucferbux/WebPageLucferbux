@@ -20,8 +20,7 @@
         <h2 class="mat-h2">{{title}}</h2>
         <p>{{subtitle}}</p>
 
-        <button mat-raised-button type="button" color="primary" (click)="imageUpload.click()">
-            <mat-icon>library_add</mat-icon>
+        <button class="pure-material-button-contained" type="button" color="primary" (click)="imageUpload.click()" >
             <span>Select Image</span>
         </button>
 
@@ -37,8 +36,9 @@
 
         <br>
 
-        <button *ngIf="(snapshot | async) as snap" (click)="task.cancel()" [disabled]="!isActive(snap)" mat-raised-button color="accent">Cancel</button>
+        <button *ngIf="(snapshot | async) as snap" type="button" (click)="task.cancel()" [disabled]="!isActive(snap)" mat-raised-button color="accent">Cancel</button>
 
         <br>
     </mat-card-content>
 </mat-card>
+

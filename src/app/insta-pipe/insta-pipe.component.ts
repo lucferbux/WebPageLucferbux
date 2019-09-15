@@ -218,7 +218,6 @@ export class InstaPipeComponent implements OnInit {
 
   @HostListener('window:keyup' , ['$event'])
   keyEvent(event: KeyboardEvent) {
-    console.log(event);
     
     if (event.keyCode === KEY_CODE.ESC) { // ESC
       this.dismissStories()

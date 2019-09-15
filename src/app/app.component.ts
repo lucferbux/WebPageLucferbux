@@ -50,10 +50,6 @@ export class AppComponent {
   async showIosInstallBanner() {
 
     const isInStandaloneMode = () => ('standalone' in window.navigator);
-    console.log("---------------");
-    console.log(this.isIos());
-    console.log(this.isRunningStandalone());
-    console.log("---------------");
     // Checks if it should display install popup notification
     if (this.isIos() && !this.isRunningStandalone()) {
       this.openSnackBar("Para installar la app, pulsa el icono de compartir y selecciona 'Añadir a la pantalla de inicio'")

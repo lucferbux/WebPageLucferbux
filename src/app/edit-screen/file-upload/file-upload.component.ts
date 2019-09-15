@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { tap ,  finalize } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
 import { ImageSharingService } from './image-sharing.service'
 import { MAT_BOTTOM_SHEET_DATA } from '@angular/material';
@@ -46,7 +45,8 @@ export class FileUploadComponent implements ControlValueAccessor { //ControlValu
   isHovering: boolean;
   url: string = '';
 
-  constructor(private storage: AngularFireStorage, private db: AngularFirestore, private imageSharing: ImageSharingService, private bottomSheet: MatBottomSheet) {
+  constructor(private storage: AngularFireStorage, private db: AngularFirestore, 
+    private imageSharing: ImageSharingService, private bottomSheet: MatBottomSheet) {
     imageSharing.imageSelected.subscribe(
       (image: any) => this.startUpload(image)
     )
@@ -80,8 +80,8 @@ export class FileUploadComponent implements ControlValueAccessor { //ControlValu
     this.isHovering = event;
   }
 
+
   fileChangeListener(event: FileList) {
-    console.log(event)
     const file = event.item(0)
     if (file.type.split('/')[0] !== 'image') {
       console.error('unsupported file type :( ')
@@ -102,15 +102,12 @@ export class FileUploadComponent implements ControlValueAccessor { //ControlValu
     // The storage path
     const path = `${this.folder}/${new Date().getTime()}_${this.filename}`;
 
-    console.log(path);
 
     // Totally optional metadata
     const customMetadata = { 
       app: 'Lucferbux Image',
       cacheControl: 'private, max-age=15552000' 
     };
-
-    console.log(image);
 
     // The main task
     this.task = this.storage.upload(path, image, { customMetadata })

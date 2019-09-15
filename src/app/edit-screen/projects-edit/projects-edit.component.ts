@@ -61,7 +61,6 @@ export class ProjectsEditComponent implements OnInit {
   async submitHandleProject() {
 
     this.loading = true;
-    console.log(this.projectForm.value);
     const formValue = this.projectForm.value;
     try {
       if (this.id != null) {

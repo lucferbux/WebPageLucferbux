@@ -30,8 +30,6 @@ export class EditDataService {
   constructor() { }
 
   editIntroSource( entry: IntroId) {
-    console.log("**************")
-    console.log(entry);
     this.introSource.next(entry);
   }
 
