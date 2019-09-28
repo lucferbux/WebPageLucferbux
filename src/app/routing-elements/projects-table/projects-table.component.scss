@@ -29,6 +29,7 @@
 
   mat-card {
     margin: 0 0 20px 0;
+
     border-radius: 10px !important;
     mat-card-title {
       position: relative;
@@ -43,12 +44,12 @@
       }
     }
     mat-card-subtitle {
-      min-height: 120px;
+      min-height: 90px;
     }
   
     @media (max-width: map-get($grid-breakpoints, sm)) {
       mat-card-subtitle {
-        min-height: auto;
+        min-height: 80px;
       }
     }
   

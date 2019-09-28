@@ -106,7 +106,9 @@ export class FileUploadComponent implements ControlValueAccessor { //ControlValu
     // Totally optional metadata
     const customMetadata = { 
       app: 'Lucferbux Image',
-      cacheControl: 'private, max-age=15552000' 
+      cacheControl: 'public, max-age=15552000',
+      contentType: 'image/jpeg', 
+      "Cache-Control": 'public, max-age=15552000' 
     };
 
     // The main task

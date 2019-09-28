@@ -76,7 +76,6 @@ import { IntroEditComponent} from './edit-screen/intro-edit/intro-edit.component
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { ProjectsEditComponent } from './edit-screen/projects-edit/projects-edit.component';
 import { PatentsEditComponent } from './edit-screen/patents-edit/patents-edit.component';
-import { InstaPipeComponent } from './insta-pipe/insta-pipe.component';
 import {CdkDetailRowDirective} from './cdk-detail-row.directive';
 
 
@@ -102,8 +101,7 @@ import {CdkDetailRowDirective} from './cdk-detail-row.directive';
     IntroEditComponent,
     ImageEditComponentSheet,
     ProjectsEditComponent,
-    PatentsEditComponent,
-    InstaPipeComponent
+    PatentsEditComponent
   ],
   imports: [
     BrowserModule,

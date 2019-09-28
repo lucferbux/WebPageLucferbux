@@ -12,10 +12,6 @@
     $accent: map-get($theme, accent);
     $warn: map-get($theme, warn);
     
-    // .mat-card-title {
-    //     color: mat-color($primary);
-    // }
-
     .mat-card{
         background-color: mat-color($accent);
         border-radius: 10px !important;
