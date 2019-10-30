@@ -7,10 +7,6 @@ import { Project, ProjectId } from './model/project';
 import { Patent, PatentId } from './model/patent';
 import { map } from 'rxjs/operators';
 
-
-
-
-
 @Injectable({
   providedIn: 'root'
 })
