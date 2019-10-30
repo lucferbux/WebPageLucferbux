@@ -1,6 +1,7 @@
 # Lucferbux Webpage
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli)
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
+
 Code of the [my webpage](https://lucferbux.dev/introduction)
 
 ![intro](meta/intro.png)
