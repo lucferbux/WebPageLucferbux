@@ -6,6 +6,7 @@ export interface Intro {
     timestamp: Date;
     cols: number;
     rows: number;
+    loaded: boolean;
 }
 
 export interface IntroId extends Intro {
