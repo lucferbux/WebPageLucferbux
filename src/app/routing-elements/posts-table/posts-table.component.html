@@ -54,6 +54,9 @@
 
 <ng-template #tpl let-element>
   <div class="mat-row detail-row mat-column-expandedDetail" [@detailExpand] style="overflow: hidden">
-    <img mat-card-image class="intro-image" src={{element.image}}>
+    <img mat-card-image class="intro-image" src={{element.image}} (load)="element.loaded = true" [hidden]="!element.loaded"
+    onerror="this.src='assets/loading.gif'">
+    <img mat-card-image class="intro-image" src="assets/loading.gif"
+  [hidden]="element.loaded" layout-fill>
   </div>
 </ng-template>

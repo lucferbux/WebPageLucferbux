@@ -9,11 +9,11 @@ import { Observable } from 'rxjs';
 
 
 @Component({
-  selector: 'routing-elements/projects-table',
-  templateUrl: './projects-table.component.html',
-  styleUrls: ['./projects-table.component.scss']
+  selector: 'routing-elements/projects-dashboard',
+  templateUrl: './projects-dashboard.component.html',
+  styleUrls: ['./projects-dashboard.component.scss']
 })
-export class ProjectsTableComponent implements OnInit {
+export class ProjectDashboardComponent implements OnInit {
   projects: ProjectId[];
   logged: Observable<Boolean>;
 
@@ -31,10 +31,10 @@ export class ProjectsTableComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.getProjects();
+    this.getProject();
   }
 
-  getProjects() {
+  getProject() {
     this.tfs.retreiveProject().subscribe(
       (projects : ProjectId[]) => {
         this.projects = projects

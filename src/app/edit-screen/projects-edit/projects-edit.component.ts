@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material';
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { EditDataService } from '../../routing-elements/edit-data.service';
-import { ProjectId, Project } from '../../model/project';
+import { ProjectId } from '../../model/project';
 
 
 

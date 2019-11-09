@@ -6,14 +6,14 @@ import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-mome
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { FileUploadComponent } from '../file-upload/file-upload.component';
 import { EditDataService } from '../../routing-elements/edit-data.service';
-import { PatentId } from '../../model/patent';
+import { PostId } from '../../model/post';
 import { of } from 'rxjs';
 
 
 @Component({
-  selector: 'app-patents-edit',
-  templateUrl: './patents-edit.component.html',
-  styleUrls: ['./patents-edit.component.css'],
+  selector: 'app-posts-edit',
+  templateUrl: './posts-edit.component.html',
+  styleUrls: ['./posts-edit.component.css'],
   providers: [
      // The locale would typically be provided on the root module of your application. We do it at
     // the component level here, due to limitations of our example generation script.
@@ -26,15 +26,15 @@ import { of } from 'rxjs';
     //{provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
   ]
 })
-export class PatentsEditComponent implements OnInit {
+export class PostsEditComponent implements OnInit {
 
   @ViewChild(FileUploadComponent, {static: true}) fileUpload: FileUploadComponent;
 
-  patentForm: FormGroup;
+  postForm: FormGroup;
   loading = false;
 
-  folderName = "patentImage";
-  fileName = "patent_image";
+  folderName = "postImage";
+  fileName = "post_image";
   titleDropdown = "Subir Imagen";
   subtitleDropdown = "Elige una foto para subir...";
   imageTitleDropdown = "Preview de la cabecera";
@@ -47,43 +47,44 @@ export class PatentsEditComponent implements OnInit {
 
 
   ngOnInit() {
-    this.patentForm = this.fb.group({
+    this.postForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
       link: ['', Validators.required],
+      loaded: [''],
       date: [new Date, Validators.required],
       image: ''
     })
 
-    this.editData.currentPatent.subscribe((entry: PatentId) => {
+    this.editData.currentPost.subscribe((entry: PostId) => {
       if (entry != null) {
         this.id = entry.id;
-        this.patentForm.get('title').patchValue(entry.title);
-        this.patentForm.get('description').patchValue(entry.description);
-        this.patentForm.get('link').patchValue(entry.link);
-        this.patentForm.get('image').patchValue(entry.image);
+        this.postForm.get('title').patchValue(entry.title);
+        this.postForm.get('description').patchValue(entry.description);
+        this.postForm.get('link').patchValue(entry.link);
+        this.postForm.get('image').patchValue(entry.image);
         const test = new Date((new Date(entry.date.seconds * 1000).getTime() - 3888000000));
-        this.patentForm.get('date').patchValue(test);
+        this.postForm.get('date').patchValue(test);
         this.fileUpload.downloadURL =  of(entry.image);
       }
 
     })
   }
 
-  async submitHandlerPatent() {
+  async submitHandlerPost() {
 
     this.loading = true;
-    const formValue = this.patentForm.value;
+    const formValue = this.postForm.value;
     try {
       if (this.id != null) {
         var id: string = this.id;
-        var customEntry: PatentId = { id, ...formValue };
-        await this.tfs.updatePatentEntry(customEntry);
+        var customEntry: PostId = { id, ...formValue };
+        await this.tfs.updatePostEntry(customEntry);
       } else {
-        await this.tfs.addPatentEntry(formValue);
+        await this.tfs.addPostEntry(formValue);
       }
       this.resetForm();
-      this.openSnackBar("Articulo creado correctamente")
+      this.openSnackBar("Articulo actualizado correctamente")
       setTimeout(() => { this.loading = false; }, 1000)
 
     } catch (err) {
@@ -94,8 +95,8 @@ export class PatentsEditComponent implements OnInit {
   }
 
   resetForm() {
-    this.patentForm.reset();
-    this.patentForm = this.fb.group({
+    this.postForm.reset();
+    this.postForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
       link: ['', Validators.required],

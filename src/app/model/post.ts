@@ -1,13 +1,14 @@
 import { firestore } from 'firebase';
 
-export interface Patent {
+export interface Post {
     title: string;
     description: string;
     link: string;
     image: string;
     date: firestore.Timestamp;
+    loaded: boolean;
 }
 
-export interface PatentId extends Patent {
+export interface PostId extends Post {
     id: string;
 }

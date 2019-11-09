@@ -1,31 +1,31 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { TeamId } from '../model/team'
+import { JobId } from '../model/jobs'
 import { IntroId } from '../model/intro'
 import { ProjectId } from '../model/project'
-import { PatentId } from '../model/patent'
+import { PostId } from '../model/post'
 
 @Injectable({
   providedIn: 'root'
 })
 export class EditDataService {
   //Send information to edit to page of edit
-  team: TeamId;
+  job: JobId;
   intro: IntroId;
   project: ProjectId;
-  patent: PatentId;
+  post: PostId;
 
   private introSource = new BehaviorSubject(this.intro);
   currentIntro = this.introSource.asObservable();
 
-  private teamSource = new BehaviorSubject(this.team);
-  currentTeam = this.teamSource.asObservable();
+  private jobSource = new BehaviorSubject(this.job);
+  currentJob = this.jobSource.asObservable();
 
   private projectSource = new BehaviorSubject(this.project);
   currentProject = this.projectSource.asObservable();
 
-  private patentSource = new BehaviorSubject(this.patent);
-  currentPatent = this.patentSource.asObservable();  
+  private postSource = new BehaviorSubject(this.post);
+  currentPost = this.postSource.asObservable();  
 
   constructor() { }
 
@@ -33,15 +33,15 @@ export class EditDataService {
     this.introSource.next(entry);
   }
 
-  editTeamSource(team: TeamId) {
-    this.teamSource.next(team);
+  editJobSource(job: JobId) {
+    this.jobSource.next(job);
   }
 
   editProjectSource(project: ProjectId) {
     this.projectSource.next(project);
   }
 
-  editPatentSource(patent: PatentId) {
-    this.patentSource.next(patent);
+  editPostSource(post: PostId) {
+    this.postSource.next(post);
   }
 }

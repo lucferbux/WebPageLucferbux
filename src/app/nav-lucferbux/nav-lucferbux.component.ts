@@ -28,9 +28,9 @@ export class NavLucferbuxComponent {
 
   iconArrays = [
     {link: "introduction", image: "home", text: "Introducción"},
-    {link: "team", image: "face", text: "¿Quién soy?"},
+    {link: "aboutme", image: "face", text: "¿Quién soy?"},
     {link: "projects", image: "business_center", text: "Proyectos"},
-    {link: "patents", image: "border_color", text: "Articulos"},
+    {link: "posts", image: "border_color", text: "Articulos"},
     //{link: "media", image: "web", text: "Difusión"},
   ]
 

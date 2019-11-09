@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, DocumentChangeAction } from '@angular/fire/firestore'
 import { Observable } from 'rxjs';
 import { Intro, IntroId } from './model/intro';
-import { Team, TeamId } from './model/team';
+import { Job, JobId } from './model/jobs';
 import { Project, ProjectId } from './model/project';
-import { Patent, PatentId } from './model/patent';
+import { Post, PostId } from './model/post';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -12,18 +12,18 @@ import { map } from 'rxjs/operators';
 })
 export class FirebaseService {
 
-  teamCollection: AngularFirestoreCollection<Team>; //Given collection in the backend firestore ddbb
-  team: Observable<Team[]>; //Object observable who will store the data
+  jobCollection: AngularFirestoreCollection<Job>; //Given collection in the backend firestore ddbb
+  job: Observable<Job[]>; //Object observable who will store the data
   introCollection: AngularFirestoreCollection<Intro>;
   intro: Observable<Intro[]>;
   projectCollection: AngularFirestoreCollection<Project>; //Given collection in the backend firestore ddbb
   project: Observable<Project[]>; //Object observable who will store the data
-  patentCollection: AngularFirestoreCollection<Patent>;
-  patent: Observable<Patent[]>;
+  postCollection: AngularFirestoreCollection<Post>;
+  post: Observable<Post[]>;
 
 
   constructor(private afs: AngularFirestore) {
-    this.teamCollection = this.afs.collection('team', ref => {
+    this.jobCollection = this.afs.collection('team', ref => {
       return ref.orderBy('importance')
     })
 
@@ -35,33 +35,33 @@ export class FirebaseService {
       return ref.orderBy('date', 'desc')
     })
 
-    this.patentCollection = this.afs.collection('patent', ref => {
+    this.postCollection = this.afs.collection('patent', ref => {
       return ref.orderBy('date', 'desc')
     })
   }
 
-  // TEAM DATA
-  retreiveTeam() {
-    return this.team = this.teamCollection.snapshotChanges().pipe(
-      map(teamMembers => teamMembers.map(a => {
-        const data = a.payload.doc.data() as Team;
+  // JOB DATA
+  retreiveJob() {
+    return this.job = this.jobCollection.snapshotChanges().pipe(
+      map(jobMembers => jobMembers.map(a => {
+        const data = a.payload.doc.data() as Job;
         const id = a.payload.doc.id;
         return { id, ...data };
       }))
     );
   }
 
-  addTeamMember(team: Team) {
-    this.teamCollection.add(team);
+  addJobMember(job: Job) {
+    this.jobCollection.add(job);
   }
 
-  updateTeamMember(team: TeamId) {
-    const newValue: Team = team;
-    this.teamCollection.doc(team.id).update(newValue);
+  updateJobMember(job: JobId) {
+    const newValue: Job = job;
+    this.jobCollection.doc(job.id).update(newValue);
   } 
 
-  removeTeamEntry(team: TeamId) {
-    this.teamCollection.doc(team.id).delete();
+  removeJobEntry(job: JobId) {
+    this.jobCollection.doc(job.id).delete();
   }
 
   // INTRO DATA
@@ -117,27 +117,27 @@ export class FirebaseService {
     }
 
     // PATENT DATA
-    retreivePatent() {
-      return this.patent = this.patentCollection.snapshotChanges().pipe(
-        map(patentEntries => patentEntries.map(a => {
-          const data = a.payload.doc.data() as Patent;
+    retreivePost() {
+      return this.post = this.postCollection.snapshotChanges().pipe(
+        map(postEntries => postEntries.map(a => {
+          const data = a.payload.doc.data() as Post;
           const id = a.payload.doc.id;
           return {id, ...data};
         }))
       );
     }
 
-    addPatentEntry(patent: Patent) {
-      this.patentCollection.add(patent);
+    addPostEntry(post: Post) {
+      this.postCollection.add(post);
     }
 
-    updatePatentEntry(patent: PatentId) {
-      const newValue: Patent = patent;
-      this.patentCollection.doc(patent.id).update(newValue);
+    updatePostEntry(post: PostId) {
+      const newValue: Post = post;
+      this.postCollection.doc(post.id).update(newValue);
     }
 
-    removePatentEntry(patent: PatentId) {
-      this.patentCollection.doc(patent.id).delete();
+    removePostEntry(post: PostId) {
+      this.postCollection.doc(post.id).delete();
     }
 
 

@@ -38,6 +38,7 @@ export class IntroEditComponent implements OnInit {
       title: ['', Validators.required],
       description: ['', Validators.required],
       url: [''],
+      loaded: [''],
       rows: [1, [Validators.required, Validators.min(1)]],
       cols: [1, [Validators.required, Validators.min(1)]],
       timestamp: new Date(),

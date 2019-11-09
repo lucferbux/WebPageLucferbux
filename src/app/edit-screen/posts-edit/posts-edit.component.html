@@ -1,4 +1,4 @@
-<form [formGroup]="patentForm" class="form-container" (ngSubmit)="submitHandlerPatent()">
+<form [formGroup]="postForm" class="form-container" (ngSubmit)="submitHandlerPost()">
   <br>
   <app-file-upload contenteditable="true" formControlName="image" [folder]="folderName" [filename]="fileName" [title]="titleDropdown"
       [subtitle]="subtitleDropdown" [widthCrop]=800 [heightCrop]=440 [avatarImage]=false [imageTitle]="imageTitleDropdown" [imageSubtitle]="imageSubtitleDropdown"> </app-file-upload>
@@ -35,7 +35,7 @@
       <mat-spinner *ngIf="loading" [diameter]="30" class="spinner-form"></mat-spinner>
 
       <button mat-raised-button color="accent" type="button" class="button-form" (click)="resetForm()">Reiniciar</button>
-      <button mat-raised-button color="primary" class="button-form" type="submit" [disabled]="patentForm.invalid">{{ id != null ? 'Modificar' : 'Crear' }}</button>
+      <button mat-raised-button color="primary" class="button-form" type="submit" [disabled]="postForm.invalid">{{ id != null ? 'Modificar' : 'Crear' }}</button>
 
   </div>
 

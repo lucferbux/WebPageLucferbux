@@ -1,36 +1,37 @@
 <div class="container">
-    <h1 class="mat-h1">Introducción</h1>
-      <div class="row align-items-center">
-        <div *ngFor="let card of cards" class="col-md-12 col-lg-6">
-            <mat-card class="dashboard-card mat-elevation-z8">
-                <mat-card-header>
-                  <mat-card-title class="card-header-title">
-                    <h2>{{card.title}}</h2>
-                    <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu" *ngIf="auth.user | async">
-                      <mat-icon>more_vert</mat-icon>
-                    </button>
-                    <mat-menu #menu="matMenu" xPosition="before">
-                      <button mat-menu-item (click)="editCard(card)">Edit</button>
-                      <button mat-menu-item  (click)="removeCard(card)" class="mat-menu-delete">Remove</button>
-                    </mat-menu>
-                  </mat-card-title>
-                  <mat-card-subtitle>{{card.timestamp.seconds * 1000 | date}}</mat-card-subtitle>
-                </mat-card-header>
-                <mat-divider>
-                </mat-divider>
-                <img mat-card-image class="intro-image" *ngIf="card.image" src={{card.image}} (load)="card.loaded = true" [hidden]="!card.loaded"
-                onerror="this.src='assets/loading.gif'" layout-fill>
-              <img mat-card-image class="intro-image" *ngIf="card.image" src="assets/loading.gif"
-              [hidden]="card.loaded" layout-fill>
-                <mat-card-content class="dashboard-card-content">
-                  <div *ngFor="let paragraph of card.description.split('\n')">
-                    {{paragraph}}
-                  </div>
-                </mat-card-content>
-                <mat-card-actions *ngIf="card.url">
-                  <button mat-button (click)="goToUrl(card.url)"><b>LINK</b></button>
-                </mat-card-actions>
-              </mat-card>
-        </div>
-      </div>
+  <h1 class="mat-h1">Introducción</h1>
+  <div class="row align-items-center">
+    <div *ngFor="let card of cards" class="col-md-12 col-lg-6">
+      <mat-card class="dashboard-card mat-elevation-z8">
+        <mat-card-header>
+          <mat-card-title class="card-header-title">
+            <h2>{{card.title}}</h2>
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu"
+              *ngIf="auth.user | async">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item (click)="editCard(card)">Edit</button>
+              <button mat-menu-item (click)="removeCard(card)" class="mat-menu-delete">Remove</button>
+            </mat-menu>
+          </mat-card-title>
+          <mat-card-subtitle>{{card.timestamp.seconds * 1000 | date}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-divider>
+        </mat-divider>
+        <img mat-card-image class="intro-image" *ngIf="card.image" src={{card.image}} (load)="card.loaded = true"
+          [hidden]="!card.loaded" onerror="this.src='assets/loading.gif'" layout-fill>
+        <img mat-card-image class="intro-image" *ngIf="card.image" src="assets/loading.gif" [hidden]="card.loaded"
+          layout-fill>
+        <mat-card-content class="dashboard-card-content">
+          <div *ngFor="let paragraph of card.description.split('\n')">
+            {{paragraph}}
+          </div>
+        </mat-card-content>
+        <mat-card-actions *ngIf="card.url">
+          <button mat-button (click)="goToUrl(card.url)"><b>LINK</b></button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>
+</div>

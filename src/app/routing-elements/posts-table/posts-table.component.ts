@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
-import { PatentsTableDataSource } from './patents-table-datasource';
+import { PostTableDataSource } from './posts-table-datasource';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { PatentId } from '../../model/patent';
+import { PostId } from '../../model/post';
 import { FirebaseService } from '../../firebase.service';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
@@ -12,9 +12,9 @@ import { Observable } from 'rxjs';
 
 
 @Component({
-  selector: 'routing-elements/patents-table',
-  templateUrl: './patents-table.component.html',
-  styleUrls: ['./patents-table.component.css'],
+  selector: 'routing-elements/posts-table',
+  templateUrl: './posts-table.component.html',
+  styleUrls: ['./posts-table.component.css'],
   animations: [
     trigger('detailExpand', [
       state('void', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
@@ -23,10 +23,10 @@ import { Observable } from 'rxjs';
     ]),
   ],
 })
-export class PatentsTableComponent implements OnInit {
+export class PostsTableComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort,  {static: true}) sort: MatSort;
-  dataSource: PatentsTableDataSource;
+  dataSource: PostTableDataSource;
   logged: Observable<Boolean>;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
@@ -45,27 +45,27 @@ export class PatentsTableComponent implements OnInit {
     );
   }
   ngOnInit() {
-    this.dataSource = new PatentsTableDataSource(this.paginator, this.sort, []);
+    this.dataSource = new PostTableDataSource(this.paginator, this.sort, []);
     
-    this.getPatents();
+    this.getPosts();
   }
 
-  getPatents() : void {
-    this.tfs.retreivePatent().subscribe(
-      (patents: PatentId[]) =>  {
-        this.dataSource = new PatentsTableDataSource(this.paginator, this.sort, patents);
+  getPosts() : void {
+    this.tfs.retreivePost().subscribe(
+      (posts: PostId[]) =>  {
+        this.dataSource = new PostTableDataSource(this.paginator, this.sort, posts);
         console.log(this.dataSource);
       }
     )
   }
 
-  editRow(row: PatentId) {
-    this.editService.editPatentSource(row);
-    this.router.navigate(["/edit/patents"]);
+  editRow(row: PostId) {
+    this.editService.editPostSource(row);
+    this.router.navigate(["/edit/posts"]);
   }
 
-  deleteRow(row: PatentId) {
-    this.tfs.removePatentEntry(row);
+  deleteRow(row: PostId) {
+    this.tfs.removePostEntry(row);
   }
 
   goToUrl(url:string) {

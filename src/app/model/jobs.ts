@@ -1,4 +1,4 @@
-export interface Team {
+export interface Job {
     name: string;
     cols: number;
     rows: number;
@@ -8,6 +8,6 @@ export interface Team {
     importance: number;
 }
 
-export interface TeamId extends Team {
+export interface JobId extends Job {
     id: string;
 }
