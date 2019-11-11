@@ -34,8 +34,8 @@
   <div class="create-div">
       <mat-spinner *ngIf="loading" [diameter]="30" class="spinner-form"></mat-spinner>
 
-      <button mat-raised-button color="accent" type="button" class="button-form" (click)="resetForm()">Reiniciar</button>
-      <button mat-raised-button color="primary" class="button-form" type="submit" [disabled]="postForm.invalid">{{ id != null ? 'Modificar' : 'Crear' }}</button>
+      <button mat-raised-button color="accent" type="button" class="button-form" (click)="resetForm()" aria-label="Reset">Reiniciar</button>
+      <button mat-raised-button color="primary" class="button-form" type="submit" [disabled]="postForm.invalid" aria-label="Modify">{{ id != null ? 'Modificar' : 'Crear' }}</button>
 
   </div>
 

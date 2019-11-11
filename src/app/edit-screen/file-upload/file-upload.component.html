@@ -1,6 +1,6 @@
 <mat-card appDropZone class="dropzone" (hovered)="toggleHover($event)" (dropped)="fileChangeListener($event)" [class.hovering]="isHovering">
     <mat-card-header *ngIf="downloadURL | async as url">
-        <img mat-card-avatar *ngIf="avatarImage" class="header-image" src={{url}}>
+        <img mat-card-avatar *ngIf="avatarImage" class="header-image" src={{url}} alt="Uploaded Image">
         <mat-card-title>{{ imageTitle }}</mat-card-title>
         <mat-card-subtitle>{{ imageSubtitle }}</mat-card-subtitle>
     </mat-card-header>
@@ -12,7 +12,7 @@
     </mat-divider>
 
     <div *ngIf="!avatarImage">
-        <img matCardImage *ngIf="downloadURL | async as url" class="intro-image" src={{url}}>
+        <img matCardImage *ngIf="downloadURL | async as url" class="intro-image" src={{url}} alt="Uploaded Image">
     </div>
     
 
@@ -20,7 +20,7 @@
         <h2 class="mat-h2">{{title}}</h2>
         <p>{{subtitle}}</p>
 
-        <button class="pure-material-button-contained" type="button" color="primary" (click)="imageUpload.click()" >
+        <button class="pure-material-button-contained" type="button" color="primary" (click)="imageUpload.click()" aria-label="Select Image" >
             <span>Select Image</span>
         </button>
 
@@ -36,7 +36,7 @@
 
         <br>
 
-        <button *ngIf="(snapshot | async) as snap" type="button" (click)="task.cancel()" [disabled]="!isActive(snap)" mat-raised-button color="accent">Cancel</button>
+        <button *ngIf="(snapshot | async) as snap" type="button" (click)="task.cancel()" [disabled]="!isActive(snap)" mat-raised-button color="accent" aria-label="Cancel">Cancel</button>
 
         <br>
     </mat-card-content>

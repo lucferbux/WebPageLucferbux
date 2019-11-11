@@ -8,7 +8,7 @@
 
         <span class="example-spacer"></span>
 
-        <button mat-button [matMenuTriggerFor]="menu">
+        <button mat-button [matMenuTriggerFor]="menu" aria-label="Menu">
           <mat-icon>more_vert</mat-icon>
         </button>
 
@@ -17,14 +17,14 @@
           <!-- User NOT logged in -->
           <ng-template #guest>
             <button mat-menu-item [routerLink]="['/login']" routerLinkActive="active"
-              [routerLinkActiveOptions]="{exact:true}">
+              [routerLinkActiveOptions]="{exact:true}" aria-label="Login">
               <mat-icon>account_box</mat-icon>
               <span>Iniciar Sesión</span>
             </button>
           </ng-template>
           <!-- User logged in -->
           <ng-template #authenticated>
-            <button mat-menu-item (click)="signOut()">
+            <button mat-menu-item (click)="signOut()" aria-label="Logout">
               <mat-icon>power_settings_new</mat-icon>
               <span>Cerrar Sesión</span>
             </button>
@@ -38,7 +38,7 @@
       <mat-list-item *ngFor="let icon of linksActive" (click)="drawer.close()" [routerLink]="icon.link"
         routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
         <mat-icon mat-list-icon>{{icon.image}}</mat-icon>
-        <a mat-line>{{ icon.text }}</a>
+        <a mat-line aria-label="Link">{{ icon.text }}</a>
       </mat-list-item>
     </mat-nav-list>
 
@@ -52,17 +52,18 @@
         <div *ngIf="isHandset">
           <a mat-button *ngFor="let icon of linksActive" [routerLink]="icon.link" routerLinkActive="active"
             [routerLinkActiveOptions]="{exact:true}">
-            <a mat-line>{{ icon.text }}</a>
+            <a mat-line aria-label="Link">{{ icon.text }}</a>
           </a>
         </div>
-        <button mat-button [matMenuTriggerFor]="menu">
-            <mat-icon>more_vert</mat-icon>
-          </button>
+        <button mat-button [matMenuTriggerFor]="menu" aria-label="Menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
       </mat-toolbar-row>
       <mat-toolbar-row *ngIf="!isHandset">
-        <nav mat-tab-nav-bar mat-stretch-tabs="yes" class="primary-bar" >
-          <a mat-tab-link  class="tab-links" *ngFor="let icon of linksActive" [routerLink]="icon.link" matTooltip="{{icon.text}}"
-            routerLinkActive #rla="routerLinkActive" [active]="rla.isActive" >
+        <nav mat-tab-nav-bar mat-stretch-tabs="yes" class="primary-bar">
+          <a mat-tab-link class="tab-links" *ngFor="let icon of linksActive" [routerLink]="icon.link"
+            matTooltip="{{icon.text}}" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive"
+            aria-label="Link">
             <mat-icon>{{icon.image}}</mat-icon>
           </a>
         </nav>
@@ -76,15 +77,17 @@
 
     <footer class="custom-footer">
       <div class="social-footer">
-        <button mat-raised-button color="primary" (click)="goTwitter()" class="social-button">
+        <button mat-raised-button color="primary" (click)="goTwitter()" class="social-button"
+          aria-label="Twitter Button">
           <mat-icon class="footer-icon" svgIcon="twitter"></mat-icon>
           <span *ngIf="isHandset">Twitter</span>
         </button>
-        <button mat-raised-button color="primary" (click)="goLinkedin()" class="social-button">
+        <button mat-raised-button color="primary" (click)="goLinkedin()" class="social-button"
+          aria-label="Linkedin Button">
           <mat-icon class="footer-icon" svgIcon="linkedin"></mat-icon>
           <span *ngIf="isHandset">Linkedin</span>
         </button>
-        <button mat-raised-button color="primary" (click)="goGithub()" class="social-button">
+        <button mat-raised-button color="primary" (click)="goGithub()" class="social-button" aria-label="Github Button">
           <mat-icon class="footer-icon" svgIcon="github"></mat-icon>
           <span *ngIf="isHandset">Github</span>
         </button>

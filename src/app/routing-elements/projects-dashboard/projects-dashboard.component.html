@@ -11,16 +11,16 @@
         <mat-card-subtitle rtl>
           {{ project.description}}
         </mat-card-subtitle>
-        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu" *ngIf="auth.user | async">
+        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu" *ngIf="auth.user | async" aria-label="Menu Button">
           <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu" xPosition="before">
-          <button mat-menu-item (click)="editCard(project)">Edit</button>
-          <button mat-menu-item  (click)="removeCard(project)" class="mat-menu-delete">Remove</button>
+          <button mat-menu-item (click)="editCard(project)" aria-label="Edit">Edit</button>
+          <button mat-menu-item  (click)="removeCard(project)" class="mat-menu-delete" aria-label="Delete">Remove</button>
         </mat-menu>
 
         <mat-card-actions>
-          <button *ngIf="project.link" mat-button (click)="goToUrl(project.link)"><mat-icon>link</mat-icon></button>
+          <button *ngIf="project.link" mat-button (click)="goToUrl(project.link)" aria-label="External Link"><mat-icon>link</mat-icon></button>
           
         </mat-card-actions>
       </mat-card>

@@ -19,7 +19,7 @@
       <ng-container matColumnDef="link">
         <mat-header-cell *matHeaderCellDef>Link</mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <button mat-icon-button (click)="goToUrl(element.link)">
+          <button mat-icon-button (click)="goToUrl(element.link)" aria-label="External Link">
             <mat-icon>link</mat-icon>
           </button>
         </mat-cell>
@@ -33,8 +33,8 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #menu="matMenu" xPosition="before">
-            <button mat-menu-item (click)="editRow(element)">Edit</button>
-            <button mat-menu-item (click)="deleteRow(element)" class="mat-menu-delete">Remove</button>
+            <button mat-menu-item (click)="editRow(element)" aria-label="Edit">Edit</button>
+            <button mat-menu-item (click)="deleteRow(element)" class="mat-menu-delete" aria-label="Delete">Remove</button>
           </mat-menu>
         </mat-cell>
       </ng-container>
@@ -55,8 +55,8 @@
 <ng-template #tpl let-element>
   <div class="mat-row detail-row mat-column-expandedDetail" [@detailExpand] style="overflow: hidden">
     <img mat-card-image class="intro-image" src={{element.image}} (load)="element.loaded = true" [hidden]="!element.loaded"
-    onerror="this.src='assets/loading.gif'">
+    onerror="this.src='assets/loading.gif'" alt="Post Cover Image">
     <img mat-card-image class="intro-image" src="assets/loading.gif"
-  [hidden]="element.loaded" layout-fill>
+  [hidden]="element.loaded" layout-fill alt="Post Cover Image">
   </div>
 </ng-template>

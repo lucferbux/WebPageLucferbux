@@ -7,12 +7,12 @@
           <mat-card-title class="card-header-title">
             <h2>{{card.title}}</h2>
             <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu"
-              *ngIf="auth.user | async">
+              *ngIf="auth.user | async" aria-label="Menu Button">
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item (click)="editCard(card)">Edit</button>
-              <button mat-menu-item (click)="removeCard(card)" class="mat-menu-delete">Remove</button>
+              <button mat-menu-item (click)="editCard(card)" aria-label="Edit">Edit</button>
+              <button mat-menu-item (click)="removeCard(card)" class="mat-menu-delete" aria-label="Delete">Remove</button>
             </mat-menu>
           </mat-card-title>
           <mat-card-subtitle>{{card.timestamp.seconds * 1000 | date}}</mat-card-subtitle>
@@ -20,16 +20,16 @@
         <mat-divider>
         </mat-divider>
         <img mat-card-image class="intro-image" *ngIf="card.image" src={{card.image}} (load)="card.loaded = true"
-          [hidden]="!card.loaded" onerror="this.src='assets/loading.gif'" layout-fill>
+          [hidden]="!card.loaded" onerror="this.src='assets/loading.gif'" layout-fill alt="Cover Image">
         <img mat-card-image class="intro-image" *ngIf="card.image" src="assets/loading.gif" [hidden]="card.loaded"
-          layout-fill>
+          layout-fill alt="Cover Image Not Loaded">
         <mat-card-content class="dashboard-card-content">
           <div *ngFor="let paragraph of card.description.split('\n')">
             {{paragraph}}
           </div>
         </mat-card-content>
         <mat-card-actions *ngIf="card.url">
-          <button mat-button (click)="goToUrl(card.url)"><b>LINK</b></button>
+          <button mat-button (click)="goToUrl(card.url)" aria-label="External Link"><b>LINK</b></button>
         </mat-card-actions>
       </mat-card>
     </div>

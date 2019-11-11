@@ -49,9 +49,9 @@
         <mat-spinner *ngIf="loading" [diameter]="30" class="spinner-form"></mat-spinner>
 
         <button mat-raised-button color="accent" type="button" class="button-form"
-            (click)="resetForm()">Reiniciar</button>
+            (click)="resetForm()" aria-label="Reset Form">Reiniciar</button>
         <button mat-raised-button color="primary" class="button-form" type="submit"
-            [disabled]="introForm.invalid">{{ id != null ? 'Modificar' : 'Crear' }}</button>
+            [disabled]="introForm.invalid" aria-label="Select Image">{{ id != null ? 'Modificar' : 'Crear' }}</button>
 
     </div>
 

@@ -10,12 +10,12 @@
         [style.display]="cropperReady ? null : 'none'"
         ></image-cropper>
                 
-        <button class="button-sheet" color="primary" mat-raised-button (click)="uploadTrimmedImage()">
+        <button class="button-sheet" color="primary" mat-raised-button (click)="uploadTrimmedImage()" aria-label="Upload Image">
                 <mat-icon>backup</mat-icon>
                 <span>Upload Image</span>
         </button>
         
-        <button class="button-sheet" color="warn" mat-raised-button (click)="bottomSheetRef.dismiss()">
+        <button class="button-sheet" color="warn" mat-raised-button (click)="bottomSheetRef.dismiss()" aria-label="Cancel Upload">
                 <mat-icon>clear</mat-icon>
                 <span>Cancel</span>
         </button>

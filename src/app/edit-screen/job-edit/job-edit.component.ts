@@ -35,6 +35,7 @@ export class JobEditComponent implements OnInit {
       rows: [1, [Validators.required, Validators.min(1)]],
       description: ['', Validators.required],
       avatar: ['', Validators.required],
+      loaded: [''],
       job: ['', Validators.required],
       importance: [0, [Validators.required, Validators.min(1)]]
     })

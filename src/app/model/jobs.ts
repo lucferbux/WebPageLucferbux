@@ -4,6 +4,7 @@ export interface Job {
     rows: number;
     description: string;
     avatar: string;
+    loaded: boolean;
     job: string;
     importance: number;
 }
