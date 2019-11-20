@@ -71,6 +71,7 @@ export class NavLucferbuxComponent {
         this.breakpointObserver.observe([Breakpoints.Small]).subscribe(result => {   if(result.matches){ this.isHandset = true }  })
         this.breakpointObserver.observe([Breakpoints.Medium]).subscribe(result => { if(result.matches){ this.isHandset = true } })
         this.breakpointObserver.observe([Breakpoints.Large]).subscribe(result => { if(result.matches){ this.isHandset = true } })
+        this.breakpointObserver.observe([Breakpoints.XLarge]).subscribe(result => { if(result.matches){ this.isHandset = true } })
 
         this.logged.subscribe(
           (active: Boolean) => {
