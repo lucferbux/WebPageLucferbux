@@ -147,14 +147,14 @@ export class FileUploadComponent implements ControlValueAccessor { //ControlValu
 
 }
 
-
+import { ImageCroppedEvent } from 'ngx-image-cropper';
 @Component({
   selector: 'app-image-edit-sheet',
   templateUrl: './image-edit.component-sheet.html',
   styleUrls: ['./file-upload.component.scss']
 })
 export class ImageEditComponentSheet {
-  dataPhoto: any;
+  croppedImage: any;
   image: any;
   cropperReady = false;
 
@@ -163,19 +163,31 @@ export class ImageEditComponentSheet {
     this.image = this.sharingImage.image;
   }
 
-  imageCroppedFile(file: any) {
-    this.dataPhoto = file;
+ 
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = this.b64toBlob(event.base64);
   }
+
+  b64toBlob(dataURI) {
+    var byteString = atob(dataURI.split(',')[1]);
+    var ab = new ArrayBuffer(byteString.length);
+    var ia = new Uint8Array(ab);
+
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+    return new Blob([ab], { type: 'image/png' });
+}
 
   imageLoaded() {
     this.cropperReady = true;
   }
   imageLoadFailed() {
-    console.log('Load failed');
+
   }
 
   uploadTrimmedImage() {
-    this.sharingImage.imageSelected.emit(this.dataPhoto);
+    this.sharingImage.imageSelected.emit(this.croppedImage);
     this.bottomSheetRef.dismiss();
   }
 }
