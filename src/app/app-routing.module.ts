@@ -24,7 +24,8 @@ const routes: Routes = [
         {path: 'aboutme', component: JobEditComponent},
         {path: 'projects', component: ProjectsEditComponent},
         {path: 'posts', component: PostsEditComponent}
-    ]}
+    ]},
+    { path: '**', redirectTo: 'news', pathMatch: 'full' }
 ];
 
 @NgModule({
