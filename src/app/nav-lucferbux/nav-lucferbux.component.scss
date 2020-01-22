@@ -2,6 +2,11 @@
 @import '../../styles-variables';
 @import '~@angular/material/theming';
 
+// Sticy notes
+.all-wrap {
+  min-height: 100vh; // same height as browser window height
+}
+
 .sidenav-container {
   display: flex;
   flex-direction: column;
@@ -27,12 +32,6 @@
   top: 0;
   z-index: 1;
 }
-
-
-// Sticy notes
-.all-wrap {
-  min-height: 100vh; // same height as browser window height
-}
  
 .page-wrap {
   display: flex;
@@ -56,9 +55,16 @@
 }
 
 .webpage-icon {
-
+  
   height: 35px;
   width: 35px;
+}
+
+::ng-deep .logo-icon {
+  fill: #000000;
+  @media (prefers-color-scheme: dark) {
+    fill: #ffffff;
+  }
 }
 
 .social-button {
@@ -77,21 +83,45 @@ main {
   // Select all direct descendants only of the <main> element
   // that are not <router-outlet> elements:
   > *:not(router-outlet) {
- 
     flex: 1; // child will set to an equal size inside the container
     display: block;
  
   }
- 
 }
 
-
 .mat-tab-link {
-  color: #ffffff;
+  color: #000000;
+  @media (prefers-color-scheme: dark) {
+    color: #ffffff;
+  }
+}
+
+.mat-tab-nav-bar {
+  border-bottom: none;
+}
+
+:host ::ng-deep.mat-button:not([class*=mat-elevation-z]) {
+
+  &:active {
+      box-shadow: inset -6px 5px 10px rgb(255, 255, 255),
+        inset 6px -5px 10px rgba(0, 0, 0, 0.17);
+  }
+
+  @media (prefers-color-scheme: dark) {
+
+      &:active {
+          box-shadow: inset -6px 5px 10px rgb(57, 57, 57),
+                      inset 6px -5px 10px rgba(0, 0, 0, 0.55);
+      }
+  }
 }
 
 ::ng-deep .primary-bar .mat-ink-bar {
-  background-color:#ffffff !important;
+  
+  background-color:#000000 !important;
+  @media (prefers-color-scheme: dark) {
+    background-color:#ffffff !important;
+  }
 }
 
 ::ng-deep .primary-bar .mat-tab-header-pagination-chevron {

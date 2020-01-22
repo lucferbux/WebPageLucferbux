@@ -1,50 +1,26 @@
 <mat-sidenav-container class="all-wrap">
-  <mat-sidenav #drawer class="sidenav" [fixedInViewport]="true" [attr.role]="isHandset ? 'dialog' : 'navigation'"
-    [opened]="false">
-
-    <mat-toolbar class="mat-primary" color="primary">
-      <mat-toolbar-row>
-        <span>Menu</span>
-
-        <span class="example-spacer"></span>
-
-        <button mat-button [matMenuTriggerFor]="menu" aria-label="Menu">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-
-        <mat-menu #menu="matMenu" [overlapTrigger]="false">
-          <div *ngIf="auth.user | async; then authenticated else guest"></div>
-          <!-- User NOT logged in -->
-          <ng-template #guest>
-            <button mat-menu-item [routerLink]="['/login']" routerLinkActive="active"
-              [routerLinkActiveOptions]="{exact:true}" aria-label="Login">
-              <mat-icon>account_box</mat-icon>
-              <span>Iniciar Sesión</span>
-            </button>
-          </ng-template>
-          <!-- User logged in -->
-          <ng-template #authenticated>
-            <button mat-menu-item (click)="signOut()" aria-label="Logout">
-              <mat-icon>power_settings_new</mat-icon>
-              <span>Cerrar Sesión</span>
-            </button>
-          </ng-template>
-        </mat-menu>
-      </mat-toolbar-row>
-    </mat-toolbar>
-
-
-    <mat-nav-list>
-      <mat-list-item *ngFor="let icon of linksActive" (click)="drawer.close()" [routerLink]="icon.link"
-        routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-        <mat-icon mat-list-icon>{{icon.image}}</mat-icon>
-        <a mat-line aria-label="Link">{{ icon.text }}</a>
-      </mat-list-item>
-    </mat-nav-list>
-
-
-  </mat-sidenav>
   <mat-sidenav-content class="page-wrap">
+    <!-- Mat menu -->
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <div *ngIf="auth.user | async; then authenticated else guest"></div>
+      <!-- User NOT logged in -->
+      <ng-template #guest>
+        <button mat-menu-item [routerLink]="['/login']" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}" aria-label="Login">
+          <mat-icon>account_box</mat-icon>
+          <span>Iniciar Sesión</span>
+        </button>
+      </ng-template>
+      <!-- User logged in -->
+      <ng-template #authenticated>
+        <button mat-menu-item (click)="signOut()" aria-label="Logout">
+          <mat-icon>power_settings_new</mat-icon>
+          <span>Cerrar Sesión</span>
+        </button>
+      </ng-template>
+    </mat-menu>
+
+    <!-- Main toolbar -->
     <mat-toolbar color="primary">
       <mat-toolbar-row>
         <mat-icon class="webpage-icon" svgIcon="webpage"></mat-icon>
@@ -68,32 +44,30 @@
           </a>
         </nav>
       </mat-toolbar-row>
-
-
     </mat-toolbar>
+
+    <!-- Router Outlet -->
     <main class="content">
       <router-outlet></router-outlet>
     </main>
 
+    <!-- Footer -->
     <footer class="custom-footer">
       <div class="social-footer">
-        <button mat-raised-button color="primary" (click)="goTwitter()" class="social-button"
-          aria-label="Twitter Button">
+        <button mat-raised-button (click)="goTwitter()" class="social-button" aria-label="Twitter Button">
           <mat-icon class="footer-icon" svgIcon="twitter"></mat-icon>
           <span *ngIf="isHandset">Twitter</span>
         </button>
-        <button mat-raised-button color="primary" (click)="goLinkedin()" class="social-button"
-          aria-label="Linkedin Button">
+        <button mat-raised-button (click)="goLinkedin()" class="social-button" aria-label="Linkedin Button">
           <mat-icon class="footer-icon" svgIcon="linkedin"></mat-icon>
           <span *ngIf="isHandset">Linkedin</span>
         </button>
-        <button mat-raised-button color="primary" (click)="goGithub()" class="social-button" aria-label="Github Button">
+        <button mat-raised-button (click)="goGithub()" class="social-button" aria-label="Github Button">
           <mat-icon class="footer-icon" svgIcon="github"></mat-icon>
           <span *ngIf="isHandset">Github</span>
         </button>
       </div>
-
     </footer>
-  </mat-sidenav-content>
 
+  </mat-sidenav-content>
 </mat-sidenav-container>

@@ -52,6 +52,11 @@ export class ProjectDashboardComponent implements OnInit {
   }
 
   goToUrl(url:string) {
-    window.open(url, "_blank");
+    if(url != null){
+      window.open(url, "_blank");
+    } 
   } 
+
+  
+
 }

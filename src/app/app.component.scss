@@ -1,38 +1,158 @@
 
 @import '~@angular/material/theming';
+@import '../styles-variables.scss';
 
 .theme-wrapper {
     height: 100%;
     width: 100%;
 }
 
+:host ::ng-deep.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: -5px -5px 8px rgba(255, 255, 255, 0.85), 6px 6px 15px rgba(0, 0, 0, 0.17);
+    
+    &:hover {
+        box-shadow: -3px -3px 4px rgba(255, 255, 255, 1), 
+                    4px 3px 10px rgba(0, 0, 0, 0.30);
+    }
 
+    @media (prefers-color-scheme: dark) {
+        box-shadow: -4px -4px 10px rgba(57, 57, 57, 0.95), 
+                    4px 4px 15px rgba(0, 0, 0, 0.55);
+
+        &:hover {
+            box-shadow: -4px -4px 6px rgba(57, 57, 57, 1), 
+                        4px 4px 10px rgba(0, 0, 0, 0.62);
+        }
+    }
+}
+
+:host ::ng-deep.clickable:not([class*=mat-elevation-z]) {
+    cursor: pointer;
+
+    &:active {
+        box-shadow: inset -6px 5px 10px rgb(255, 255, 255),
+					inset 6px -5px 10px rgba(0, 0, 0, 0.17);
+    }
+
+    @media (prefers-color-scheme: dark) {
+
+        &:active {
+            box-shadow: inset -6px 5px 10px rgb(57, 57, 57),
+                        inset 6px -5px 10px rgba(0, 0, 0, 0.55);
+        }
+    }
+}
+
+:host ::ng-deep.mat-card{
+    border-radius: 15px !important;
+    background: $ligth-color-body;
+    @media (prefers-color-scheme: dark) {
+        background: $dark-color-body;
+    }
+}
+
+
+:host ::ng-deep.clickable{
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+
+    &:hover {
+        transform: scale(1.02);
+    }
+}
+
+@keyframes card-animation {
+    0% {
+        transform: scale(0);
+
+    }
+    100% {
+        transform: scale(1.0);
+
+    }
+}
+
+
+:host ::ng-deep.mat-raised-button:not([class*=mat-elevation-z]) {
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.85), 
+                6px 6px 15px rgba(0, 0, 0, 0.15);
+    
+    &:hover {
+        box-shadow: -4px -4px 6px rgba(255, 255, 255, 1), 
+                    4px 4px 10px rgba(0, 0, 0, 0.22);
+    }
+
+    &:active {
+        box-shadow: inset -6px 5px 10px rgb(255, 255, 255),
+					inset 6px -5px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        box-shadow: -3px -3px 5px rgba(57, 57, 57, 0.95), 
+                    4px 4px 15px rgba(0, 0, 0, 0.55);
+
+        &:active {
+            box-shadow: inset -6px 5px 10px rgb(57, 57, 57),
+                        inset 6px -5px 10px rgba(0, 0, 0, 0.55);
+        }
+    }
+}
+
+:host ::ng-deep.mat-raised-button{
+    background: $ligth-color-body;
+
+    @media (prefers-color-scheme: dark) {
+        background: $dark-color-body;
+    }
+}
+
+
+// Material Color
 @mixin lwp-component-theme($theme) {
     $primary: map-get($theme, primary);
     $accent: map-get($theme, accent);
     $warn: map-get($theme, warn);
     
-    .mat-card{
+    :host ::ng-deep .mat-card{
         background-color: mat-color($accent);
-        border-radius: 10px !important;
+    }
+
+    .mat-toolbar {
+        box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.8);
     }
 
     .mat-header-row {
-        background-color: mat-color($primary);
+        //background-color: mat-color($primary);
+        background-color: $ligth-color-body;
+        @media (prefers-color-scheme: dark) {
+            background-color: $dark-color-body;
+        }
     }
 
     mat-header-cell, .mat-header-cell {
-        color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        font-size:15px;
+        font-weight: bold;
+        @media (prefers-color-scheme: dark) {
+            color: rgb(255, 255, 255);
+        }
     }
 
     .mat-table{
-        background-color: mat-color($accent);
+        //background-color: mat-color($accent);
+        background-color: $ligth-color-body;
         border-radius: 10px !important;
+        @media (prefers-color-scheme: dark) {
+            background-color: $dark-color-body;
+        }
     }
 
-    .custom-footer {
-        background-color: mat-color($accent);
-      }
+    mat-paginator {
+        background: $ligth-color-body;
+        background-color: $ligth-color-body;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
 
       .pure-material-button-contained {
         background-color: mat-color($primary, darker);
@@ -46,6 +166,25 @@
         }
     
     }
+
+    .mat-toolbar.mat-primary {
+        margin: 20px 10px 0px 10px;
+        width: calc(100% - 20px);
+        background: $ligth-color-body;
+        color: #000000;
+        @media (prefers-color-scheme: dark) {
+          background: $dark-color-body;
+          color: #ffffff;
+        }
+        border-radius: 15px !important;
+        box-shadow: -5px -5px 8px rgba(255, 255, 255, 0.85), 
+                    6px 6px 15px rgba(0, 0, 0, 0.17);
+      
+        @media (prefers-color-scheme: dark) {
+          box-shadow: -4px -4px 10px rgba(57, 57, 57, 0.95), 
+                      4px 4px 15px rgba(0, 0, 0, 0.55);
+        }
+      }
 
     code {
         color: mat-color($primary, lighter-contrast);

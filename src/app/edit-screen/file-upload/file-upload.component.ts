@@ -157,6 +157,7 @@ export class ImageEditComponentSheet {
   croppedImage: any;
   image: any;
   cropperReady = false;
+  file: "base64";
 
 
   constructor(public bottomSheetRef: MatBottomSheetRef<ImageEditComponentSheet>, private sharingImage: ImageSharingService, @Inject(MAT_BOTTOM_SHEET_DATA) public data: any) {

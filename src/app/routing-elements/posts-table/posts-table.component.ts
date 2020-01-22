@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'routing-elements/posts-table',
   templateUrl: './posts-table.component.html',
-  styleUrls: ['./posts-table.component.css'],
+  styleUrls: ['./posts-table.component.scss'],
   animations: [
     trigger('detailExpand', [
       state('void', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
@@ -54,7 +54,6 @@ export class PostsTableComponent implements OnInit {
     this.tfs.retreivePost().subscribe(
       (posts: PostId[]) =>  {
         this.dataSource = new PostTableDataSource(this.paginator, this.sort, posts);
-        console.log(this.dataSource);
       }
     )
   }

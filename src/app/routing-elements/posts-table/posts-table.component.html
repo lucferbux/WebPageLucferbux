@@ -1,6 +1,6 @@
 <div class="container">
   <h1 class="mat-h1">Articulos</h1>
-  <div class="mat-elevation-z12 rounded-table">
+  <div class="rounded-table">
     <mat-table  #table [dataSource]="dataSource" matSort aria-label="Elements">
 
       <!-- Title Column -->
@@ -17,7 +17,7 @@
 
       <!-- Link Column -->
       <ng-container matColumnDef="link">
-        <mat-header-cell *matHeaderCellDef>Link</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let element">
           <button mat-icon-button (click)="goToUrl(element.link)" aria-label="External Link">
             <mat-icon>link</mat-icon>
@@ -27,7 +27,7 @@
 
       <!-- More Column-->
       <ng-container matColumnDef="more">
-        <mat-header-cell *matHeaderCellDef>+</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let element">
           <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
             <mat-icon>more_vert</mat-icon>
@@ -41,13 +41,13 @@
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row" [cdkDetailRow]="row"
-        [cdkDetailRowTpl]="tpl">
+        [cdkDetailRowTpl]="tpl" [expanded]="true">
       </mat-row>
 
     </mat-table>
 
-    <mat-paginator #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="25"
-      [pageSizeOptions]="[25, 50, 100, 250]">
+    <mat-paginator #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="10"
+      [pageSizeOptions]="[10, 25, 50]">
     </mat-paginator>
   </div>
 </div>

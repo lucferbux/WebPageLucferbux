@@ -31,7 +31,7 @@ export class IntroductionDashboardComponent {
   editCard(card: IntroId) {
     //Update Card
     this.editService.editIntroSource(card);
-    this.router.navigate(["/edit/introduction"]);
+    this.router.navigate(["/edit/news"]);
   }
 
   removeCard(card: IntroId) {

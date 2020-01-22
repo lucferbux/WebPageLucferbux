@@ -8,6 +8,7 @@
 .dashboard-card {
   position: relative;
   margin: 0 0 20px 0;
+  
   @media screen and (max-width: map-get($grid-breakpoints, lg)) {
     left: 0px;
     right: 0px;
@@ -19,8 +20,25 @@
 
 }
 
+:host ::ng-deep.dashboard-card:not([class*=mat-elevation-z]) {
+
+
+  &:active {
+    box-shadow: -3px -3px 4px rgba(255, 255, 255, 1), 
+                    4px 3px 8px rgba(0, 0, 0, 0.23);
+  }
+
+  @media (prefers-color-scheme: dark) {
+
+        &:active {
+          box-shadow: -4px -4px 6px rgba(57, 57, 57, 1), 
+                        4px 4px 10px rgba(0, 0, 0, 0.62);
+      }
+      
+  }
+}
+
 .dashboard-card-content {
-  margin-top: 20px;
   text-align: left;
 }
 

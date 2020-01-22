@@ -1,4 +1,5 @@
 @import '~@angular/material/theming';
+@import '../styles-variables.scss';
 @include mat-core;
 
 $mat-dark-primary: (
@@ -73,7 +74,7 @@ $mat-dark-secondary: (
 $lwp-dark-primary: mat-palette($mat-dark-primary);
 $lwp-dark-accent: mat-palette($mat-dark-secondary);
 $lwp-dark-warn: mat-palette($mat-red, 500);
-$custom-background-color: #000000;
+$custom-background-color: $dark-color-body;
 
 $lwp-dark-theme: mat-dark-theme(
   $lwp-dark-primary,

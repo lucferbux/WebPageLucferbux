@@ -51,7 +51,7 @@ export class PostsEditComponent implements OnInit {
       title: ['', Validators.required],
       description: ['', Validators.required],
       link: ['', Validators.required],
-      loaded: [''],
+      loaded: [false],
       date: [new Date, Validators.required],
       image: ''
     })
@@ -79,6 +79,7 @@ export class PostsEditComponent implements OnInit {
       if (this.id != null) {
         var id: string = this.id;
         var customEntry: PostId = { id, ...formValue };
+        customEntry.loaded = false;
         await this.tfs.updatePostEntry(customEntry);
       } else {
         await this.tfs.addPostEntry(formValue);
@@ -96,14 +97,17 @@ export class PostsEditComponent implements OnInit {
 
   resetForm() {
     this.postForm.reset();
+    this.fileUpload.resetData();
     this.postForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
       link: ['', Validators.required],
+      loaded: [false],
       date: [new Date, Validators.required],
       image: ''
     })
     this.id = null;
+    this.editData.editPostSource(null);
   }
 
   openSnackBar(message: string) {

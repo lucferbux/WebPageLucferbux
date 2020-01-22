@@ -31,11 +31,9 @@ export class JobEditComponent implements OnInit {
   ngOnInit() {
     this.jobForm = this.fb.group({
       name: ['', Validators.required],
-      cols: [1, [Validators.required, Validators.min(1)]],
-      rows: [1, [Validators.required, Validators.min(1)]],
       description: ['', Validators.required],
       avatar: ['', Validators.required],
-      loaded: [''],
+      loaded: [false],
       job: ['', Validators.required],
       importance: [0, [Validators.required, Validators.min(1)]]
     })
@@ -59,6 +57,7 @@ export class JobEditComponent implements OnInit {
       if (this.id != null) {
         var id: string = this.id;
         var customEntry: JobId = { id, ...formValue };
+        customEntry.loaded = false;
         await this.tfs.updateJobMember(customEntry);
       } else {
         await this.tfs.addJobMember(formValue);
@@ -79,14 +78,14 @@ export class JobEditComponent implements OnInit {
     this.fileUpload.resetData();
     this.jobForm = this.fb.group({
       name: ['', Validators.required],
-      cols: [1, [Validators.required, Validators.min(1)]],
-      rows: [1, [Validators.required, Validators.min(1)]],
       description: ['', Validators.required],
       avatar: ['', Validators.required],
       job: ['', Validators.required],
+      loaded: [false],
       importance: [0, [Validators.required, Validators.min(1)]]
     })
     this.id = null;
+    this.editData.editJobSource(null);
   }
 
   openSnackBar(message: string) {

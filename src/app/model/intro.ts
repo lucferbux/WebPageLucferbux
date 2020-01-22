@@ -4,8 +4,6 @@ export interface Intro {
     url: string;
     image: string;
     timestamp: Date;
-    cols: number;
-    rows: number;
     loaded: boolean;
 }
 

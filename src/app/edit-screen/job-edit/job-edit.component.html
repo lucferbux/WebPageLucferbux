@@ -1,4 +1,4 @@
-<form [formGroup]="jobForm" class="form-container" (ngSubmit)="submitHandlerJob()">
+<form [formGroup]="jobForm" (ngSubmit)="submitHandlerJob()">
   <br>
   <app-file-upload contenteditable="true" formControlName="avatar" 
   [folder]="folderName" [filename]="fileName"
@@ -6,55 +6,39 @@
   [widthCrop]=100 [heightCrop]=100> </app-file-upload>
   <br>
 
-  <mat-form-field hintLabel="Max. 30 Caracteres">
-    <input matInput #inputtitle placeholder="Nombre y Apellidos" formControlName="name">
-    <mat-hint align="end">{{inputtitle.value?.length || 0}}/30</mat-hint>
-  </mat-form-field>
-  <br>
+  <mat-card class="mat-elevation-z8 form-container">
+    <mat-form-field hintLabel="Max. 30 Caracteres">
+      <input matInput #inputtitle placeholder="Nombre y Apellidos" formControlName="name">
+      <mat-hint align="end">{{inputtitle.value?.length || 0}}/30</mat-hint>
+    </mat-form-field>
+    <br>
+  
+    <mat-form-field hintLabel="Max. 30 Caracteres">
+      <input matInput #inputjob placeholder="Departamentos" formControlName="job">
+      <mat-hint align="end">{{inputjob.value?.length || 0}}/30</mat-hint>
+    </mat-form-field>
+    <br>
+  
+    <mat-form-field hintLabel="No hay limites">
+      <textarea matInput #inputdes placeholder="Descripción" formControlName="description"></textarea>
+      <mat-hint align="end">{{inputdes.value?.length || 0}}</mat-hint>
+    </mat-form-field>
+    <br>
+  
+    <mat-form-field hintLabel="Id de importancia">
+      <input matInput #inputimportance placeholder="Importancia" formControlName="importance">
+      <mat-hint align="end">Id</mat-hint>
+    </mat-form-field>
+    <br>
+  
+    <div class="create-div">
+      <mat-spinner *ngIf="loading" [diameter]="30" class="spinner-form"></mat-spinner>
+      <button mat-raised-button color="accent" type="button" class="button-form" (click)="resetForm()" aria-label="Reset">Reiniciar</button>
+      <button mat-raised-button color="primary" class="button-form" type="submit" [disabled]="jobForm.invalid" aria-label="Create">{{ id != null ? 'Modificar' : 'Crear' }}</button>
+    </div>
+  </mat-card>
 
-  <mat-form-field hintLabel="Max. 30 Caracteres">
-    <input matInput #inputjob placeholder="Departamentos" formControlName="job">
-    <mat-hint align="end">{{inputjob.value?.length || 0}}/30</mat-hint>
-  </mat-form-field>
-  <br>
-
-  <mat-form-field hintLabel="No hay limites">
-    <textarea matInput #inputdes placeholder="Descripción" formControlName="description"></textarea>
-    <mat-hint align="end">{{inputdes.value?.length || 0}}</mat-hint>
-  </mat-form-field>
-  <br>
-
-  <mat-form-field hintLabel="Id de importancia">
-    <input matInput #inputimportance placeholder="Importancia" formControlName="importance">
-    <mat-hint align="end">Id</mat-hint>
-  </mat-form-field>
-  <br>
-
-  <mat-form-field>
-    <mat-select placeholder="Tamaño de columna" formControlName="cols">
-      <mat-option value="1">1</mat-option>
-      <mat-option value="2">2</mat-option>
-      <mat-option value="3">3</mat-option>
-    </mat-select>
-    <mat-hint align="end">Anchura de la ventana</mat-hint>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-select placeholder="Tamaño de fila" formControlName="rows">
-      <mat-option value="1">1</mat-option>
-      <mat-option value="2">2</mat-option>
-      <mat-option value="3">3</mat-option>
-    </mat-select>
-    <mat-hint align="end">Altura de la ventana</mat-hint>
-  </mat-form-field>
-
-  <br>
-
-  <div class="create-div">
-    <mat-spinner *ngIf="loading" [diameter]="30" class="spinner-form"></mat-spinner>
-    <button mat-raised-button color="accent" type="button" class="button-form" (click)="resetForm()" aria-label="Reset">Reiniciar</button>
-    <button mat-raised-button color="primary" class="button-form" type="submit" [disabled]="jobForm.invalid" aria-label="Create">{{ id != null ? 'Modificar' : 'Crear' }}</button>
-  </div>
+  
 
 
 </form>

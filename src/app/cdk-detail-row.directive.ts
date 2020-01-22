@@ -17,7 +17,8 @@ export class CdkDetailRowDirective {
   set cdkDetailRow(value: any) {
     if (value !== this.row) {
       this.row = value;
-      // this.render();
+      
+      //this.render();
     }
   }
 
@@ -25,7 +26,16 @@ export class CdkDetailRowDirective {
   set template(value: TemplateRef<any>) {
     if (value !== this.tRef) {
       this.tRef = value;
-      // this.render();
+      //this.render();
+      //this.opened = true;
+    }
+  }
+
+  @Input('expanded')
+  set expanded(value: boolean) {
+    if(value) {
+      this.opened = value;
+      this.render();
     }
   }
 

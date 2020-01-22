@@ -13,14 +13,14 @@ import { ProjectsEditComponent } from './edit-screen/projects-edit/projects-edit
 import { PostsEditComponent } from './edit-screen/posts-edit/posts-edit.component';
 
 const routes: Routes = [
-    {path: '', redirectTo: 'introduction', pathMatch: 'full'},
-    {path: 'introduction', component: IntroductionDashboardComponent},
+    {path: '', redirectTo: 'news', pathMatch: 'full'},
+    {path: 'news', component: IntroductionDashboardComponent},
     {path: 'aboutme', component: JobsDashboardComponent},
     {path: 'projects', component: ProjectDashboardComponent},
     {path: 'posts', component: PostsTableComponent},
     {path: 'login', component: LoginScreenComponent},
     {path: 'edit', component: EditScreenComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard], children: [
-        {path: 'introduction', component: IntroEditComponent},
+        {path: 'news', component: IntroEditComponent},
         {path: 'aboutme', component: JobEditComponent},
         {path: 'projects', component: ProjectsEditComponent},
         {path: 'posts', component: PostsEditComponent}

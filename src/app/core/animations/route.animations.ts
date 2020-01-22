@@ -73,21 +73,17 @@ export const routeAnimations = trigger('routeAnimations', [
 ]);
 
 export function isRouteAnimationsAll() {
-  console.log("Router animation all")
   return AnimationsService.isRouteAnimationsType('ALL');
 }
 
 export function isRouteAnimationsNone() {
-  console.log("Router animation none")
   return AnimationsService.isRouteAnimationsType('NONE');
 }
 
 export function isRouteAnimationsPage() {
-  console.log("Router animation page")
   return AnimationsService.isRouteAnimationsType('PAGE');
 }
 
 export function isRouteAnimationsElements() {
-  console.log("Router animation elements")
   return AnimationsService.isRouteAnimationsType('ELEMENTS');
 }

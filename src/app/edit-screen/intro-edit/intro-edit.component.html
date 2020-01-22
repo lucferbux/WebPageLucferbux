@@ -1,59 +1,42 @@
-<form [formGroup]="introForm" class="form-container" (ngSubmit)="submitHandlerIntro()">
+<form [formGroup]="introForm"  (ngSubmit)="submitHandlerIntro()">
     <br>
     <app-file-upload contenteditable="true" formControlName="image" [folder]="folderName" [filename]="fileName"
         [title]="titleDropdown" [subtitle]="subtitleDropdown" [widthCrop]=800 [heightCrop]=440 [avatarImage]=false
         [imageTitle]="imageTitleDropdown" [imageSubtitle]="imageSubtitleDropdown"> </app-file-upload>
     <br>
 
-    <mat-form-field hintLabel="Max. 30 Caracteres">
-        <input matInput #inputtitle placeholder="Título" formControlName="title">
-        <mat-hint align="end">{{inputtitle.value?.length || 0}}/30</mat-hint>
-    </mat-form-field>
-    <br>
+    <mat-card class="mat-elevation-z8 form-container">
+        <mat-form-field hintLabel="Max. 30 Caracteres">
+            <input matInput #inputtitle placeholder="Título" formControlName="title">
+            <mat-hint align="end">{{inputtitle.value?.length || 0}}/30</mat-hint>
+        </mat-form-field>
+        <br>
+    
+        <mat-form-field hintLabel="No hay limites">
+            <textarea matInput #inputdesc placeholder="Descripción" formControlName="description"></textarea>
+            <mat-hint align="end">{{inputdesc.value?.length || 0}}</mat-hint>
+        </mat-form-field>
+        <br>
+    
+        <mat-form-field hintLabel="Max. 30 Caracteres">
+            <input matInput #inputtitle placeholder="Link" formControlName="url">
+            <mat-hint align="end">{{inputtitle.value?.length || 0}}/100</mat-hint>
+        </mat-form-field>
+        <br>
+    
+    
+        <div class="create-div">
+            <mat-spinner *ngIf="loading" [diameter]="30" class="spinner-form"></mat-spinner>
+    
+            <button mat-raised-button color="accent" type="button" class="button-form"
+                (click)="resetForm()" aria-label="Reset Form">Reiniciar</button>
+            <button mat-raised-button color="primary" class="button-form" type="submit"
+                [disabled]="introForm.invalid" aria-label="Select Image">{{ id != null ? 'Modificar' : 'Crear' }}</button>
+    
+        </div>
+    </mat-card>
 
-    <mat-form-field hintLabel="No hay limites">
-        <textarea matInput #inputdesc placeholder="Descripción" formControlName="description"></textarea>
-        <mat-hint align="end">{{inputdesc.value?.length || 0}}</mat-hint>
-    </mat-form-field>
-    <br>
-
-    <mat-form-field hintLabel="Max. 30 Caracteres">
-        <input matInput #inputtitle placeholder="Link" formControlName="url">
-        <mat-hint align="end">{{inputtitle.value?.length || 0}}/100</mat-hint>
-    </mat-form-field>
-    <br>
-
-    <mat-form-field>
-        <mat-select placeholder="Tamaño de fila" formControlName="rows">
-            <mat-option value="1">1</mat-option>
-            <mat-option value="2">2</mat-option>
-            <mat-option value="3">3</mat-option>
-            <mat-option value="4">4</mat-option>
-            <mat-option value="5">5</mat-option>
-            <mat-option value="6">6</mat-option>
-        </mat-select>
-        <mat-hint align="end">Altura de la ventana</mat-hint>
-    </mat-form-field>
-    <br>
-
-    <mat-form-field>
-        <mat-select placeholder="Tamaño de columna" formControlName="cols">
-            <mat-option value="1">1</mat-option>
-            <mat-option value="2">2</mat-option>
-        </mat-select>
-        <mat-hint align="end">Anchura de la ventana</mat-hint>
-    </mat-form-field>
-    <br>
-
-    <div class="create-div">
-        <mat-spinner *ngIf="loading" [diameter]="30" class="spinner-form"></mat-spinner>
-
-        <button mat-raised-button color="accent" type="button" class="button-form"
-            (click)="resetForm()" aria-label="Reset Form">Reiniciar</button>
-        <button mat-raised-button color="primary" class="button-form" type="submit"
-            [disabled]="introForm.invalid" aria-label="Select Image">{{ id != null ? 'Modificar' : 'Crear' }}</button>
-
-    </div>
+    
 
 
 </form>

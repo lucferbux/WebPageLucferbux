@@ -27,7 +27,7 @@ export class NavLucferbuxComponent {
   isHandset = false;
 
   iconArrays = [
-    {link: "introduction", image: "home", text: "Introducción"},
+    {link: "news", image: "home", text: "Noticias"},
     {link: "aboutme", image: "face", text: "¿Quién soy?"},
     {link: "projects", image: "business_center", text: "Proyectos"},
     {link: "posts", image: "border_color", text: "Articulos"},
@@ -35,7 +35,7 @@ export class NavLucferbuxComponent {
   ]
 
   iconArraysAuth = [
-    {link: "edit/introduction", image: "build", text: "Edit"}
+    {link: "edit/news", image: "build", text: "Edit"}
   ]
 
   constructor(private breakpointObserver: BreakpointObserver, 
@@ -65,6 +65,11 @@ export class NavLucferbuxComponent {
         this.matIconRegistry.addSvgIcon(
           "webpage",
           this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icon-webpage.svg")
+        );
+
+        this.matIconRegistry.addSvgIcon(
+          "webpage-black",
+          this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icon-webpage-black.svg")
         );
         
         this.breakpointObserver.observe([Breakpoints.XSmall]).subscribe(result => { if(result.matches){ this.isHandset = false } })

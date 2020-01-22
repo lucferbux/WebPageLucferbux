@@ -38,9 +38,7 @@ export class IntroEditComponent implements OnInit {
       title: ['', Validators.required],
       description: ['', Validators.required],
       url: [''],
-      loaded: [''],
-      rows: [1, [Validators.required, Validators.min(1)]],
-      cols: [1, [Validators.required, Validators.min(1)]],
+      loaded: [false],
       timestamp: new Date(),
       image: ''//['', Validators.required]
     })
@@ -65,6 +63,7 @@ export class IntroEditComponent implements OnInit {
       if (this.id != null) {
         var id: string = this.id;
         var customEntry: IntroId = { id, ...formValue };
+        customEntry.loaded = false;
         await this.tfs.updateIntroEntry(customEntry);
       } else {
         await this.tfs.addIntroEntry(formValue);
@@ -88,12 +87,12 @@ export class IntroEditComponent implements OnInit {
         title: ['', Validators.required],
         description: ['', Validators.required],
         url: [''],
-        rows: [1, [Validators.required, Validators.min(1)]],
-        cols: [1, [Validators.required, Validators.min(1)]],
+        loaded: [false],
         timestamp: new Date(),
         image: ''//['', Validators.required]
       })
       this.id = null;
+      this.editData.editIntroSource(null);
   }
 
   openSnackBar(message: string) {

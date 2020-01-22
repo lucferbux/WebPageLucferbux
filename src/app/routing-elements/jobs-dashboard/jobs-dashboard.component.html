@@ -2,7 +2,7 @@
   <h1 class="mat-h1">¿Quién soy?</h1>
     <div class="row align-items-top">
       <div *ngFor="let card of members" class="col-md-6 col-lg-4">
-        <mat-card class="dashboard-card mat-elevation-z8">
+        <mat-card class="dashboard-card">
           <mat-card-header>
             <img mat-card-avatar class="example-header-image" src={{card.avatar}} (load)="card.loaded = true"
             [hidden]="!card.loaded" onerror="this.src='assets/shiba1.jpg'" alt="Avatar Image">
@@ -18,8 +18,6 @@
               <button mat-menu-item (click)="removeMember(card)" class="mat-menu-delete" aria-label="Delete">Remove</button>
             </mat-menu>
           </mat-card-header>
-          <mat-divider>
-          </mat-divider>
           <mat-card-content class="dashboard-card-content">
             <div *ngFor="let paragraph of card.description.split('\n')">
               {{paragraph}}
