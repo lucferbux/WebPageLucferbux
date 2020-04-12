@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {IntroductionDashboardComponent} from "./routing-elements/introduction-dashboard/introduction-dashboard.component";
-import { JobsDashboardComponent } from './routing-elements/jobs-dashboard/jobs-dashboard.component';
-import { EditScreenComponent } from './edit-screen/edit-screen.component';
-import { JobEditComponent } from './edit-screen/job-edit/job-edit.component';
-import { LoginScreenComponent } from './login-screen/login-screen.component';
-import { AuthGuard } from './core/auth.guard';
-import { ProjectDashboardComponent } from './routing-elements/projects-dashboard/projects-dashboard.component';
-import { PostsTableComponent } from './routing-elements/posts-table/posts-table.component';
-import { IntroEditComponent } from './edit-screen/intro-edit/intro-edit.component';
-import { ProjectsEditComponent } from './edit-screen/projects-edit/projects-edit.component';
-import { PostsEditComponent } from './edit-screen/posts-edit/posts-edit.component';
+import {IntroductionDashboardComponent} from "./components/routing-elements/introduction-dashboard/introduction-dashboard.component";
+import { JobsDashboardComponent } from './components/routing-elements/jobs-dashboard/jobs-dashboard.component';
+import { EditScreenComponent } from './components/edit-screen/edit-screen.component';
+import { JobEditComponent } from './components/edit-screen/job-edit/job-edit.component';
+import { LoginScreenComponent } from './components/login-screen/login-screen.component';
+import { AuthGuard } from './core/auth/auth.guard';
+import { ProjectDashboardComponent } from './components/routing-elements/projects-dashboard/projects-dashboard.component';
+import { PostsTableComponent } from './components/routing-elements/posts-table/posts-table.component';
+import { IntroEditComponent } from './components/edit-screen/intro-edit/intro-edit.component';
+import { ProjectsEditComponent } from './components/edit-screen/projects-edit/projects-edit.component';
+import { PostsEditComponent } from './components/edit-screen/posts-edit/posts-edit.component';
+import { LandingPageComponent } from './components/routing-elements/landing-page/landing-page.component';
 
 const routes: Routes = [
-    {path: '', redirectTo: 'news', pathMatch: 'full'},
+    {path: '', redirectTo: 'home', pathMatch: 'full'},
+    {path: 'home', component: LandingPageComponent},
     {path: 'news', component: IntroductionDashboardComponent},
     {path: 'aboutme', component: JobsDashboardComponent},
     {path: 'projects', component: ProjectDashboardComponent},

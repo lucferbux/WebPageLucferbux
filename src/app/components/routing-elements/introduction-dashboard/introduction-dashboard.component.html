@@ -1,0 +1,34 @@
+<div class="container">
+  <h1 class="mat-h1">Noticias</h1>
+  <div class="row align-items-center">
+    <div *ngFor="let card of card$ | async; trackBy: trackByFn" class="col-md-12 col-lg-6">
+      <mat-card class="dashboard-card clickable">
+        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu"
+          *ngIf="auth.user | async" aria-label="Menu Button">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <button mat-menu-item (click)="editCard(card)" aria-label="Edit">Edit</button>
+          <button mat-menu-item (click)="removeCard(card)" class="mat-menu-delete" aria-label="Delete">Remove</button>
+        </mat-menu>
+        <mat-card-content (click)="goToUrl(card.url)">
+          <mat-card-header>
+            <mat-card-title class="card-header-title">
+              <h2>{{card.title}}</h2>
+            </mat-card-title>
+            <mat-card-subtitle>{{card.timestamp.seconds * 1000 | date}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image class="intro-image" *ngIf="card.image" src={{card.image}} (load)="card.loaded = true"
+            [hidden]="!card.loaded" onerror="this.src='assets/loading.gif'" layout-fill alt="Cover Image">
+          <img mat-card-image class="intro-image" *ngIf="card.image" src="assets/loading.gif" [hidden]="card.loaded"
+            layout-fill alt="Cover Image Not Loaded">
+          <div class="dashboard-card-content">
+            <div *ngFor="let paragraph of card.description.split('\n')">
+              {{paragraph}}
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

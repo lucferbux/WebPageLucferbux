@@ -1,0 +1,40 @@
+
+@import '~@angular/material/theming';
+@import '../../../../styles-variables';
+
+.header-image {
+   background-size: cover;
+}
+
+.dashboard-card {
+  position: relative;
+  margin: 0 0 20px 0;
+  @media screen and (max-width: map-get($grid-breakpoints, lg)) {
+    left: 0px;
+    right: 0px;
+  }
+  @media screen and (min-width: map-get($grid-breakpoints, lg)) {
+    left: 4px;
+    right: 4px;
+  }
+}
+
+.dashboard-card-content {
+  //margin-top: 20px;
+  text-align: justify;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.mat-menu-delete {
+  color: mat-color($warning-colors);
+}
+
+
+.intro-image {
+  object-fit: contain;
+}

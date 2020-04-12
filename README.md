@@ -14,7 +14,16 @@ This app runs with Angular 8+, it just need the Angular CLI and download the dep
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Features
+## Structure
+
+### Core Module
+All the components that are used across the entire app
+
+### Shared module
+Components, directives and pipes shared between multiple modules
+
+## Feature module
+
 
 This Webpage was developed in order to test my skills in Angular and some dependencies
 
@@ -28,6 +37,16 @@ This Webpage was developed in order to test my skills in Angular and some depend
 - routing
 - testing of all the above mentioned concepts
 - Angular CLI configuration (prod build, budgets, ...)
+
+
+## References:
+
+* Best practices: https://www.freecodecamp.org/news/best-practices-for-a-clean-and-performant-angular-application-288e7b39eb6f/
+* Best practices 2: https://blog.usejournal.com/best-practices-for-writing-angular-6-apps-e6d3c0f6c7c1
+* Good architechture: https://github.com/tomastrajan/angular-ngrx-material-starter
+* Good architecture 2: https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7
+
+
 
 ## Deploy
 

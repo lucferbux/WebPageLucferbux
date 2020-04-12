@@ -11,7 +11,8 @@ $ligth-color-body: #f2f2f2;
 $dark-color-body: #2C2C2C;
 
 $grid-breakpoints: (
-  xs: 0,
+  zero: 0,
+  xs: 396,
   sm: 576px,
   md: 768px,
   lg: 992px,

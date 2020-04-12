@@ -1,0 +1,62 @@
+<div class="container">
+  <h1 class="mat-h1">Articulos</h1>
+  <div class="rounded-table">
+    <mat-table  #table [dataSource]="dataSource" matSort aria-label="Elements">
+
+      <!-- Title Column -->
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef>Título</mat-header-cell>
+        <mat-cell *matCellDef="let element"><b>{{element.title}}</b></mat-cell>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef>Descripción</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.description}}</mat-cell>
+      </ng-container>
+
+      <!-- Link Column -->
+      <ng-container matColumnDef="link">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-icon-button (click)="goToUrl(element.link)" aria-label="External Link">
+            <mat-icon>link</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <!-- More Column-->
+      <ng-container matColumnDef="more">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" xPosition="before">
+            <button mat-menu-item (click)="editRow(element)" aria-label="Edit">Edit</button>
+            <button mat-menu-item (click)="deleteRow(element)" class="mat-menu-delete" aria-label="Delete">Remove</button>
+          </mat-menu>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row" [cdkDetailRow]="row"
+        [cdkDetailRowTpl]="tpl" [expanded]="true">
+      </mat-row>
+
+    </mat-table>
+
+    <mat-paginator #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="10"
+      [pageSizeOptions]="[10, 25, 50]">
+    </mat-paginator>
+  </div>
+</div>
+
+<ng-template #tpl let-element>
+  <div class="mat-row detail-row mat-column-expandedDetail" [@detailExpand] style="overflow: hidden">
+    <img mat-card-image class="intro-image" (click)="goToUrl(element.link)" src={{element.image}} (load)="element.loaded = true" [hidden]="!element.loaded"
+    onerror="this.src='assets/loading.gif'" alt="Post Cover Image">
+    <img mat-card-image class="intro-image" src="assets/loading.gif"
+  [hidden]="element.loaded" layout-fill alt="Post Cover Image">
+  </div>
+</ng-template>
