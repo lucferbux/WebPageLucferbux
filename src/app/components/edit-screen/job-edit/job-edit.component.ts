@@ -20,29 +20,38 @@ export class JobEditComponent implements OnInit {
 
   folderName = "avatar"
   fileName = "job_avatar"
-  titleDropdown = "Subir Avatar"
+  titleDropdown = "Upload Avatar"
   subtitleDropdown = "Elige una foto para subir..."
 
   id: string;
 
+  jobFormTemplate = {
+    name: ['', Validators.required],
+    name_en: ['', Validators.required],
+    description: ['', Validators.required],
+    description_en: ['', Validators.required],
+    avatar: ['', Validators.required],
+    loaded: [false],
+    job: ['', Validators.required],
+    job_en: ['', Validators.required],
+    importance: [0, [Validators.required, Validators.min(1)]]
+  }
+
   constructor(private tfs: JobsFirebaseService, private fb: FormBuilder, private editData: EditDataService, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    this.jobForm = this.fb.group({
-      name: ['', Validators.required],
-      description: ['', Validators.required],
-      avatar: ['', Validators.required],
-      loaded: [false],
-      job: ['', Validators.required],
-      importance: [0, [Validators.required, Validators.min(1)]]
-    })
+    this.jobForm = this.fb.group(this.jobFormTemplate);
 
     this.editData.currentJob.subscribe((entry: JobId) => {
       if (entry != null) {
         this.id = entry.id;
+        const name_en = entry.name_en ? entry.name_en : "";
+        const description_en = entry.description_en ? entry.description_en : "";
+        const job_en = entry.job_en ? entry.job_en : "";
         var { id, ...entryEdit } = entry;
-        this.jobForm.setValue(entryEdit);
-        this.fileUpload.downloadURL = of(entryEdit.avatar);
+        const entryEditEn = {name_en, description_en, job_en, ...entryEdit}
+        this.jobForm.setValue(entryEditEn);
+        this.fileUpload.downloadURL = of(entryEditEn.avatar);
       }
 
     })
@@ -75,14 +84,7 @@ export class JobEditComponent implements OnInit {
   resetForm() {
     this.jobForm.reset();
     this.fileUpload.resetData();
-    this.jobForm = this.fb.group({
-      name: ['', Validators.required],
-      description: ['', Validators.required],
-      avatar: ['', Validators.required],
-      job: ['', Validators.required],
-      loaded: [false],
-      importance: [0, [Validators.required, Validators.min(1)]]
-    })
+    this.jobForm = this.fb.group(this.jobFormTemplate)
     this.id = null;
     this.editData.editJobSource(null);
   }

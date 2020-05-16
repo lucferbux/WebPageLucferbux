@@ -21,34 +21,42 @@ export class IntroEditComponent implements OnInit {
 
   folderName = "introImage";
   fileName = "intro_image";
-  titleDropdown = "Subir Imagen";
-  subtitleDropdown = "Elige una foto para subir...";
-  imageTitleDropdown = "Imagen de cabecera";
-  imageSubtitleDropdown = "Imagen que se mostrará en la cabecera de la entrada";
+  titleDropdown = "Upload Image";
+  subtitleDropdown = "Choose a photo to upload...";
+  imageTitleDropdown = "Header Image";
+  imageSubtitleDropdown = "Image shown in the header of the article";
   url: string = "nothing";
 
   id: string;
+
+  introFormTemplate = {
+    title: ['', Validators.required],
+    title_en: ['', Validators.required],
+    description: ['', Validators.required],
+    description_en: ['', Validators.required],
+    url: [''],
+    loaded: [false],
+    timestamp: new Date(),
+    image: ''//['', Validators.required]
+  }
+
 
   constructor(private tfs: IntroFirebaseService, private fb: FormBuilder, private editData: EditDataService, public snackBar: MatSnackBar) {
 
    }
 
   ngOnInit() {
-    this.introForm = this.fb.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
-      url: [''],
-      loaded: [false],
-      timestamp: new Date(),
-      image: ''//['', Validators.required]
-    })
+    this.introForm = this.fb.group(this.introFormTemplate);
 
     this.editData.currentIntro.subscribe((entry: IntroId) => {
       if(entry != null){
         this.id = entry.id;
+        const title_en = entry.title_en ? entry.title_en : "";
+        const description_en = entry.description_en ? entry.description_en : "";
         var { id, ...entryEdit } = entry;
-        this.introForm.setValue(entryEdit);
-        this.fileUpload.downloadURL =  of(entryEdit.image);
+        const entryEditEn = {title_en, description_en, ...entryEdit}
+        this.introForm.setValue(entryEditEn);
+        this.fileUpload.downloadURL =  of(entryEditEn.image);
       }
         
     })
@@ -83,14 +91,7 @@ export class IntroEditComponent implements OnInit {
   resetForm() {
     this.introForm.reset();
       this.fileUpload.resetData();
-      this.introForm = this.fb.group({
-        title: ['', Validators.required],
-        description: ['', Validators.required],
-        url: [''],
-        loaded: [false],
-        timestamp: new Date(),
-        image: ''//['', Validators.required]
-      })
+      this.introForm = this.fb.group(this.introFormTemplate)
       this.id = null;
       this.editData.editIntroSource(null);
   }

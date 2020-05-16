@@ -32,6 +32,8 @@ import { IntroEditComponent} from './components/edit-screen/intro-edit/intro-edi
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { ProjectsEditComponent } from './components/edit-screen/projects-edit/projects-edit.component';
 import { PostsEditComponent } from './components/edit-screen/posts-edit/posts-edit.component';
+import { FirestoreTranslator } from './core/internationalization/firebase-translator.pipe';
+import { PostDashboardComponent } from './components/routing-elements/post-dashboard/post-dashboard.component';
 
 export const firebaseConfig = environment.firebaseConfig; // Added for importing firebase configuration
 
@@ -48,9 +50,11 @@ export const firebaseConfig = environment.firebaseConfig; // Added for importing
     LoginScreenComponent,
     PostsTableComponent,
     PostsTableComponent,
+    PostDashboardComponent,
     IntroEditComponent,
     PostsEditComponent,
-    ProjectsEditComponent
+    ProjectsEditComponent,
+    FirestoreTranslator
   ],
   imports: [
     BrowserModule,

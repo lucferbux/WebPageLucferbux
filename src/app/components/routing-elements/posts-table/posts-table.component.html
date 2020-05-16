@@ -6,13 +6,13 @@
       <!-- Title Column -->
       <ng-container matColumnDef="title">
         <mat-header-cell *matHeaderCellDef>Título</mat-header-cell>
-        <mat-cell *matCellDef="let element"><b>{{element.title}}</b></mat-cell>
+        <mat-cell *matCellDef="let element"><b>{{element | firestoreTranslator:"title"}}</b></mat-cell>
       </ng-container>
 
       <!-- Description Column -->
       <ng-container matColumnDef="description">
         <mat-header-cell *matHeaderCellDef>Descripción</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.description}}</mat-cell>
+        <mat-cell *matCellDef="let element">{{element | firestoreTranslator:"description"}}</mat-cell>
       </ng-container>
 
       <!-- Link Column -->

@@ -43,7 +43,9 @@ export class IntroFirebaseService {
 
 export interface Intro {
     title: string;
+    title_en: string;
     description: string;
+    description_en: string;
     url: string;
     image: string;
     timestamp: Date;

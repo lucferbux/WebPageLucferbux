@@ -12,6 +12,7 @@ import { IntroEditComponent } from './components/edit-screen/intro-edit/intro-ed
 import { ProjectsEditComponent } from './components/edit-screen/projects-edit/projects-edit.component';
 import { PostsEditComponent } from './components/edit-screen/posts-edit/posts-edit.component';
 import { LandingPageComponent } from './components/routing-elements/landing-page/landing-page.component';
+import { PostDashboardComponent } from './components/routing-elements/post-dashboard/post-dashboard.component';
 
 const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -19,7 +20,7 @@ const routes: Routes = [
     {path: 'news', component: IntroductionDashboardComponent},
     {path: 'aboutme', component: JobsDashboardComponent},
     {path: 'projects', component: ProjectDashboardComponent},
-    {path: 'posts', component: PostsTableComponent},
+    {path: 'posts', component: PostDashboardComponent},
     {path: 'login', component: LoginScreenComponent},
     {path: 'edit', component: EditScreenComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard], children: [
         {path: 'news', component: IntroEditComponent},

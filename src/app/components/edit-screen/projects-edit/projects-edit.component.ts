@@ -31,17 +31,21 @@ export class ProjectsEditComponent implements OnInit {
 
   id: string;
 
+  projectFormTemplate = {
+    title: ['', Validators.required],
+    title_en: ['', Validators.required],
+    description: ['', Validators.required],
+    description_en: ['', Validators.required],
+    link: ['', Validators.required],
+    version: [''],
+    date: [new Date, Validators.required],
+  }
+
   constructor(private tfs: ProjectFirebaseService, private fb: FormBuilder, private editData: EditDataService, public snackBar: MatSnackBar, private adapter: DateAdapter<any>) { }
 
 
   ngOnInit() {
-    this.projectForm = this.fb.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
-      link: ['', Validators.required],
-      version: [''],
-      date: [new Date, Validators.required],
-    })
+    this.projectForm = this.fb.group(this.projectFormTemplate);
 
     this.editData.currentProject.subscribe((entry: ProjectId) => {
       
@@ -49,6 +53,8 @@ export class ProjectsEditComponent implements OnInit {
         this.id = entry.id;
         this.projectForm.get('title').patchValue(entry.title);
         this.projectForm.get('description').patchValue(entry.description);
+        this.projectForm.get('title_en').patchValue(entry.title_en);
+        this.projectForm.get('description_en').patchValue(entry.description_en);
         this.projectForm.get('link').patchValue(entry.link);
         this.projectForm.get('version').patchValue(entry.version);
         const test = new Date((new Date(entry.date.seconds * 1000).getTime() - 3888000000));
@@ -82,13 +88,7 @@ export class ProjectsEditComponent implements OnInit {
 
   resetForm() {
     this.projectForm.reset();
-    this.projectForm = this.fb.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
-      link: ['', Validators.required],
-      version: [''],
-      date: [new Date, Validators.required],
-    })
+    this.projectForm = this.fb.group(this.projectFormTemplate);
     this.id = null;
   }
 

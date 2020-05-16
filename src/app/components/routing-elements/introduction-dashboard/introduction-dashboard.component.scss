@@ -21,7 +21,8 @@
 
 .dashboard-card-content {
   //margin-top: 20px;
-  text-align: justify;
+  text-align: left;
+  white-space: pre-line;
 }
 
 .more-button {
@@ -37,4 +38,6 @@
 
 .intro-image {
   object-fit: contain;
+  padding: 15px;
+  border-radius: 25px;
 }

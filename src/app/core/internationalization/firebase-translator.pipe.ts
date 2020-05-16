@@ -4,10 +4,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'firestoreTranslator'
 })
-export class FileSizePipe implements PipeTransform {
+export class FirestoreTranslator implements PipeTransform {
 
-  transform(dataDescription: any, field: string, language: string): string {
-    const index = language === "us" ? `${field}_us` : field
+  transform(dataDescription: any, field: string): string {
+    var userLang = navigator.language; 
+    const index = userLang.includes("es") ? field : `${field}_en`;
     const data = dataDescription[index]
     if (data) {
       return data

@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="mat-h1">Noticias</h1>
+  <h1 class="mat-h1">Artículos</h1>
   <div class="row align-items-center">
     <div *ngFor="let card of card$ | async; trackBy: trackByFn" class="col-md-12 col-lg-6">
       <mat-card class="dashboard-card clickable">
@@ -11,17 +11,18 @@
           <button mat-menu-item (click)="editCard(card)" aria-label="Edit">Edit</button>
           <button mat-menu-item (click)="removeCard(card)" class="mat-menu-delete" aria-label="Delete">Remove</button>
         </mat-menu>
-        <mat-card-content (click)="goToUrl(card.url)">
-          <mat-card-header>
-            <mat-card-title class="card-header-title">
-              <h2>{{card | firestoreTranslator:"title"}}</h2>
-            </mat-card-title>
-            <mat-card-subtitle>{{card.timestamp.seconds * 1000 | date}}</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image class="intro-image" *ngIf="card.image" src={{card.image}} (load)="card.loaded = true"
-            [hidden]="!card.loaded" onerror="this.src='assets/loading.gif'" layout-fill alt="Cover Image">
-          <img mat-card-image class="intro-image" *ngIf="card.image" src="assets/loading.gif" [hidden]="card.loaded"
-            layout-fill alt="Cover Image Not Loaded">
+        <mat-card-content (click)="goToUrl(card.link)">
+          <div class="post-header">
+            <div class="pickgradient">
+              <img class="post-image" *ngIf="card.image" src={{card.image}} (load)="card.loaded = true"
+              [hidden]="!card.loaded" onerror="this.src='assets/loading.gif'" layout-fill alt="Cover Image">
+              <img class="post-image" *ngIf="card.image" src="assets/loading.gif" [hidden]="card.loaded"
+                layout-fill alt="Cover Image Not Loaded">
+              
+            </div>
+            <p class="post-title">{{card | firestoreTranslator:"title"}}</p>
+          </div>
+          
           <div class="dashboard-card-content">
             {{ card | firestoreTranslator:"description" }}
           </div>

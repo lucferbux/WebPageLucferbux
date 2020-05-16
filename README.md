@@ -1,8 +1,13 @@
 # Lucferbux Webpage
 
+[![Website][webpage-image]][webpage-url]
+[![License][license-image]][license-url]
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
-Code of the [my webpage](https://lucferbux.dev/introduction)
+[My webpage] in production (https://lucferbux.dev/introduction)
 
 ![intro](meta/intro.png)
 
@@ -52,6 +57,22 @@ This Webpage was developed in order to test my skills in Angular and some depend
 
 Just run `npm run deploy` to build the Webpage
 
-## Author
+## Contribute
 
-* [Lucas Fernandez](https://twitter.com/lucferbux)
+We would love you for the contribution to **Lucferbux Webpage**, check the ``LICENSE`` file for more info.
+
+## Meta
+
+Lucas Fernandez – [@lucferbux](https://twitter.com/lucferbux) – lucas.fernandezaragon@telefonica.com
+
+Distributed under the MIT license. See ``LICENSE`` for more information.
+
+[https://github.com/lucferbux](https://github.com/lucferbux/)
+
+[webpage-url]:https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=blue&up_message=online&url=https%3A%2F%2Flucferbux.dev
+[webpage-imagel]:https://img.shields.io/website/https/lucferbux.dev.svg
+
+[license-image]: https://img.shields.io/badge/License-MIT-blue.svg
+[license-url]: LICENSE
+
+

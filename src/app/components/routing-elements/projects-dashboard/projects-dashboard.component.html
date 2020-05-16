@@ -15,10 +15,10 @@
         <mat-card-content (click)="goToUrl(project.link)">
           <mat-card-title>
             <code *ngIf="project.version">{{project.version}}</code>
-            {{project.title}}
+            {{project | firestoreTranslator:"title"}}
           </mat-card-title>
           <mat-card-subtitle rtl>
-            {{ project.description}}
+            {{project | firestoreTranslator:"description"}}
           </mat-card-subtitle>
         </mat-card-content>
       </mat-card>

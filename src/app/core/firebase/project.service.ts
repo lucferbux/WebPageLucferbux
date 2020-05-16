@@ -51,7 +51,9 @@ export class ProjectFirebaseService {
 
 export interface Project {
     title: string;
+    title_en: string
     description: string;
+    description_en: string;
     date: firestore.Timestamp;
     version: string;
     link: string;

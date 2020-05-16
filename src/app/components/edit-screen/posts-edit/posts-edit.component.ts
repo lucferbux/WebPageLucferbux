@@ -34,32 +34,38 @@ export class PostsEditComponent implements OnInit {
 
   folderName = "postImage";
   fileName = "post_image";
-  titleDropdown = "Subir Imagen";
-  subtitleDropdown = "Elige una foto para subir...";
-  imageTitleDropdown = "Preview de la cabecera";
-  imageSubtitleDropdown = "Imagen que mostrará la preview de la cabecera";
+  titleDropdown = "Upload Image";
+  subtitleDropdown = "Select a photo to upload...";
+  imageTitleDropdown = "Preview of the header";
+  imageSubtitleDropdown = "Image that show the preview of the header";
   url: string = "nothing";
 
   id: string;
+
+  postFormTemplate = {
+    title: ['', Validators.required],
+    title_en: ['', Validators.required],
+    description: ['', Validators.required],
+    description_en: ['', Validators.required],
+    link: ['', Validators.required],
+    loaded: [false],
+    date: [new Date, Validators.required],
+    image: ''
+  }
 
   constructor(private tfs: PostFirebaseService, private fb: FormBuilder, private editData: EditDataService, public snackBar: MatSnackBar, private adapter: DateAdapter<any>) { }
 
 
   ngOnInit() {
-    this.postForm = this.fb.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
-      link: ['', Validators.required],
-      loaded: [false],
-      date: [new Date, Validators.required],
-      image: ''
-    })
+    this.postForm = this.fb.group(this.postFormTemplate);
 
     this.editData.currentPost.subscribe((entry: PostId) => {
       if (entry != null) {
         this.id = entry.id;
         this.postForm.get('title').patchValue(entry.title);
         this.postForm.get('description').patchValue(entry.description);
+        this.postForm.get('title_en').patchValue(entry.title_en);
+        this.postForm.get('description_en').patchValue(entry.description_en);
         this.postForm.get('link').patchValue(entry.link);
         this.postForm.get('image').patchValue(entry.image);
         const test = new Date((new Date(entry.date.seconds * 1000).getTime() - 3888000000));
@@ -97,14 +103,7 @@ export class PostsEditComponent implements OnInit {
   resetForm() {
     this.postForm.reset();
     this.fileUpload.resetData();
-    this.postForm = this.fb.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
-      link: ['', Validators.required],
-      loaded: [false],
-      date: [new Date, Validators.required],
-      image: ''
-    })
+    this.postForm = this.fb.group(this.postFormTemplate);
     this.id = null;
     this.editData.editPostSource(null);
   }

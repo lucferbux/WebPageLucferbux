@@ -2,7 +2,7 @@
     <br>
     <mat-card class="mat-elevation-z8 form-container">
         <mat-form-field class="date_picker">
-            <input matInput [matDatepicker]="picker" placeholder="Elige una fecha" formControlName="date">
+            <input matInput [matDatepicker]="picker" placeholder="Select a date" formControlName="date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
@@ -10,20 +10,32 @@
         <br>
     
         <mat-form-field hintLabel="Max. 30 Caracteres">
-            <input matInput #inputtitle placeholder="Título" formControlName="title">
+            <input matInput #inputtitle placeholder="Title" formControlName="title">
             <mat-hint align="end">{{inputtitle.value?.length || 0}}/30</mat-hint>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field hintLabel="Max. 30 Caracteres">
+            <input matInput #inputtitleen placeholder="Title English" formControlName="title_en">
+            <mat-hint align="end">{{inputtitleen.value?.length || 0}}/30</mat-hint>
         </mat-form-field>
         <br>
     
         <mat-form-field hintLabel="Des. formato: x.x.x">
-            <input matInput #inputversion placeholder="Versión" formControlName="version">
+            <input matInput #inputversion placeholder="Version" formControlName="version">
             <mat-hint align="end">{{inputversion.value?.length || 0}}/30</mat-hint>
         </mat-form-field>
         <br>
     
         <mat-form-field hintLabel="No hay limites">
-            <textarea matInput #inputdesc placeholder="Descripción" formControlName="description"></textarea>
+            <textarea matInput #inputdesc placeholder="Description" formControlName="description"></textarea>
             <mat-hint align="end">{{inputdesc.value?.length || 0}}</mat-hint>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field hintLabel="No hay limites">
+            <textarea matInput #inputdescen placeholder="Description English" formControlName="description_en"></textarea>
+            <mat-hint align="end">{{inputdescen.value?.length || 0}}</mat-hint>
         </mat-form-field>
         <br>
     
@@ -36,8 +48,8 @@
         <div class="create-div">
             <mat-spinner *ngIf="loading" [diameter]="30" class="spinner-form"></mat-spinner>
     
-            <button mat-raised-button color="accent" type="button" class="button-form" (click)="resetForm()" aria-label="Reset">Reiniciar</button>
-            <button mat-raised-button color="primary" class="button-form" type="submit" [disabled]="projectForm.invalid" aria-label="Modify">{{ id != null ? 'Modificar' : 'Crear' }}</button>
+            <button mat-raised-button color="accent" type="button" class="button-form" (click)="resetForm()" aria-label="Reset">Reset</button>
+            <button mat-raised-button color="primary" class="button-form" type="submit" [disabled]="projectForm.invalid" aria-label="Modify">{{ id != null ? 'Modify' : 'Create' }}</button>
     
         </div>
     </mat-card>

@@ -46,7 +46,9 @@ export class PostFirebaseService {
 
 export interface Post {
     title: string;
+    title_en: string;
     description: string;
+    description_en: string;
     link: string;
     image: string;
     date: firestore.Timestamp;

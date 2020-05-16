@@ -45,10 +45,13 @@ export class JobsFirebaseService {
 
 export interface Job {
     name: string;
+    name_en: string;
     description: string;
+    description_en: string;
     avatar: string;
     loaded: boolean;
     job: string;
+    job_en: string;
     importance: number;
 }
 
