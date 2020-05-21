@@ -7,6 +7,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FirestoreSettingsToken} from '@angular/fire/firestore';
 
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
 import { environment } from '../environments/environment';
 import { CoreModule } from './core/core.module'
 
@@ -34,9 +37,14 @@ import { ProjectsEditComponent } from './components/edit-screen/projects-edit/pr
 import { PostsEditComponent } from './components/edit-screen/posts-edit/posts-edit.component';
 import { FirestoreTranslator } from './core/internationalization/firebase-translator.pipe';
 import { PostDashboardComponent } from './components/routing-elements/post-dashboard/post-dashboard.component';
+import { SharedModule } from './shared/shared.module';
+import { HttpClient } from '@angular/common/http';
 
 export const firebaseConfig = environment.firebaseConfig; // Added for importing firebase configuration
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +78,16 @@ export const firebaseConfig = environment.firebaseConfig; // Added for importing
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     CoreModule, 
+    SharedModule,
     FileUploadModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'es',
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+    }),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [{ provide: FirestoreSettingsToken, useValue: {} }],

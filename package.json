@@ -28,6 +28,8 @@
     "@angular/router": "^8.2.14",
     "@angular/service-worker": "^8.2.14",
     "@ngrx/store": "^8.5.2",
+    "@ngx-translate/core": "^12.1.2",
+    "@ngx-translate/http-loader": "^4.0.0",
     "bootstrap": "^4.4.1",
     "core-js": "^3.5.0",
     "firebase": "^7.6.0",

@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="mat-h1">¿Quién soy?</h1>
+  <h1 class="mat-h1">{{ 'aboutme.title' | translate }}</h1>
     <div class="row align-items-top">
       <div *ngFor="let card of member$ | async; trackBy: trackByFn" class="col-md-6 col-lg-4">
         <mat-card class="dashboard-card">

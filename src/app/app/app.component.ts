@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import {MediaMatcher} from '@angular/cdk/layout';
 import { MatSnackBar } from '@angular/material';
+import {TranslateService} from '@ngx-translate/core';
 
 
 import {
@@ -30,8 +31,12 @@ export class AppComponent {
     private store: Store<State>,
     private media: MediaMatcher, 
     private ngZone: NgZone,
-    public snackBar: MatSnackBar
-  ) {}
+    public snackBar: MatSnackBar,
+    private translate: TranslateService
+  ) {
+    this.seti18n();
+
+  }
 
   ngOnInit(): void {
     this.settings$ = this.store.pipe(select(selectSettings));
@@ -54,6 +59,12 @@ export class AppComponent {
     if (this.isIos() && !this.isRunningStandalone()) {
       this.openSnackBar("Para installar la app, pulsa el icono de compartir y selecciona 'Añadir a la pantalla de inicio'")
     }
+  }
+
+  seti18n() {
+    this.translate.addLangs(['en-US', 'es'])
+    this.translate.setDefaultLang('en-US');
+    this.translate.use(navigator.language);
   }
 
   isIos() {

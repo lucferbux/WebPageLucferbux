@@ -8,6 +8,7 @@ import {MatSnackBar} from '@angular/material';
 import { MatIconRegistry } from "@angular/material/icon";
 import { DomSanitizer } from "@angular/platform-browser";
 import { Event, NavigationEnd, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 
 export interface linkPage {
@@ -30,15 +31,14 @@ export class NavLucferbuxComponent {
   isHandset = false;
 
   iconArrays = [
-    {link: "news", image: "home", text: "Noticias"},
-    {link: "aboutme", image: "face", text: "¿Quién soy?"},
-    {link: "projects", image: "business_center", text: "Proyectos"},
-    {link: "posts", image: "border_color", text: "Articulos"},
-    //{link: "media", image: "web", text: "Difusión"},
+    {link: "news", image: "home", text: 'navbar.news'},
+    {link: "aboutme", image: "face", text: 'navbar.aboutme'},
+    {link: "projects", image: "business_center", text: 'navbar.projects'},
+    {link: "posts", image: "border_color", text: 'navbar.posts'}
   ]
 
   iconArraysAuth = [
-    {link: "edit/news", image: "build", text: "Edit"}
+    {link: "edit/news", image: "build", text: 'navbar.edit'}
   ]
 
   constructor(private breakpointObserver: BreakpointObserver, 
@@ -47,7 +47,8 @@ export class NavLucferbuxComponent {
     public snackBar: MatSnackBar,
     public router: Router,
     private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer) {
+    private domSanitizer: DomSanitizer,
+    private translate: TranslateService) {
         this.logged =  this.auth.user.pipe(
           map(user => !! user)      
         );
@@ -74,13 +75,13 @@ export class NavLucferbuxComponent {
           "webpage-black",
           this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icon-webpage-black.svg")
         );
+
         
         this.breakpointObserver.observe([Breakpoints.XSmall]).subscribe(result => { if(result.matches){ this.isHandset = false } })
         this.breakpointObserver.observe([Breakpoints.Small]).subscribe(result => {   if(result.matches){ this.isHandset = true }  })
         this.breakpointObserver.observe([Breakpoints.Medium]).subscribe(result => { if(result.matches){ this.isHandset = true } })
         this.breakpointObserver.observe([Breakpoints.Large]).subscribe(result => { if(result.matches){ this.isHandset = true } })
         this.breakpointObserver.observe([Breakpoints.XLarge]).subscribe(result => { if(result.matches){ this.isHandset = true } })
-
 
         this.router.events.subscribe((event: Event) => {
           if ( event instanceof NavigationEnd ) {

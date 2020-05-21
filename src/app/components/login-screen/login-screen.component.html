@@ -2,8 +2,8 @@
   <mat-card class="mat-elevation-z8">
     <mat-card-content>
       <mat-card-header>
-        <mat-card-title>Panel Administrador</mat-card-title>
-        <mat-card-subtitle>Inicia sesión para entrar en modo administrador...</mat-card-subtitle>
+        <mat-card-title>{{ 'login.title' | translate }}</mat-card-title>
+        <mat-card-subtitle>{{ 'login.subtitle' | translate }}</mat-card-subtitle>
       </mat-card-header>
       <mat-divider>
       </mat-divider>
@@ -14,14 +14,14 @@
       <ng-template #guest>
         <form [formGroup]="userForm" class="form-container" (ngSubmit)="submitHandler()">
 
-          <mat-form-field hintLabel="Formato Correo Electrónico">
-            <input matInput #input placeholder="Correo Electrónico" formControlName="email">
+          <mat-form-field>
+            <input matInput #input placeholder="{{ 'login.email' | translate }}" formControlName="email">
             <mat-hint align="end">{{input.value?.length || 0}}</mat-hint>
           </mat-form-field>
           <br>
 
-          <mat-form-field hintLabel="Contraseña de adminsitrador">
-            <input matInput type="password" #input placeholder="Contraseña" formControlName="password">
+          <mat-form-field>
+            <input matInput type="password" #input placeholder="{{ 'login.password' | translate }}" formControlName="password">
             <mat-hint align="end">{{input.value?.length || 0}}</mat-hint>
           </mat-form-field>
           <br>
@@ -29,7 +29,7 @@
           <br>
           <div class="create-div">
             <button mat-raised-button color="primary" class="button-form" type="submit"
-              [disabled]="userForm.invalid" aria-label="Login">Iniciar Sesión</button>
+              [disabled]="userForm.invalid" aria-label="Login">{{ 'login.login' | translate }}</button>
           </div>
         </form>
       </ng-template>

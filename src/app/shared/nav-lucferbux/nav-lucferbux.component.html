@@ -8,7 +8,7 @@
         <button mat-menu-item [routerLink]="['/login']" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:true}" aria-label="Login">
           <mat-icon>account_box</mat-icon>
-          <span>Iniciar Sesión</span>
+          <span>{{ 'navbar.login' | translate }}</span>
         </button>
       </ng-template>
       <!-- User logged in -->
@@ -32,7 +32,7 @@
         <div *ngIf="isHandset">
           <a mat-button *ngFor="let icon of linksActive" [routerLink]="icon.link" routerLinkActive="active"
             [routerLinkActiveOptions]="{exact:true}">
-            <a mat-line aria-label="Link">{{ icon.text }}</a>
+            <a mat-line aria-label="Link">{{ icon.text | translate }}</a>
           </a>
         </div>
         <button mat-button [matMenuTriggerFor]="menu" aria-label="Menu">
@@ -42,7 +42,7 @@
       <mat-toolbar-row *ngIf="!isHandset">
         <nav mat-tab-nav-bar mat-stretch-tabs="yes" class="primary-bar">
           <a mat-tab-link class="tab-links" *ngFor="let icon of linksActive" [routerLink]="icon.link"
-            matTooltip="{{icon.text}}" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive"
+            matTooltip="{{ icon.text | translate }}" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive"
             aria-label="Link">
             <mat-icon>{{icon.image}}</mat-icon>
           </a>

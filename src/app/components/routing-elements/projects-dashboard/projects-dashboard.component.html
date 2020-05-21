@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="mat-h1">Proyectos</h1>
+  <h1 class="mat-h1">{{ 'projects.title' | translate }}</h1>
   <div class="row align-items-end">
     <div *ngFor="let project of project$ | async; trackBy: trackByFn" class="col-md-6 col-lg-4">
       <mat-card class="clickable">
