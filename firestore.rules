@@ -1,7 +1,69 @@
+rules_version = "2";
 service cloud.firestore {
   match /databases/{database}/documents {
+    
     match /{document=**} {
-      allow read, write;
+      allow read, write: if isSignedIn();
     }
+
+    match /intro/{document=**} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+    
+    match /patent/{document=**} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+    
+    match /project/{document=**} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+    
+    match /team/{document=**} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+    
+    ////////////////////////////////////////////////////////
+    // START: Firestore-rules helper functions           //
+    ////////////////////////////////////////////////////////
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // function emailVerified() {
+    //   return request.auth.token.email_verified;
+    // }
+    // function userExists() {
+    //   return exists(/databases/$(database)/documents/users/$(request.auth.uid));
+    // }
+
+    // // [READ] Data that exists on the Firestore document
+    // function existingData() {
+    //   return resource.data;
+    // }
+    // // [WRITE] Data that is sent to a Firestore document
+    // function incomingData() {
+    //   return request.resource.data;
+    // }
+
+    // // Does the logged-in user match the requested userId?
+    // function isUser(userId) {
+    //   return request.auth.uid == userId;
+    // }
+
+    // // Fetch a user from Firestore
+    // function getUserData() {
+    //   return get(/databases/$(database)/documents/accounts/$(request.auth.uid)).data
+    // }
+
+    // // Fetch a user-specific field from Firestore
+    // function userEmail(userId) {
+    //   return get(/databases/$(database)/documents/users/$(userId)).data.email;
+    // }
+
   }
 }

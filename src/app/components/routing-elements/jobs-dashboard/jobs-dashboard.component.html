@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 class="mat-h1">{{ 'aboutme.title' | translate }}</h1>
+    <div class="row align-items-top">
+      <div *ngFor="let card of member$ | async; trackBy: trackByFn" class="col-md-6 col-lg-4">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <img mat-card-avatar class="example-header-image" src={{card.avatar}} (load)="card.loaded = true"
+            [hidden]="!card.loaded" onerror="this.src='assets/shiba1.jpg'" alt="Avatar Image">
+            <img mat-card-avatar src="assets/loading-square.gif" [hidden]="card.loaded" alt="Avatar Image Not Loaded">
+            <mat-card-title>{{card | firestoreTranslator:"name"}}</mat-card-title>
+            <mat-card-subtitle>{{card | firestoreTranslator:"job"}}</mat-card-subtitle>
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu"
+              *ngIf="auth.user | async" aria-label="Menu Button">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item (click)="editJob(card)" aria-label="Edit">Edit</button>
+              <button mat-menu-item (click)="removeMember(card)" class="mat-menu-delete" aria-label="Delete">Remove</button>
+            </mat-menu>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            {{card | firestoreTranslator:"description"}}
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+    </div>
+</div>

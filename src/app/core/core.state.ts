@@ -13,9 +13,6 @@ export const reducers: ActionReducerMap<AppState> = {
   settings: settingsReducer
 };
 
-
-
-
 export const metaReducers: MetaReducer<AppState>[] = [
   initStateFromLocalStorage
 ];

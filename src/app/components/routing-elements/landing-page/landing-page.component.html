@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="front-page">
+    <div class="logo-main">
+      <mat-icon class="webpage-icon" svgIcon="webpage"></mat-icon>
+    </div>
+
+    <mat-card class="intro-card">
+      <mat-card-content>
+        <p>{{ 'intro.first_paragraph' | translate }}</p>
+        <p>{{ 'intro.second_paragraph' | translate }}</p>
+        <p>{{ 'intro.third_paragraph' | translate }}</p>
+      </mat-card-content>
+    </mat-card>
+
+    <div class="social-row">
+      <button class="social-button custom-button clickable" (click)="goTwitter()" aria-label="Twitter Button">
+        <mat-icon class="social-image" svgIcon="twitter"></mat-icon>
+        <span class="social-text">Twitter</span>
+      </button>
+      <button class="social-button custom-button clickable" (click)="goLinkedin()" aria-label="Linkedin Button">
+        <mat-icon class="social-image" svgIcon="linkedin"></mat-icon>
+        <span class="social-text">Linkedin</span>
+      </button>
+      <button class="social-button custom-button clickable" (click)="goGithub()" aria-label="Github Button">
+        <mat-icon class="social-image" svgIcon="github"></mat-icon>
+        <span class="social-text">Github</span>
+      </button>
+    </div>
+  </div>
+</div>

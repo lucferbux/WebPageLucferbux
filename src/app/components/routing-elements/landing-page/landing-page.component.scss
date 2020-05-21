@@ -1,0 +1,140 @@
+
+@import '~@angular/material/theming';
+@import '../../../../styles-variables';
+
+
+.front-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.webpage-icon{
+  vertical-align: middle;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.intro-card {
+  max-width: 800px;
+  min-height: 120px;
+  margin: 10px 30px 40px 30px;
+  @media screen and (max-width: map-get($grid-breakpoints, md)) {
+    margin: 0px 0px 25px 0px;
+    padding: 15px 20px 15px 20px;
+    font-weight: normal;
+  }
+  padding: 40px 30px 40px 30px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.logo-main {
+  border-radius: 50%;
+  width: 30%;
+  padding-top: 30%;
+  position: relative;
+  //background: linear-gradient(145deg, #ffffff, #e2e2e2);
+
+  //31px 31px 64px #d5d5d5, 
+  //-31px -31px 64px #ffffff;
+  @media screen and (max-width: map-get($grid-breakpoints, lg)) {
+    width: 50%;
+    padding-top: 50%;
+  }
+
+  @media screen and (max-width: map-get($grid-breakpoints, md)) {
+    width: 60%;
+    padding-top: 60%;
+  }
+
+  @media screen and (max-width: map-get($grid-breakpoints, sm)) {
+    width: 50%;
+    padding-top: 50%;
+    display: none;
+  }
+
+  @media screen and (max-width: map-get($grid-breakpoints, xs)) {
+    width: 60%;
+    padding-top: 60%;
+    display: none;
+  }
+
+
+  box-shadow:  -10px -10px 14px rgba(255, 255, 255, 1), 
+              10px 10px 14px rgba(0, 0, 0, 0.30);
+  margin-bottom: 20px;
+
+  @media (prefers-color-scheme: dark) {
+    box-shadow: -4px -4px 10px rgba(57, 57, 57, 0.95), 
+                4px 4px 15px rgba(0, 0, 0, 0.55);
+
+}
+
+
+
+}
+
+.social-button {
+  margin: 0px 20px 0px 20px;
+}
+
+.social-image {
+  width: 30px;
+  height: 30px;
+  margin: 0px 10px 0px 0px;
+  @media screen and (max-width: map-get($grid-breakpoints, lg)) {
+    margin: 10px 10px 10px 10px;
+  }
+
+
+}
+
+.social-text {
+  font-size: 20px;
+  font-weight: bold;
+
+  @media screen and (max-width: map-get($grid-breakpoints, lg)) {
+    display: none;
+  }
+}
+
+.social-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+.intro-image {
+  object-fit: contain;
+}
+
+
+
+
+
+
+.footer-icon {
+  position: relative;
+  bottom: 8px;
+  right: 5px;
+
+  @media (max-width: map-get($grid-breakpoints, sm)) {
+    right: 0px;
+  }
+}

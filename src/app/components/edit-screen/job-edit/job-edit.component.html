@@ -1,0 +1,63 @@
+<form [formGroup]="jobForm" (ngSubmit)="submitHandlerJob()">
+  <br>
+  <app-file-upload contenteditable="true" formControlName="avatar" 
+  [folder]="folderName" [filename]="fileName"
+  [title]="titleDropdown" [subtitle]="subtitleDropdown"
+  [widthCrop]=100 [heightCrop]=100> </app-file-upload>
+  <br>
+
+  <mat-card class="mat-elevation-z8 form-container">
+    <mat-form-field hintLabel="Max. 30 Chars">
+      <input matInput #inputtitle placeholder="Title" formControlName="name">
+      <mat-hint align="end">{{inputtitle.value?.length || 0}}/30</mat-hint>
+    </mat-form-field>
+    <br>
+  
+    <mat-form-field hintLabel="Max. 30 Chars">
+      <input matInput #inputtitleen placeholder="Title English" formControlName="name_en">
+      <mat-hint align="end">{{inputtitleen.value?.length || 0}}/30</mat-hint>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field hintLabel="Max. 30 Caracteres">
+      <input matInput #inputjob placeholder="Time/Role" formControlName="job">
+      <mat-hint align="end">{{inputjob.value?.length || 0}}/30</mat-hint>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field hintLabel="Max. 30 Caracteres">
+      <input matInput #inputjoben placeholder="Time/Role English" formControlName="job_en">
+      <mat-hint align="end">{{inputjoben.value?.length || 0}}/30</mat-hint>
+    </mat-form-field>
+    <br>
+
+  
+    <mat-form-field hintLabel="No limits">
+      <textarea matInput #inputdes placeholder="Description" formControlName="description"></textarea>
+      <mat-hint align="end">{{inputdes.value?.length || 0}}</mat-hint>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field hintLabel="No limits">
+      <textarea matInput #inputdesen placeholder="Description English" formControlName="description_en"></textarea>
+      <mat-hint align="end">{{inputdesen.value?.length || 0}}</mat-hint>
+    </mat-form-field>
+    <br>
+  
+    <mat-form-field hintLabel="Id for sorting">
+      <input matInput #inputimportance placeholder="Importance" formControlName="importance">
+      <mat-hint align="end">Id</mat-hint>
+    </mat-form-field>
+    <br>
+  
+    <div class="create-div">
+      <mat-spinner *ngIf="loading" [diameter]="30" class="spinner-form"></mat-spinner>
+      <button mat-raised-button color="accent" type="button" class="button-form" (click)="resetForm()" aria-label="Reset">Reset</button>
+      <button mat-raised-button color="primary" class="button-form" type="submit" [disabled]="jobForm.invalid" aria-label="Create">{{ id != null ? 'Modify' : 'Create' }}</button>
+    </div>
+  </mat-card>
+
+  
+
+
+</form>
