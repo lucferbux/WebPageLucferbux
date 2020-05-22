@@ -1,19 +1,14 @@
 # Lucferbux Webpage
-
-[![Website][webpage-image]][webpage-url]
 [![License][license-image]][license-url]
-
-
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
-
-[My webpage] in production (https://lucferbux.dev/introduction)
+> My Personal Webpage
 
 ![intro](meta/intro.png)
 
+[Check the live version](https://lucferbux.dev/introduction)
+
 ## Requirements
 
-This app runs with Angular 8+, it just need the Angular CLI and download the dependencies.
+This app runs with Angular 9+, it just need the Angular CLI and download the dependencies.
 
 ## Development server
 
@@ -63,11 +58,10 @@ We would love you for the contribution to **Lucferbux Webpage**, check the ``LIC
 
 ## Meta
 
-Lucas Fernandez – [@lucferbux](https://twitter.com/lucferbux) – lucas.fernandezaragon@telefonica.com
+Lucas Fernandez – [@lucferbux](https://twitter.com/lucferbux) – lucasfernandezaragon@gmail.com
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
-[https://github.com/lucferbux](https://github.com/lucferbux/)
 
 [webpage-url]:https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=blue&up_message=online&url=https%3A%2F%2Flucferbux.dev
 [webpage-imagel]:https://img.shields.io/website/https/lucferbux.dev.svg
