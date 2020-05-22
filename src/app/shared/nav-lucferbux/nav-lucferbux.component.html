@@ -70,6 +70,10 @@
           <mat-icon class="footer-icon" svgIcon="github"></mat-icon>
           <span *ngIf="isHandset">Github</span>
         </button>
+        <button mat-raised-button (click)="goCodepen()" class="social-button" aria-label="Codepen Button">
+          <mat-icon class="footer-icon" svgIcon="codepen"></mat-icon>
+          <span *ngIf="isHandset">Codepen</span>
+        </button>
       </div>
     </footer>
 

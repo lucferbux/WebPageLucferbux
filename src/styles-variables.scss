@@ -12,12 +12,14 @@ $dark-color-body: #2C2C2C;
 
 $grid-breakpoints: (
   zero: 0,
-  xs: 396,
+  xxs: 330px,
+  xs: 396px,
   sm: 576px,
   md: 768px,
   lg: 992px,
   xl: 1200px
 );
+
 
 $success-colors: mat-palette($mat-green, 400);
 $warning-colors: mat-palette($mat-red, 400);

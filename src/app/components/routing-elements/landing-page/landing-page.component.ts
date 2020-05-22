@@ -30,5 +30,9 @@ export class LandingPageComponent {
     window.open('https://github.com/lucferbux', "_blank");
   }
 
+  goCodepen() {
+    window.open('https://codepen.io/lucferbux', "_blank");
+  }
+
 
 }

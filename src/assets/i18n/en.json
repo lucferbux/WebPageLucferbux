@@ -20,9 +20,9 @@
         "login": "Login"
     },
     "intro": {
-        "first_paragraph": "Welcome to my web. In this site I gather all the news, posts, conferences and projects that I take part in.",
-        "second_paragraph": "I'm a  technology fan and I love to explore as many fields as I can, such as Development, Ciber-Security, Artificial Intelligence or Blockchain.",
-        "third_paragraph": "Currently, I have the oportunity to develop some of these technologies, and I would like to share them in multiple channels."
+        "first_paragraph": "👋 Welcome to my web. In this site I gather all the news, posts, conferences and projects that I take part in.",
+        "second_paragraph": "🧑🏻‍💻 I'm a  technology fan and I love to explore as many fields as I can, such as Development, Ciber-Security, Artificial Intelligence or Blockchain.",
+        "third_paragraph": "💻 Currently, I have the oportunity to develop some of these technologies, and I would like to share them in multiple channels."
     },
     "login": {
         "title": "Administrator Dashboard",

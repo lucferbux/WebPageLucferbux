@@ -20,9 +20,9 @@
         "login": "Iniciar Sesión"
     },
     "intro": {
-        "first_paragraph": "Hola y bienvenido a mi página web. En este espacio publico noticias, artículos, conferencias y proyectos varios en los que participo.",
-        "second_paragraph": "Soy un apasionado de la tecnología al que le gusta explorar sus diversas ramas como Desarrollo, Ciberseguridad, Inteligencia Artificial o Blockchain.",
-        "third_paragraph": "Actualmente tengo la oportunidad de desarrollar muchas de estas tecnologías y luego difundirlas en diversos canales."
+        "first_paragraph": "👋 Hola y bienvenido a mi página web. En este espacio publico noticias, artículos, conferencias y proyectos varios en los que participo.",
+        "second_paragraph": "🧑🏻‍💻 Soy un apasionado de la tecnología al que le gusta explorar sus diversas ramas como Desarrollo, Ciberseguridad, Inteligencia Artificial o Blockchain.",
+        "third_paragraph": "💻 Actualmente tengo la oportunidad de desarrollar muchas de estas tecnologías y luego difundirlas en diversos canales."
     }, 
     "login": {
         "title": "Panel Administrador",
