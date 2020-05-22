@@ -65,6 +65,11 @@ export class NavLucferbuxComponent {
           this.domSanitizer.bypassSecurityTrustResourceUrl("assets/linkedin.svg")
         );
 
+        this.matIconRegistry.addSvgIcon(
+          "codepen",
+          this.domSanitizer.bypassSecurityTrustResourceUrl("assets/codepen.svg")
+        );
+
         
         this.matIconRegistry.addSvgIcon(
           "webpage",
@@ -123,6 +128,9 @@ export class NavLucferbuxComponent {
       window.open('https://github.com/lucferbux', "_blank");
     }
 
+    goCodepen() {
+      window.open('https://codepen.io/lucferbux', "_blank");
+    }
 
 }
 
