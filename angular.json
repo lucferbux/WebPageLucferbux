@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "WebPageLucferbux"
+  "defaultProject": "WebPageLucferbux",
+  "cli": {
+    "analytics": "d9ba18ab-3112-48b6-8f41-142c19d99134"
+  }
 }
