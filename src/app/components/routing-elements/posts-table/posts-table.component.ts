@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { PostTableDataSource } from './posts-table-datasource';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Router } from '@angular/router';

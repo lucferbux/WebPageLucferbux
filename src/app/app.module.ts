@@ -5,7 +5,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { FirestoreSettingsToken} from '@angular/fire/firestore';
+import { SETTINGS } from '@angular/fire/firestore';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -90,7 +90,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
+  providers: [{ provide: SETTINGS, useValue: {} }],
   entryComponents: [IntroEditComponent],
   bootstrap: [AppComponent]
 })

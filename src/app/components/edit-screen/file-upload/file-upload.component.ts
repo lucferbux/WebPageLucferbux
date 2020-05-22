@@ -4,9 +4,9 @@ import { Observable } from 'rxjs';
 import { tap ,  finalize } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { ImageSharingService } from './image-sharing.service'
-import { MAT_BOTTOM_SHEET_DATA } from '@angular/material';
+import { MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 
 
 

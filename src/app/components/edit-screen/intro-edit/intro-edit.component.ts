@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { of } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { FileUploadComponent } from '../file-upload/file-upload.component';
 import { EditDataService } from '../../../core/edit-data/edit-data.service';
 import { IntroId, IntroFirebaseService } from 'src/app/core/firebase/intro.service';
