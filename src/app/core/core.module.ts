@@ -40,7 +40,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
-import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
 
 
 
@@ -85,12 +87,12 @@ export {
     MatDividerModule,
     MatExpansionModule,
     MatGridListModule,
+    MatNativeDateModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
     MatMenuModule,
     MatPaginatorModule,
-    MomentDateAdapter,
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatRadioModule,
@@ -121,8 +123,8 @@ export {
     MatDatepickerModule,
     MatDialogModule,
     MatDividerModule,
+    MatNativeDateModule,
     MatExpansionModule,
-    MomentDateAdapter,
     MatGridListModule,
     MatIconModule,
     MatInputModule,

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
-import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { EditDataService } from '../../../core/edit-data/edit-data.service';
 import { ProjectFirebaseService, ProjectId } from 'src/app/core/firebase/project.service';
 
@@ -11,18 +9,7 @@ import { ProjectFirebaseService, ProjectId } from 'src/app/core/firebase/project
 @Component({
   selector: 'app-projects-edit',
   templateUrl: './projects-edit.component.html',
-  styleUrls: ['./projects-edit.component.css'],
-  providers: [
-    // The locale would typically be provided on the root module of your application. We do it at
-    // the component level here, due to limitations of our example generation script.
-    {provide: MAT_DATE_LOCALE, useValue: 'es-ES'},
-
-    // `MomentDateAdapter` and `MAT_MOMENT_DATE_FORMATS` can be automatically provided by importing
-    // `MatMomentDateModule` in your applications root module. We provide it at the component level
-    // here, due to limitations of our example generation script.
-    //{provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
-    //{provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
-  ],
+  styleUrls: ['./projects-edit.component.css']
 })
 export class ProjectsEditComponent implements OnInit {
 
@@ -41,7 +28,7 @@ export class ProjectsEditComponent implements OnInit {
     date: [new Date, Validators.required],
   }
 
-  constructor(private tfs: ProjectFirebaseService, private fb: FormBuilder, private editData: EditDataService, public snackBar: MatSnackBar, private adapter: DateAdapter<any>) { }
+  constructor(private tfs: ProjectFirebaseService, private fb: FormBuilder, private editData: EditDataService, public snackBar: MatSnackBar) { }
 
 
   ngOnInit() {
