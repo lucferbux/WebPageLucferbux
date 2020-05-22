@@ -1,0 +1,34 @@
+{
+    "news": {
+        "title": "News"
+    },
+    "aboutme": {
+        "title": "Aboutme"
+    },
+    "projects": {
+        "title": "Projects"
+    },
+    "posts": {
+        "title": "Posts"
+    },
+    "navbar": {
+        "news": "News",
+        "aboutme": "Aboutme",
+        "projects": "Projects",
+        "posts": "Posts",
+        "edit": "Edit",
+        "login": "Login"
+    },
+    "intro": {
+        "first_paragraph": "Welcome to my web. In this site I gather all the news, posts, conferences and projects that I take part in.",
+        "second_paragraph": "I'm a  technology fan and I love to explore as many fields as I can, such as Development, Ciber-Security, Artificial Intelligence or Blockchain.",
+        "third_paragraph": "Currently, I have the oportunity to develop some of these technologies, and I would like to share them in multiple channels."
+    },
+    "login": {
+        "title": "Administrator Dashboard",
+        "subtitle": "Log in to enter admin mode",
+        "email": "Email",
+        "password": "Password",
+        "login": "Login"
+    }
+}
