@@ -2,7 +2,7 @@ import { Component, ChangeDetectorRef, OnDestroy, NgZone } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import {MediaMatcher} from '@angular/cdk/layout';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {TranslateService} from '@ngx-translate/core';
 
 

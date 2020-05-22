@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
-import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
-import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { FileUploadComponent } from '../file-upload/file-upload.component';
 import { EditDataService } from '../../../core/edit-data/edit-data.service';
 import { of } from 'rxjs';
@@ -12,18 +10,7 @@ import { PostFirebaseService, PostId } from 'src/app/core/firebase/post.service'
 @Component({
   selector: 'app-posts-edit',
   templateUrl: './posts-edit.component.html',
-  styleUrls: ['./posts-edit.component.css'],
-  providers: [
-     // The locale would typically be provided on the root module of your application. We do it at
-    // the component level here, due to limitations of our example generation script.
-    {provide: MAT_DATE_LOCALE, useValue: 'es-ES'},
-
-    // `MomentDateAdapter` and `MAT_MOMENT_DATE_FORMATS` can be automatically provided by importing
-    // `MatMomentDateModule` in your applications root module. We provide it at the component level
-    // here, due to limitations of our example generation script.
-    //{provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
-    //{provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
-  ]
+  styleUrls: ['./posts-edit.component.css']
 })
 export class PostsEditComponent implements OnInit {
 
@@ -53,7 +40,7 @@ export class PostsEditComponent implements OnInit {
     image: ''
   }
 
-  constructor(private tfs: PostFirebaseService, private fb: FormBuilder, private editData: EditDataService, public snackBar: MatSnackBar, private adapter: DateAdapter<any>) { }
+  constructor(private tfs: PostFirebaseService, private fb: FormBuilder, private editData: EditDataService, public snackBar: MatSnackBar) { }
 
 
   ngOnInit() {

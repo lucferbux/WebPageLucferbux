@@ -4,7 +4,10 @@ import { DropZoneDirective } from './drop-zone.directive';
 import { FileSizePipe } from './file-size.pipe';
 import { FileUploadComponent, ImageEditComponentSheet } from './file-upload.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
-import { MatCardModule, MatDividerModule, MatProgressBarModule, MatIconModule } from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatIconModule } from '@angular/material/icon';
 
 
 

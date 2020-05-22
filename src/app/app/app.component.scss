@@ -7,6 +7,10 @@
     width: 100%;
 }
 
+body {
+    font-family: SF Pro Display !important;
+}
+
 :host ::ng-deep.mat-card:not([class*=mat-elevation-z]) {
     box-shadow: -5px -5px 8px rgba(255, 255, 255, 0.85), 6px 6px 15px rgba(0, 0, 0, 0.17);
     

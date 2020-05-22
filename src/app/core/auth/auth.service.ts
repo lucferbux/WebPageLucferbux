@@ -46,7 +46,7 @@ export class AuthService {
   }
 
   private oAuthLogin(provider) { //logs with auth login in popup
-    return this.afAuth.auth.signInWithPopup(provider)
+    return this.afAuth.signInWithPopup(provider)
       .then((credential) => {
         this.updateUserData(credential.user)
       })
@@ -71,7 +71,7 @@ export class AuthService {
 
   
     emailLogin(email: string, password: string) {
-      return this.afAuth.auth
+      return this.afAuth
         .signInWithEmailAndPassword(email, password)
         .then(credential => {
           this.notify.logginStatus.emit("Usuario loggeado correctamente")
@@ -95,7 +95,7 @@ export class AuthService {
     }
 
   signOut() {
-    this.afAuth.auth.signOut().then(() => {
+    this.afAuth.signOut().then(() => {
         this.router.navigate(['/']);
     });
   }  

@@ -4,7 +4,7 @@ import { Component} from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap, map, take } from 'rxjs/operators';
 import { AuthService } from '../../core/auth/auth.service';
-import {MatSnackBar} from '@angular/material';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import { MatIconRegistry } from "@angular/material/icon";
 import { DomSanitizer } from "@angular/platform-browser";
 import { Event, NavigationEnd, Router } from '@angular/router';

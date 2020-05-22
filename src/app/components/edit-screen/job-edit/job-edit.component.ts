@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { FileUploadComponent } from '../file-upload/file-upload.component';
 import { EditDataService } from '../../../core/edit-data/edit-data.service';
 import { of } from 'rxjs';
