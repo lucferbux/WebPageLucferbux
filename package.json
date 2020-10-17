@@ -29,6 +29,7 @@
     "@angular/router": "^9.1.9",
     "@angular/service-worker": "^9.1.9",
     "@ngrx/store": "^9.1.2",
+    "@nguniversal/express-engine": "^7.0.2",
     "@ngx-translate/core": "^12.1.2",
     "@ngx-translate/http-loader": "^4.0.0",
     "bootstrap": "^4.5.0",

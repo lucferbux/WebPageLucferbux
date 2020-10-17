@@ -58,6 +58,7 @@
   
   height: 35px;
   width: 35px;
+  margin-left: 12px;
 }
 
 ::ng-deep .logo-icon {
@@ -65,6 +66,7 @@
   @media (prefers-color-scheme: dark) {
     fill: #ffffff;
   }
+  
 }
 
 .social-button {
@@ -100,21 +102,21 @@ main {
   border-bottom: none;
 }
 
-:host ::ng-deep.mat-button:not([class*=mat-elevation-z]) {
+// :host ::ng-deep.mat-button:not([class*=mat-elevation-z]) {
 
-  &:active {
-      box-shadow: inset -6px 5px 10px rgb(255, 255, 255),
-        inset 6px -5px 10px rgba(0, 0, 0, 0.17);
-  }
+//   &:active {
+//       box-shadow: inset -6px 5px 10px rgb(255, 255, 255),
+//         inset 6px -5px 10px rgba(0, 0, 0, 0.17);
+//   }
 
-  @media (prefers-color-scheme: dark) {
+//   @media (prefers-color-scheme: dark) {
 
-      &:active {
-          box-shadow: inset -6px 5px 10px rgb(57, 57, 57),
-                      inset 6px -5px 10px rgba(0, 0, 0, 0.55);
-      }
-  }
-}
+//       &:active {
+//           box-shadow: inset -6px 5px 10px rgb(57, 57, 57),
+//                       inset 6px -5px 10px rgba(0, 0, 0, 0.55);
+//       }
+//   }
+// }
 
 ::ng-deep .primary-bar .mat-ink-bar {
   

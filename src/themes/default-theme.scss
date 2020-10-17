@@ -71,7 +71,7 @@ $mat-light-secondary: (
 $lwp-light-primary: mat-palette($mat-light-primary);
 $lwp-light-accent: mat-palette($mat-light-secondary);
 $lwp-light-warn: mat-palette($mat-red);
-$custom-background-color: $ligth-color-body;
+$custom-background-color: $light-color-body;
 
 $lwp-light-theme: mat-light-theme(
     $lwp-light-primary,

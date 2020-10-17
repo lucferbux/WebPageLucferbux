@@ -11,18 +11,23 @@ body {
 }
 
 :host ::ng-deep.mat-card:not([class*="mat-elevation-z"]) {
-    box-shadow: -5px -5px 8px rgba(255, 255, 255, 0.85), 6px 6px 15px rgba(0, 0, 0, 0.17);
+    border: 3px solid #000000;
+    border-radius: 6px;
+    box-shadow: none !important;
 
-    &:hover {
-        box-shadow: -3px -3px 4px rgba(255, 255, 255, 1), 4px 3px 10px rgba(0, 0, 0, 0.3);
-    }
+    // &:hover {
+    //    box-shadow: -10px 10px 0px rgba(0, 0, 0, 1) !important;
+
+    // }
 
     @media (prefers-color-scheme: dark) {
-        box-shadow: -4px -4px 10px rgba(57, 57, 57, 0.95), 4px 4px 15px rgba(0, 0, 0, 0.55);
+        border: 3px solid #FFFFFF;
+        box-shadow: none !important;
+        // box-shadow: -4px -4px 10px rgba(57, 57, 57, 0.95), 4px 4px 15px rgba(0, 0, 0, 0.55);
 
-        &:hover {
-            box-shadow: -4px -4px 6px rgba(57, 57, 57, 1), 4px 4px 10px rgba(0, 0, 0, 0.62);
-        }
+        // &:hover {
+        //     box-shadow: -4px -4px 6px rgba(57, 57, 57, 1), 4px 4px 10px rgba(0, 0, 0, 0.62);
+        // }
     }
 }
 
@@ -30,19 +35,19 @@ body {
     cursor: pointer;
 
     &:active {
-        box-shadow: inset -6px 5px 10px rgb(255, 255, 255), inset 6px -5px 10px rgba(0, 0, 0, 0.17);
+        box-shadow: -5px 5px 0px rgba(0, 0, 0, 1) !important;
     }
 
     @media (prefers-color-scheme: dark) {
         &:active {
-            box-shadow: inset -6px 5px 10px rgb(57, 57, 57), inset 6px -5px 10px rgba(0, 0, 0, 0.55);
+            box-shadow: -5px 5px 0px rgba(255, 255, 255, 1) !important;
         }
     }
 }
 
 :host ::ng-deep.mat-card {
-    border-radius: 15px !important;
-    background: $ligth-color-body;
+    border-radius: 6px !important;
+    background: $light-color-body;
     @media (prefers-color-scheme: dark) {
         background: $dark-color-body;
     }
@@ -61,39 +66,50 @@ body {
 }
 
 :host ::ng-deep.clickable {
-    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    //transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 
     @include hover-supported() {
-        transform: scale(1.02);
+        box-shadow: -10px 10px 0px rgba(0, 0, 0, 1) !important;
+        @media (prefers-color-scheme: dark) {
+
+                box-shadow: -10px 10px 0px rgba(255, 255, 255, 1) !important;
+            
+        }
     }
 }
 
-@keyframes card-animation {
-    0% {
-        transform: scale(0);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
+// @keyframes card-animation {
+//     0% {
+//         transform: scale(0);
+//     }
+//     100% {
+//         transform: scale(1);
+//     }
+// }
 
 :host ::ng-deep.mat-raised-button:not([class*="mat-elevation-z"]) {
-    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.85), 6px 6px 15px rgba(0, 0, 0, 0.15);
+    // box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.85), 6px 6px 15px rgba(0, 0, 0, 0.15);
 
-    &:hover {
-        box-shadow: -4px -4px 6px rgba(255, 255, 255, 1), 4px 4px 10px rgba(0, 0, 0, 0.22);
-    }
+    // &:hover {
+    //     box-shadow: -4px -4px 6px rgba(255, 255, 255, 1), 4px 4px 10px rgba(0, 0, 0, 0.22);
+    // }
 
-    &:active {
-        box-shadow: inset -6px 5px 10px rgb(255, 255, 255), inset 6px -5px 10px rgba(0, 0, 0, 0.17);
-    }
+    // &:active {
+    //     box-shadow: inset -6px 5px 10px rgb(255, 255, 255), inset 6px -5px 10px rgba(0, 0, 0, 0.17);
+    // }
+
+    background: $dark-color-body;
+    color: $light-color-body;
+
 
     @media (prefers-color-scheme: dark) {
-        box-shadow: -3px -3px 5px rgba(57, 57, 57, 0.95), 4px 4px 15px rgba(0, 0, 0, 0.55);
+        // box-shadow: -3px -3px 5px rgba(57, 57, 57, 0.95), 4px 4px 15px rgba(0, 0, 0, 0.55);
 
-        &:active {
-            box-shadow: inset -6px 5px 10px rgb(57, 57, 57), inset 6px -5px 10px rgba(0, 0, 0, 0.55);
-        }
+        // &:active {
+        //     box-shadow: inset -6px 5px 10px rgb(57, 57, 57), inset 6px -5px 10px rgba(0, 0, 0, 0.55);
+        // }
+        background: $light-color-body;
+        color: $dark-color-body;
     }
 }
 
@@ -110,42 +126,43 @@ body {
     padding: 12px;
     flex-direction: row;
     align-items: center;
-    background: $ligth-color-body;
+    background: $dark-color-body;
+    color: $light-color-body;
 
     &:foucs {
         border: 0;
         outline: none;
     }
 
-    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.85), 6px 6px 15px rgba(0, 0, 0, 0.15);
+    //box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.85), 6px 6px 15px rgba(0, 0, 0, 0.15);
 
-    &:hover {
-        box-shadow: -4px -4px 6px rgba(255, 255, 255, 1), 4px 4px 10px rgba(0, 0, 0, 0.22);
-    }
+    // &:hover {
+    //     box-shadow: -4px -4px 6px rgba(255, 255, 255, 1), 4px 4px 10px rgba(0, 0, 0, 0.22);
+    // }
 
-    &:active {
-        box-shadow: inset -6px 5px 10px rgb(255, 255, 255), inset 6px -5px 10px rgba(0, 0, 0, 0.15);
-    }
+    // &:active {
+    //     box-shadow: inset -6px 5px 10px rgb(255, 255, 255), inset 6px -5px 10px rgba(0, 0, 0, 0.15);
+    // }
 
     @media (prefers-color-scheme: dark) {
-        background: $dark-color-body;
-        color: white;
+        background: $light-color-body;
+        color: $dark-color-body;
 
-        box-shadow: -3px -3px 5px rgba(57, 57, 57, 0.95), 4px 4px 15px rgba(0, 0, 0, 0.55);
+        // box-shadow: -3px -3px 5px rgba(57, 57, 57, 0.95), 4px 4px 15px rgba(0, 0, 0, 0.55);
 
-        &:hover {
-            box-shadow: -4px -4px 6px rgba(57, 57, 57, 1), 4px 4px 10px rgba(0, 0, 0, 0.62);
-        }
+        // &:hover {
+        //     box-shadow: -4px -4px 6px rgba(57, 57, 57, 1), 4px 4px 10px rgba(0, 0, 0, 0.62);
+        // }
 
-        &:active {
-            box-shadow: inset -6px 5px 10px rgb(57, 57, 57), inset 6px -5px 10px rgba(0, 0, 0, 0.55);
-        }
+        // &:active {
+        //     box-shadow: inset -6px 5px 10px rgb(57, 57, 57), inset 6px -5px 10px rgba(0, 0, 0, 0.55);
+        // }
     }
 
 }
 
 :host ::ng-deep.mat-raised-button {
-    background: $ligth-color-body;
+    background: $light-color-body;
 
     @media (prefers-color-scheme: dark) {
         background: $dark-color-body;
@@ -168,7 +185,7 @@ body {
 
     .mat-header-row {
         //background-color: mat-color($primary);
-        background-color: $ligth-color-body;
+        background-color: $light-color-body;
         @media (prefers-color-scheme: dark) {
             background-color: $dark-color-body;
         }
@@ -186,7 +203,7 @@ body {
 
     .mat-table {
         //background-color: mat-color($accent);
-        background-color: $ligth-color-body;
+        background-color: $light-color-body;
         border-radius: 10px !important;
         @media (prefers-color-scheme: dark) {
             background-color: $dark-color-body;
@@ -194,8 +211,8 @@ body {
     }
 
     mat-paginator {
-        background: $ligth-color-body;
-        background-color: $ligth-color-body;
+        background: $light-color-body;
+        background-color: $light-color-body;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
     }
@@ -212,20 +229,29 @@ body {
     }
 
     .mat-toolbar.mat-primary {
-        margin: 20px 10px 0px 10px;
-        width: calc(100% - 20px);
-        background: $ligth-color-body;
+        margin: 10px 0px 0px 0px;
+
+
+        @media screen and (max-width: map-get($grid-breakpoints, sm)) {
+            margin: 20px 0px 0px 0px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #000000;
+        }
+
+
+        background: $light-color-body;
         color: #000000;
         @media (prefers-color-scheme: dark) {
             background: $dark-color-body;
             color: #ffffff;
         }
-        border-radius: 15px !important;
-        box-shadow: -5px -5px 8px rgba(255, 255, 255, 0.85), 6px 6px 15px rgba(0, 0, 0, 0.17);
+        //border-radius: 15px !important;
+        box-shadow: none !important;
+        // box-shadow: -5px -5px 8px rgba(255, 255, 255, 0.85), 6px 6px 15px rgba(0, 0, 0, 0.17);
 
-        @media (prefers-color-scheme: dark) {
-            box-shadow: -4px -4px 10px rgba(57, 57, 57, 0.95), 4px 4px 15px rgba(0, 0, 0, 0.55);
-        }
+        // @media (prefers-color-scheme: dark) {
+        //     box-shadow: -4px -4px 10px rgba(57, 57, 57, 0.95), 4px 4px 15px rgba(0, 0, 0, 0.55);
+        // }
     }
 
     code {
