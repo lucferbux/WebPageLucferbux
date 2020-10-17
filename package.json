@@ -28,7 +28,7 @@
     "@angular/pwa": "^0.901.7",
     "@angular/router": "^10.1.6",
     "@angular/service-worker": "^10.1.6",
-    "@ngrx/store": "^9.1.2",
+    "@ngrx/store": "^10.0.1",
     "@nguniversal/express-engine": "^7.0.2",
     "@ngx-translate/core": "^12.1.2",
     "@ngx-translate/http-loader": "^4.0.0",
