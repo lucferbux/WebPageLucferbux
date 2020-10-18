@@ -65,7 +65,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FirestoreTranslator
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     LayoutModule,
     FormsModule,

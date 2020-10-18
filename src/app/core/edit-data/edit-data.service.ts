@@ -10,10 +10,10 @@ import { PostId } from '../firebase/post.service';
 })
 export class EditDataService {
   //Send information to edit to page of edit
-  job: JobId;
-  intro: IntroId;
-  project: ProjectId;
-  post: PostId;
+  job: JobId = null;
+  intro: IntroId = null;
+  project: ProjectId = null;
+  post: PostId = null;
 
   private introSource = new BehaviorSubject(this.intro);
   currentIntro = this.introSource.asObservable();

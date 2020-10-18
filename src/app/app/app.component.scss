@@ -33,14 +33,13 @@ body {
 
 :host ::ng-deep.clickable:not([class*="mat-elevation-z"]) {
     cursor: pointer;
+    transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
 
     &:active {
-        box-shadow: -5px 5px 0px rgba(0, 0, 0, 1) !important;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        &:active {
-            box-shadow: -5px 5px 0px rgba(255, 255, 255, 1) !important;
+        transform: translate(4px, -4px);
+        box-shadow: -4px 4px 0px rgba(0, 0, 0, 1) !important;
+        @media (prefers-color-scheme: dark) {
+                box-shadow: -4px 4px 0px rgba(255, 255, 255, 1) !important;
         }
     }
 }
@@ -66,48 +65,25 @@ body {
 }
 
 :host ::ng-deep.clickable {
-    //transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
     @include hover-supported() {
-        box-shadow: -10px 10px 0px rgba(0, 0, 0, 1) !important;
+        transform: translate(7px, -7px);
+        box-shadow: -7px 7px 0px rgba(0, 0, 0, 1) !important;
         @media (prefers-color-scheme: dark) {
-
-                box-shadow: -10px 10px 0px rgba(255, 255, 255, 1) !important;
-            
+                box-shadow: -7px 7px 0px rgba(255, 255, 255, 1) !important;   
         }
     }
 }
 
-// @keyframes card-animation {
-//     0% {
-//         transform: scale(0);
-//     }
-//     100% {
-//         transform: scale(1);
-//     }
-// }
+
+
 
 :host ::ng-deep.mat-raised-button:not([class*="mat-elevation-z"]) {
-    // box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.85), 6px 6px 15px rgba(0, 0, 0, 0.15);
-
-    // &:hover {
-    //     box-shadow: -4px -4px 6px rgba(255, 255, 255, 1), 4px 4px 10px rgba(0, 0, 0, 0.22);
-    // }
-
-    // &:active {
-    //     box-shadow: inset -6px 5px 10px rgb(255, 255, 255), inset 6px -5px 10px rgba(0, 0, 0, 0.17);
-    // }
-
     background: $dark-color-body;
     color: $light-color-body;
 
 
     @media (prefers-color-scheme: dark) {
-        // box-shadow: -3px -3px 5px rgba(57, 57, 57, 0.95), 4px 4px 15px rgba(0, 0, 0, 0.55);
-
-        // &:active {
-        //     box-shadow: inset -6px 5px 10px rgb(57, 57, 57), inset 6px -5px 10px rgba(0, 0, 0, 0.55);
-        // }
         background: $light-color-body;
         color: $dark-color-body;
     }
@@ -134,29 +110,9 @@ body {
         outline: none;
     }
 
-    //box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.85), 6px 6px 15px rgba(0, 0, 0, 0.15);
-
-    // &:hover {
-    //     box-shadow: -4px -4px 6px rgba(255, 255, 255, 1), 4px 4px 10px rgba(0, 0, 0, 0.22);
-    // }
-
-    // &:active {
-    //     box-shadow: inset -6px 5px 10px rgb(255, 255, 255), inset 6px -5px 10px rgba(0, 0, 0, 0.15);
-    // }
-
     @media (prefers-color-scheme: dark) {
         background: $light-color-body;
         color: $dark-color-body;
-
-        // box-shadow: -3px -3px 5px rgba(57, 57, 57, 0.95), 4px 4px 15px rgba(0, 0, 0, 0.55);
-
-        // &:hover {
-        //     box-shadow: -4px -4px 6px rgba(57, 57, 57, 1), 4px 4px 10px rgba(0, 0, 0, 0.62);
-        // }
-
-        // &:active {
-        //     box-shadow: inset -6px 5px 10px rgb(57, 57, 57), inset 6px -5px 10px rgba(0, 0, 0, 0.55);
-        // }
     }
 
 }
@@ -233,7 +189,6 @@ body {
 
 
         @media screen and (max-width: map-get($grid-breakpoints, sm)) {
-            margin: 20px 0px 0px 0px;
             padding-bottom: 10px;
             border-bottom: 3px solid #000000;
         }
@@ -245,13 +200,7 @@ body {
             background: $dark-color-body;
             color: #ffffff;
         }
-        //border-radius: 15px !important;
         box-shadow: none !important;
-        // box-shadow: -5px -5px 8px rgba(255, 255, 255, 0.85), 6px 6px 15px rgba(0, 0, 0, 0.17);
-
-        // @media (prefers-color-scheme: dark) {
-        //     box-shadow: -4px -4px 10px rgba(57, 57, 57, 0.95), 4px 4px 15px rgba(0, 0, 0, 0.55);
-        // }
     }
 
     code {
