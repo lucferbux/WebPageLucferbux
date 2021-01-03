@@ -43,6 +43,13 @@
   flex: 1; // child will set to an equal size inside the container
 }
  
+.link-nav{
+  margin-left: 8px;
+}
+
+.button-selected {
+
+}
 
 .footer-icon {
   position: relative;
@@ -62,6 +69,14 @@
 
 .home-logo {
   margin-left: 12px;
+  transition: transform 0.3s ease-in-out;
+  transform: scale(1);
+  &.is-active {
+    transition: transform 0.3s ease-in-out;
+    transform: scale(0);
+  }
+
+  
 }
 
 ::ng-deep .logo-icon {
@@ -105,21 +120,21 @@ main {
   border-bottom: none;
 }
 
-// :host ::ng-deep.mat-button:not([class*=mat-elevation-z]) {
+.button-selected {
+  box-sizing: border-box;
 
-//   &:active {
-//       box-shadow: inset -6px 5px 10px rgb(255, 255, 255),
-//         inset 6px -5px 10px rgba(0, 0, 0, 0.17);
-//   }
+  &.is-active {
+    margin: -3px;
+    border: 3px solid #000000 !important;
+  }
 
-//   @media (prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: dark) {
 
-//       &:active {
-//           box-shadow: inset -6px 5px 10px rgb(57, 57, 57),
-//                       inset 6px -5px 10px rgba(0, 0, 0, 0.55);
-//       }
-//   }
-// }
+      &.is-active {
+        border: 3px solid #ffffff !important;
+      }
+  }
+}
 
 ::ng-deep .primary-bar .mat-ink-bar {
   

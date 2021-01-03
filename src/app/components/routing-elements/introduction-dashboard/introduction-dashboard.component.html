@@ -1,5 +1,4 @@
 <div class="container">
-  <h1 class="mat-h1">{{ 'news.title' | translate }}</h1>
   <div class="row align-items-center">
     <div *ngFor="let card of card$ | async; trackBy: trackByFn" class="col-md-12 col-lg-6">
       <mat-card class="dashboard-card clickable">
