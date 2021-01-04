@@ -58,11 +58,11 @@
 .pickgradient:after {
   content:'';
   position:absolute;
-  left:0; 
+  left:3px; 
   top:0;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
-  width: calc(100% + 38px) !important; 
+  width: calc(100% + 32px) !important; 
   margin: -19px -16px 16px -19px !important;
   height:100%;
   //border-radius: 15px !important;

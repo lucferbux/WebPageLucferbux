@@ -191,6 +191,9 @@ body {
         @media screen and (max-width: map-get($grid-breakpoints, sm)) {
             padding-bottom: 10px;
             border-bottom: 3px solid #000000;
+            @media (prefers-color-scheme: dark) {
+                border-bottom: 3px solid #FFFFFF;
+            }
         }
 
 
