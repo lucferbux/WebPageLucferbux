@@ -17,15 +17,15 @@
   left: 0;
   bottom: 0;
   right: 0;
-  animation: appear 0.3s ease-in-out;
+  //animation: appear 0.3s ease;
 }
 
 @keyframes appear {
   0% {
-    transform: scale(0);
+    opacity: 0.3;
   }
   100% {
-    transform: scale(1.0);
+    opacity: 1;
   }
 }
 
