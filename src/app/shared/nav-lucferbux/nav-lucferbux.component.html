@@ -23,16 +23,17 @@
     <!-- Main toolbar -->
     <mat-toolbar color="primary">
       <mat-toolbar-row>
-        <button mat-icon-button class="home-logo" [routerLink]="['/home']" routerLinkActive="active"
+        <button mat-icon-button class="home-logo" [routerLink]="['/home']" routerLinkActive="is-active"
               [routerLinkActiveOptions]="{exact:true}" aria-label="Introduction">
               <mat-icon class="webpage-icon" svgIcon="webpage"></mat-icon>
         </button>
         
         <span class="spacer-toolbar"></span>
         <div *ngIf="isHandset">
-          <a mat-button *ngFor="let icon of linksActive" [routerLink]="icon.link" routerLinkActive="active"
+          <a mat-button class="button-selected" *ngFor="let icon of linksActive" [routerLink]="icon.link" routerLinkActive="is-active"
             [routerLinkActiveOptions]="{exact:true}">
-            <a mat-line aria-label="Link">{{ icon.text | translate }}</a>
+            <mat-icon>{{icon.image}}</mat-icon>
+            <a mat-line aria-label="Link" class="link-nav">{{ icon.text | translate }}</a>
           </a>
         </div>
         <button mat-button [matMenuTriggerFor]="menu" aria-label="Menu">
