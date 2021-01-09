@@ -8,7 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
-
+import { CoreModule } from '../../../core/core.module'
 
 
 @NgModule({
@@ -18,7 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardModule,
     MatDividerModule,
     MatProgressBarModule,
-    MatIconModule
+    MatIconModule,
+    CoreModule
   ],
   exports: [
     FileUploadComponent
