@@ -10,6 +10,15 @@ body {
     font-family: SF Pro Display !important;
 }
 
+a{
+    color: #000000 !important;
+
+
+    @media (prefers-color-scheme: dark) {
+        color:  #FFFFFF !important;
+    } 
+}
+
 :host ::ng-deep.mat-card:not([class*="mat-elevation-z"]) {
     border: 3px solid #000000;
     border-radius: 6px;
