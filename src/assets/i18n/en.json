@@ -3,7 +3,7 @@
         "title": "News"
     },
     "aboutme": {
-        "title": "Aboutme"
+        "title": "Experience"
     },
     "projects": {
         "title": "Projects"
@@ -13,7 +13,7 @@
     },
     "navbar": {
         "news": "News",
-        "aboutme": "Aboutme",
+        "aboutme": "Experience",
         "projects": "Projects",
         "posts": "Posts",
         "edit": "Edit",

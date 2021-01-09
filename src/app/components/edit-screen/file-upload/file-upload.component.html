@@ -1,4 +1,4 @@
-<mat-card appDropZone class="dropzone mat-elevation-z8" (hovered)="toggleHover($event)" (dropped)="fileChangeListener($event)" [class.hovering]="isHovering">
+<mat-card appDropZone class="dropzone dashboard-card" (hovered)="toggleHover($event)" (dropped)="fileChangeListener($event)" [class.hovering]="isHovering">
     <mat-card-header *ngIf="downloadURL | async as url">
         <img mat-card-avatar *ngIf="avatarImage" class="header-image" src={{url}} alt="Uploaded Image">
         <mat-card-title>{{ imageTitle }}</mat-card-title>
@@ -20,7 +20,7 @@
         <h2 class="mat-h2">{{title}}</h2>
         <p>{{subtitle}}</p>
 
-        <button class="pure-material-button-contained" type="button" color="primary" (click)="imageUpload.click()" aria-label="Select Image" >
+        <button mat-raised-button (click)="imageUpload.click()" aria-label="Select Image" >
             <span>Select Image</span>
         </button>
 

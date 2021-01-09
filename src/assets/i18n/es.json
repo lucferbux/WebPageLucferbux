@@ -3,7 +3,7 @@
         "title": "Noticias"
     },
     "aboutme": {
-        "title": "¿Quién soy?"
+        "title": "Experiencia"
     },
     "projects": {
         "title": "Projectos"
@@ -13,7 +13,7 @@
     },
     "navbar": {
         "news": "Noticias",
-        "aboutme": "¿Quién soy?",
+        "aboutme": "Experiencia",
         "projects": "Proyectos",
         "posts": "Artículos",
         "edit": "Edición",

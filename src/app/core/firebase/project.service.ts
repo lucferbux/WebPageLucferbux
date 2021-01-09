@@ -56,6 +56,7 @@ export interface Project {
     description_en: string;
     date: firestore.Timestamp;
     version: string;
+    tags: string;
     link: string;
 }
 
