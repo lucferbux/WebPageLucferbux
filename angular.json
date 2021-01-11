@@ -42,7 +42,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -86,7 +85,9 @@
             "assets": [
               "src/favicon.png",
               "src/assets",
-              "src/manifest.json"
+              "src/manifest.json",
+              "src/sitemap.xml",
+              "src/robots.txt"
             ]
           }
         },
