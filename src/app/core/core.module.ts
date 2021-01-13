@@ -43,17 +43,6 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatNativeDateModule } from '@angular/material/core';
 
 
-
-
-
-import {
-  selectEffectiveTheme,
-} from './settings/settings.selector';
-import {
-  AppState,
-  reducers,
-  metaReducers
-} from './core.state';
 import {
   ROUTE_ANIMATIONS_ELEMENTS,
   routeAnimations
@@ -62,8 +51,6 @@ import { AnimationsService } from './animations/animations.service';
 
 
 export {
-  selectEffectiveTheme,
-  AppState,
   routeAnimations,
   ROUTE_ANIMATIONS_ELEMENTS,
   AnimationsService,
@@ -107,7 +94,6 @@ export {
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
   ],
   exports: [
     CdkDetailRowDirective,

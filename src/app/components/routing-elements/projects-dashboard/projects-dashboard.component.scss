@@ -45,6 +45,11 @@
     }
     mat-card-subtitle {
       min-height: 90px;
+      color: $dark-text;
+
+      @media (prefers-color-scheme: dark) {
+        color: $light-text;
+      }
     }
   
     @media (max-width: map-get($grid-breakpoints, sm)) {

@@ -1,21 +1,10 @@
-import { Component, ChangeDetectorRef, OnDestroy, NgZone } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, ChangeDetectorRef, OnDestroy, NgZone, PLATFORM_ID, Inject } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import {MediaMatcher} from '@angular/cdk/layout';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {TranslateService} from '@ngx-translate/core';
-
-
-import {
-  AppState,
-
-  selectEffectiveTheme
-} from '../core/core.module';
-import { SettingsState, State } from '../core/settings/settings.model';
-import {
-  actionSettingsChangeTheme
-} from '../core/settings/settings.actions';
-import { selectSettings } from '../core/settings/settings.selector';
+import { isPlatformBrowser } from '@angular/common';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,37 +13,28 @@ import { selectSettings } from '../core/settings/settings.selector';
 export class AppComponent {
 
   theme$: Observable<string>;
-  settings$: Observable<SettingsState>;
   darkModeQuery: MediaQueryList;
+
+  static isBrowser = new BehaviorSubject<boolean>(null);
+
+
   
   constructor(
-    private store: Store<State>,
     private media: MediaMatcher, 
     private ngZone: NgZone,
     public snackBar: MatSnackBar,
-    private translate: TranslateService
+    private translate: TranslateService,
+    @Inject(PLATFORM_ID) private platformId: any
   ) {
     this.seti18n();
-
+    AppComponent.isBrowser.next(isPlatformBrowser(platformId));
   }
 
   ngOnInit(): void {
-    this.settings$ = this.store.pipe(select(selectSettings));
-    this.theme$ = this.store.pipe(select(selectEffectiveTheme));
-    this.darkModeQuery = this.media.matchMedia('(prefers-color-scheme: dark)');
-    this.darkModeQuery.addListener(this.myListener.bind(this));
-    this.myListener(this.media.matchMedia('(prefers-color-scheme: dark)'));
     this.showIosInstallBanner();
   }
 
-  ngOnDestroy() {
-    this.darkModeQuery.removeListener(this.myListener);
-  }
-
-
   async showIosInstallBanner() {
-
-
     // Checks if it should display install popup notification
     if (this.isIos() && !this.isRunningStandalone()) {
       this.openSnackBar("Para installar la app, pulsa el icono de compartir y selecciona 'Añadir a la pantalla de inicio'")
@@ -92,13 +72,4 @@ export class AppComponent {
     });
   }
 
-  myListener(event) {
-    const theme = event.matches ? 'DARK-THEME' : 'DEFAULT-THEME';
-    
-    this.ngZone.run(() => {
-      this.store.dispatch(actionSettingsChangeTheme({ theme }));   
-    });
-
-    
-  }
 }

@@ -20,23 +20,15 @@ a{
 }
 
 :host ::ng-deep.mat-card:not([class*="mat-elevation-z"]) {
-    border: 3px solid #000000;
+    
     border-radius: 6px;
     box-shadow: none !important;
-
-    // &:hover {
-    //    box-shadow: -10px 10px 0px rgba(0, 0, 0, 1) !important;
-
-    // }
+    color: $dark-text !important;
 
     @media (prefers-color-scheme: dark) {
         border: 3px solid #FFFFFF;
         box-shadow: none !important;
-        // box-shadow: -4px -4px 10px rgba(57, 57, 57, 0.95), 4px 4px 15px rgba(0, 0, 0, 0.55);
-
-        // &:hover {
-        //     box-shadow: -4px -4px 6px rgba(57, 57, 57, 1), 4px 4px 10px rgba(0, 0, 0, 0.62);
-        // }
+        color: $light-text !important;
     }
 }
 
@@ -56,10 +48,23 @@ a{
 :host ::ng-deep.mat-card {
     border-radius: 6px !important;
     background: $light-color-body;
+    border: 3px solid #000000;
+    color: $light-text !important;
+    @media (prefers-color-scheme: dark) {
+        background: $dark-color-body;
+        color: $dark-text !important;
+    }
+}
+
+:host ::ng-deep.mat-toolbar {
+    background: $light-color-body;
     @media (prefers-color-scheme: dark) {
         background: $dark-color-body;
     }
 }
+
+
+
 
 @mixin hover-supported {
     /* 

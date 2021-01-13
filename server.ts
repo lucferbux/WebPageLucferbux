@@ -8,17 +8,29 @@ import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
 
+
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
-  const distFolder = join(process.cwd(), 'dist/WebPageLucferbux/browser');
+  const distFolder = join(process.cwd(), 'dist/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
-  const MockBrowser = require("mock-browser").mocks.MockBrowser;
+  const MockBrowser = require('mock-browser').mocks.MockBrowser;
   const mock = new MockBrowser();
 
-  global["navigator"] = mock.getNavigator();
-  global["window"] = mock.getNavigator().window();
+
+  global['window'] = mock.getWindow();
+  global['document'] = mock.getDocument();
+  global['navigator'] = mock.getNavigator();
+
+  Object.defineProperty(document.body.style, 'transform', {
+    value: () => {
+      return {
+        enumerable: true,
+        configurable: true
+      };
+    },
+  });
 
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
   server.engine('html', ngExpressEngine({

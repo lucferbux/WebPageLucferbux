@@ -1,5 +1,4 @@
-<mat-sidenav-container class="all-wrap">
-  <mat-sidenav-content class="page-wrap">
+
     <!-- Mat menu -->
     <mat-menu #menu="matMenu" [overlapTrigger]="false">
       <div *ngIf="auth.user | async; then authenticated else guest"></div>
@@ -21,7 +20,7 @@
     </mat-menu>
 
     <!-- Main toolbar -->
-    <mat-toolbar color="primary">
+    <mat-toolbar>
       <mat-toolbar-row>
         <button mat-icon-button class="home-logo" [routerLink]="['/home']" routerLinkActive="is-active"
               [routerLinkActiveOptions]="{exact:true}" aria-label="Introduction">
@@ -77,6 +76,3 @@
         </button>
       </div>
     </footer>
-
-  </mat-sidenav-content>
-</mat-sidenav-container>

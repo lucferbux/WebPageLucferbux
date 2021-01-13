@@ -46,6 +46,9 @@ This Webpage was developed in order to test my skills in Angular and some depend
 * Good architechture: https://github.com/tomastrajan/angular-ngrx-material-starter
 * Good architecture 2: https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7
 
+# Angular SSR with Firebase
+
+* https://medium.com/angular-in-depth/angular-5-universal-firebase-4c85a7d00862
 
 
 ## Deploy
