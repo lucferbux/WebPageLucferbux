@@ -15,8 +15,7 @@ import { LandingPageComponent } from './components/routing-elements/landing-page
 import { PostDashboardComponent } from './components/routing-elements/post-dashboard/post-dashboard.component';
 
 const routes: Routes = [
-    {path: '', redirectTo: 'home', pathMatch: 'full'},
-    {path: 'home', component: LandingPageComponent},
+    {path: '', component: LandingPageComponent},
     {path: 'news', component: IntroductionDashboardComponent},
     {path: 'aboutme', component: JobsDashboardComponent},
     {path: 'projects', component: ProjectDashboardComponent},

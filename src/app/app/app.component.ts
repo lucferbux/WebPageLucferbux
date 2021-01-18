@@ -32,6 +32,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.showIosInstallBanner();
+    this.showNewWebpage();
   }
 
   async showIosInstallBanner() {
@@ -40,6 +41,19 @@ export class AppComponent {
       this.openSnackBar("Para installar la app, pulsa el icono de compartir y selecciona 'Añadir a la pantalla de inicio'")
     }
   }
+
+  showNewWebpage() {
+
+    let snackBarRef = this.snackBar.open("Try my new website (in development)", "Open", {
+      duration: 8000,
+    });
+
+    snackBarRef.onAction().subscribe(() => {
+      window.open("https://lucferbux-webpage.netlify.app/", "_blank");
+
+    })
+  }
+
 
   seti18n() {
     this.translate.addLangs(['en-US', 'es'])
