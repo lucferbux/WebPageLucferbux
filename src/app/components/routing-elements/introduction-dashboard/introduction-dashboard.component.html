@@ -22,7 +22,9 @@
           <img mat-card-image class="intro-image" *ngIf="card.image" src="assets/loading.gif" [hidden]="card.loaded"
             layout-fill alt="Cover Image Not Loaded">
           <div class="dashboard-card-content">
-            {{ card | firestoreTranslator:"description" }}
+            <p>
+              {{ card | firestoreTranslator:"description" }}
+            </p>
           </div>
         </mat-card-content>
       </mat-card>

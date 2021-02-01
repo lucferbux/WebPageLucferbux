@@ -90,7 +90,7 @@
   position: absolute;
   bottom: 40px;
   left: 0px;
-  color: white;
+  color: white !important;
   //margin-bottom: 40px;
   @media screen and (max-width: map-get($grid-breakpoints, sm)) {
     font-size: 5vw;
