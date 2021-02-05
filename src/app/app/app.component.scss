@@ -63,6 +63,51 @@ a{
     }
 }
 
+:host ::ng-deep.mat-form-field {
+    color: $dark-text !important;
+
+    @media (prefers-color-scheme: dark) {
+        color: $light-text !important;
+    }
+
+}
+
+:host ::ng-deep.mat-form-field-label {
+    backgroun: $dark-text !important;
+
+    @media (prefers-color-scheme: dark) {
+        color: $light-text !important;
+    }
+
+}
+
+:host ::ng-deep.mat-hint {
+    color: rgba(0,0,0,.54);
+
+    @media (prefers-color-scheme: dark) {
+        color: rgba(255,255,255,.54);
+    }
+
+}
+
+:host ::ng-deep.mat-form-field-underline {
+    background-color: rgba(0,0,0,.54) !important;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: rgba(255,255,255,.54) !important;
+    }
+
+}
+
+:host ::ng-deep.mat-card-header {
+    color: $dark-text !important;
+
+    @media (prefers-color-scheme: dark) {
+        color: $light-text !important;
+    }
+
+}
+
 
 
 
@@ -148,6 +193,8 @@ a{
     :host ::ng-deep .mat-card {
         background-color: mat-color($accent);
     }
+
+    
 
     .mat-toolbar {
         box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.8);

@@ -44,12 +44,12 @@ export class AppComponent {
 
   showNewWebpage() {
 
-    let snackBarRef = this.snackBar.open("Try my new website (in development)", "Open", {
+    let snackBarRef = this.snackBar.open("Try my new website", "Open", {
       duration: 8000,
     });
 
     snackBarRef.onAction().subscribe(() => {
-      window.open("https://lucferbux-webpage.netlify.app/", "_blank");
+      window.open("https://lucferbux.dev/", "_blank");
 
     })
   }

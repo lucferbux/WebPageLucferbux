@@ -43,6 +43,12 @@
       <mat-hint align="end">{{inputdesen.value?.length || 0}}</mat-hint>
     </mat-form-field>
     <br>
+
+    <mat-form-field hintLabel="No limits">
+      <textarea matInput #inputicon placeholder="Icon" formControlName="icon"></textarea>
+      <mat-hint align="end">{{inputicon.value?.length || 0}}</mat-hint>
+    </mat-form-field>
+    <br>
   
     <mat-form-field hintLabel="Id for sorting">
       <input matInput #inputimportance placeholder="Importance" formControlName="importance">

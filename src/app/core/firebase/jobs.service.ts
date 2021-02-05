@@ -52,6 +52,7 @@ export interface Job {
     loaded: boolean;
     job: string;
     job_en: string;
+    icon: string;
     importance: number;
 }
 
