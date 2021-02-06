@@ -25,6 +25,7 @@ export class ProjectsEditComponent implements OnInit {
     description_en: ['', Validators.required],
     link: ['', Validators.required],
     tags: ['', Validators.required],
+    featured: [false, Validators.required],
     version: [''],
     date: [new Date, Validators.required],
   }
@@ -44,6 +45,7 @@ export class ProjectsEditComponent implements OnInit {
         this.projectForm.get('title_en').patchValue(entry.title_en);
         this.projectForm.get('description_en').patchValue(entry.description_en);
         this.projectForm.get('link').patchValue(entry.link);
+        this.projectForm.get('featured').patchValue(entry.featured);
         this.projectForm.get('version').patchValue(entry.version);
         this.projectForm.get('tags').patchValue(entry.tags);
         const test = new Date((new Date(entry.date.seconds * 1000).getTime() - 3888000000));
