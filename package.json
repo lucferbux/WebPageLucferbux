@@ -44,7 +44,7 @@
     "fsevents": "^2.1.3",
     "jquery": "^3.5.1",
     "mock-browser": "^0.92.14",
-    "moment": "^2.26.0",
+    "moment": "^2.29.2",
     "ngx-image-cropper": "^3.1.9",
     "replace-in-file": "^6.0.0",
     "rxjs": "^6.6.3",
