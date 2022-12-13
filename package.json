@@ -39,7 +39,7 @@
     "@schematics/angular": "^11.0.6",
     "bootstrap": "^4.5.0",
     "core-js": "^3.6.5",
-    "express": "^4.15.2",
+    "express": "^4.17.3",
     "firebase": "^7.14.5",
     "fsevents": "^2.1.3",
     "jquery": "^3.5.1",
