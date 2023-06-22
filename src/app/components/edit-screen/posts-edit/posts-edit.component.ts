@@ -35,6 +35,7 @@ export class PostsEditComponent implements OnInit {
     description: ['', Validators.required],
     description_en: ['', Validators.required],
     link: ['', Validators.required],
+    internalLink: [''],
     loaded: [false],
     date: [new Date, Validators.required],
     image: ''
@@ -54,6 +55,7 @@ export class PostsEditComponent implements OnInit {
         this.postForm.get('title_en').patchValue(entry.title_en);
         this.postForm.get('description_en').patchValue(entry.description_en);
         this.postForm.get('link').patchValue(entry.link);
+        this.postForm.get('internalLink').patchValue(entry.internalLink);
         this.postForm.get('image').patchValue(entry.image);
         const test = new Date((new Date(entry.date.seconds * 1000).getTime() - 3888000000));
         this.postForm.get('date').patchValue(test);

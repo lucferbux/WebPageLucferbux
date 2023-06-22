@@ -44,6 +44,12 @@
     </mat-form-field>
     <br>
 
+    <mat-form-field hintLabel="No Limits">
+      <textarea matInput #ainputInternalLink placeholder="Internal Link" formControlName="internalLink"></textarea>
+      <mat-hint align="end">{{ainputInternalLink.value?.length || 0}}</mat-hint>
+    </mat-form-field>
+    <br>
+
     <div class="create-div">
       <mat-spinner *ngIf="loading" [diameter]="30" class="spinner-form"></mat-spinner>
 

@@ -50,6 +50,7 @@ export interface Post {
     description: string;
     description_en: string;
     link: string;
+    internalLink?: string;
     image: string;
     date: firestore.Timestamp;
     loaded: boolean;
